@@ -90,10 +90,9 @@ and the model-by-task coverage matrix lives at:
 
 - `results/release/model_task_matrix.csv`
 
-Paper-facing derived artifacts are written to:
+Derived analysis tables are written to:
 
 - `results/publication/*.csv`
-- `results/publication/*.tex`
 
 Additional validation and environment artifacts used by the release include:
 
@@ -109,7 +108,6 @@ Nature Methods release artifacts additionally include:
 - `results/release/external_transfer_stats.json`
 - `results/release/biological_case_study.csv`
 - `results/release/nature_methods_artifact_manifest.json`
-- `results/release/nature_methods/nature_methods_summary.csv`
 
 Website and reporting-standard artifacts:
 

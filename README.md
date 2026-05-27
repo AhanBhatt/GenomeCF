@@ -12,9 +12,7 @@ GenomeCF answers that question with a reusable benchmark, a release registry, a 
 
 This folder is the GitHub-ready repository root.
 
-The manuscript sources and build outputs are versioned in this repository under:
-
-- `paper/` (LaTeX sources, `genomecf_report.pdf`, `genomecf_supplement.pdf`)
+The manuscript is intentionally **not** stored in this GitHub repository. Keep the paper sources and PDFs in a private, non-versioned sibling folder (for example `../paper/`).
 
 Large local-only runtime assets (for example cached embeddings and checkpoints) are kept outside the public repo in:
 
@@ -61,7 +59,7 @@ GenomeCF includes:
 - `src/`
   - artifact-generation scripts
 - `tests/`
-  - fast tests, release tests, and paper/build smoke tests
+  - fast tests and release tests
 
 Key top-level metadata files:
 
@@ -205,12 +203,11 @@ genomecf summarize --suite core
 genomecf summarize --suite nature_methods
 ```
 
-### Validation and traceability
+### Validation
 
 ```bash
 genomecf validate-results
 genomecf check-report --results results/release/benchmark_registry.csv
-genomecf trace-paper --strict
 ```
 
 ### Reproduction helpers
@@ -227,14 +224,6 @@ genomecf reproduce-external
 genomecf build-website
 ```
 
-### Optional local manuscript build
-
-If you keep the manuscript outside the repo in the sibling folder `../paper/`, the local code can still build manuscript artifacts against that sibling directory:
-
-```bash
-genomecf build-supplement
-genomecf build-paper
-```
 
 ## Typical Workflows
 
@@ -267,16 +256,6 @@ Open:
 
 - `docs/site/index.html`
 
-### 4. Optional local manuscript rebuild
-
-```bash
-genomecf build-supplement
-genomecf build-paper
-```
-
-This works when the manuscript companion folder exists at:
-
-- `../paper/`
 
 For the full local benchmark workflow, the optional runtime assets can also live at:
 
@@ -340,13 +319,6 @@ Main release artifacts:
 - release summary: `results/release/benchmark_summary.csv`
 - model-task matrix: `results/release/model_task_matrix.csv`
 - validation report: `results/release/validation_report.json`
-- paper-claim traceability:
-  - `results/release/paper_claim_traceability.csv`
-  - `results/release/paper_claim_traceability.html`
-
-Publication tables and figure inputs:
-
-- `results/publication/`
 
 Release-bundle files:
 
@@ -355,22 +327,9 @@ Release-bundle files:
 - `release/GenomeCF_v1_reproduction_commands.sh`
 - `release/GenomeCF_v1_expected_outputs.md`
 
-## Manuscript Companion Folder
+## Manuscript Companion (Private)
 
-The manuscript is kept outside this GitHub repo folder in the sibling project directory:
-
-- `../paper/`
-
-That companion folder contains:
-
-- `genomecf_report.tex`
-- `genomecf_report.pdf`
-- `genomecf_supplement.tex`
-- `genomecf_supplement.pdf`
-- `refs.bib`
-- `claims.yaml`
-
-This separation keeps the public GitHub upload focused on the software/resource release while leaving the paper bundle in the private parent project folder.
+The manuscript sources and PDFs are kept in a private folder outside this repository and are not pushed to GitHub.
 
 ## Documentation Map
 
@@ -397,7 +356,6 @@ Benchmark and methods docs:
 
 Availability and release docs:
 
-- `docs/NATURE_METHODS_RELEASE.md`
 - `docs/CODE_AVAILABILITY.md`
 - `docs/DATA_AVAILABILITY.md`
 - `docs/BENCHMARK_AVAILABILITY.md`

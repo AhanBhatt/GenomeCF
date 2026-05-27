@@ -19,7 +19,6 @@ jobs:
       - name: Generate website
         run: |
           python -m genomecf.cli build-website
-      - name: Regenerate publication artifacts
+      - name: Regenerate release summaries
         run: |
           python src/generate_nature_methods_artifacts.py
-          python src/generate_publication_artifacts.py

@@ -17,6 +17,6 @@ genomecf build-website
 
 Outputs:
 
-- `results/quickstart/quickstart_report.json`
+- `results/release/quickstart/quickstart_report.json`
 - `docs/site/index.html` or the custom site output you pass
 

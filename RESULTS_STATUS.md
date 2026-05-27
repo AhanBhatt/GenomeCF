@@ -19,40 +19,30 @@ python -m pytest
 
 python -m genomecf.cli validate-results
 python -m genomecf.cli check-report --results results/release/benchmark_registry.csv
-python -m genomecf.cli trace-paper --strict
 
 python -m genomecf.cli reproduce-quickstart
 python -m genomecf.cli build-website
-python -m genomecf.cli build-supplement
-python -m genomecf.cli build-paper
 ```
 
 Notes:
-- `build-paper` and `build-supplement` require `pdflatex`. If LaTeX is not installed, use `genomecf build-paper --skip-latex` (artifact generation still runs).
+- The manuscript build is intentionally not part of the public GitHub repo and is not included in these verification commands.
 
 ## Key artifacts present
-
-- Paper: `paper/genomecf_report.pdf`
-- Supplement: `paper/genomecf_supplement.pdf`
 - Registry: `results/release/benchmark_registry.csv`
 - Release bundle:
   - `release/GenomeCF_v1_manifest.json`
   - `release/GenomeCF_v1_checksums.txt`
   - `release/GenomeCF_v1_reproduction_commands.sh`
   - `release/GenomeCF_v1_expected_outputs.md`
-- Claim traceability:
-  - `results/release/paper_claim_traceability.csv`
-  - `results/release/paper_claim_traceability.html`
-- Statistical claims index: `results/release/statistical_claims.csv`
 - External robustness table: `results/release/external_prediction_robustness.csv`
 - Website: `docs/site/index.html` (and `docs/site/leaderboard{,_rows}.csv`)
 
 ## CI / containers
 
 - GitHub Actions workflows exist under `.github/workflows/`:
-  - `ci.yml` (tests + CLI validation + strict trace-paper)
+  - `ci.yml` (tests + CLI validation)
   - `docker.yml` (Docker build + quickstart smoke)
-  - `docs.yml` (site and publication artifact regeneration)
+  - `docs.yml` (site regeneration)
 
 Local Docker and Apptainer builds were **not** re-validated in this status run.
 

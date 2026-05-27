@@ -24,6 +24,13 @@ def _load_summary() -> pd.DataFrame:
     return pd.read_csv(RELEASE_ROOT / "benchmark_summary.csv")
 
 
+def _repo_relpath(path: Path) -> str:
+    try:
+        return path.relative_to(PROJECT_ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def cmd_summarize(args: argparse.Namespace) -> None:
     summary = _load_summary()
     suite = args.suite.lower()
@@ -94,10 +101,9 @@ def cmd_reproduce_quickstart(args: argparse.Namespace) -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     payload = {
-        "registry": str(RELEASE_ROOT / "benchmark_registry.csv"),
-        "summary": str(RELEASE_ROOT / "benchmark_summary.csv"),
-        "paper": str(PAPER_ROOT / "genomecf_report.pdf"),
-        "website": str(DOCS_ROOT / "site" / "index.html"),
+        "registry": _repo_relpath(RELEASE_ROOT / "benchmark_registry.csv"),
+        "summary": _repo_relpath(RELEASE_ROOT / "benchmark_summary.csv"),
+        "website": _repo_relpath(DOCS_ROOT / "site" / "index.html"),
     }
     (output_dir / "quickstart_report.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print(f"Quickstart reproduction completed at {output_dir / 'quickstart_report.json'}")
@@ -117,8 +123,8 @@ def cmd_smoke_test(args: argparse.Namespace) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     payload = {
         "ok": True,
-        "benchmark_summary": str(RELEASE_ROOT / "benchmark_summary.csv"),
-        "website": str(DOCS_ROOT / "site" / "index.html"),
+        "benchmark_summary": _repo_relpath(RELEASE_ROOT / "benchmark_summary.csv"),
+        "website": _repo_relpath(DOCS_ROOT / "site" / "index.html"),
     }
     (output_dir / "smoke_report.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print("Smoke test completed")

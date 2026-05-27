@@ -49,6 +49,4 @@ Reproduction:
 
 ```bash
 genomecf reproduce-external
-genomecf trace-paper --strict
-genomecf build-paper
 ```

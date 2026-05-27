@@ -1,0 +1,5 @@
+{
+  "ok": true,
+  "benchmark_summary": "results/release/benchmark_summary.csv",
+  "website": "docs/site/index.html"
+}

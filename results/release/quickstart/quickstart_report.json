@@ -1,6 +1,5 @@
 {
-  "registry": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\benchmark_registry.csv",
-  "summary": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\benchmark_summary.csv",
-  "paper": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\paper\\genomecf_report.pdf",
-  "website": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\index.html"
+  "registry": "results/release/benchmark_registry.csv",
+  "summary": "results/release/benchmark_summary.csv",
+  "website": "docs/site/index.html"
 }

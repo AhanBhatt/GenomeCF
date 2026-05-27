@@ -14,7 +14,6 @@ pip install -e .[benchmark,dev]
 python -m pytest
 python -m genomecf.cli validate-results
 python -m genomecf.cli check-report --results results/release/benchmark_registry.csv
-python -m genomecf.cli trace-paper
 ```
 
 ## Reproduction commands
@@ -23,8 +22,6 @@ python -m genomecf.cli trace-paper
 python -m genomecf.cli reproduce-quickstart
 python -m genomecf.cli reproduce-focal
 python -m genomecf.cli reproduce-external
-python -m genomecf.cli build-supplement
-python -m genomecf.cli build-paper
 python -m genomecf.cli build-website
 ```
 
@@ -33,14 +30,12 @@ python -m genomecf.cli build-website
 ```bash
 python src/generate_release_upgrade_artifacts.py
 python src/generate_nature_methods_artifacts.py
-python src/generate_publication_artifacts.py
 ```
 
 ## Canonical outputs
 
 - release registry: `results/release/benchmark_registry.csv`
-- publication tables: `results/publication/*.csv`
-- paper traceability: `results/release/paper_claim_traceability.csv`
+
 - website root: `docs/site/index.html`
 
 ## Environment notes
@@ -48,7 +43,6 @@ python src/generate_publication_artifacts.py
 - default Windows CPU environment is sufficient for:
   - tests
   - registry validation
-  - paper/supplement builds
   - website build
   - quickstart reproduction
 - the completed Caduceus benchmark path uses WSL2/Linux CUDA as documented in [CADUCEUS_SETUP.md](CADUCEUS_SETUP.md)

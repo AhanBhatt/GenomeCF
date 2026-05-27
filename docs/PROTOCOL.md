@@ -18,7 +18,7 @@ genomecf reproduce-quickstart
 
 This validates the local install, runs the lightweight smoke path, rebuilds the summary outputs, and emits:
 
-- `results/quickstart/quickstart_report.json`
+- `results/release/quickstart/quickstart_report.json`
 
 ## 3. Run a focal benchmark row
 
@@ -39,31 +39,24 @@ genomecf synth --task gc_conflict --model dnabert2 --split official --mode froze
 ```bash
 genomecf validate-results
 genomecf check-report --results results/release/benchmark_registry.csv
-genomecf trace-paper
 ```
 
 These commands validate:
 
 - registry completeness
 - reporting-checklist compliance
-- paper-claim traceability
 
-## 5. Rebuild publication artifacts
+## 5. Rebuild release-facing artifacts
 
 ```bash
 genomecf reproduce-focal
 genomecf reproduce-external
-genomecf build-supplement
-genomecf build-paper
 genomecf build-website
 ```
 
 ## 6. Inspect the canonical outputs
 
-- main paper: `../paper/genomecf_report.pdf`
-- supplement: `../paper/genomecf_supplement.pdf`
 - registry: `results/release/benchmark_registry.csv`
-- traceability: `results/release/paper_claim_traceability.csv`
 - website: `docs/site/index.html`
 
 ## 7. Recommended reporting workflow

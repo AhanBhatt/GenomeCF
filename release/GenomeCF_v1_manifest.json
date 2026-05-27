@@ -1,21 +1,11 @@
 {
   "release_name": "GenomeCF_v1",
-  "generated_at": "2026-05-27T20:54:11.456516+00:00",
+  "generated_at": "2026-05-27T21:19:46.060302+00:00",
   "artifacts": [
     {
-      "path": "paper/genomecf_report.pdf",
-      "sha256": "13f217012b65acb5065222418653224f2f9c7e9d2b5417724ca5080cb175a39d",
-      "size_bytes": 1768627
-    },
-    {
-      "path": "paper/genomecf_supplement.pdf",
-      "sha256": "615c159fbc772df134e8125cf383139de27949c6dcf75aee38c6e0f6b4b10f3c",
-      "size_bytes": 307639
-    },
-    {
       "path": "results/release/benchmark_registry.csv",
-      "sha256": "7ec8a14326c47010b4b47d3e7d8a5159f4380c54805ca9794cd36e24fd6c60bc",
-      "size_bytes": 9567336
+      "sha256": "32e55e0de0866f6e52449181c2ef8f7905668e78f38ac388f93a862647e55c6d",
+      "size_bytes": 9440570
     },
     {
       "path": "results/release/benchmark_registry.jsonl",
@@ -33,29 +23,14 @@
       "size_bytes": 21850
     },
     {
-      "path": "results/release/paper_claim_traceability.csv",
-      "sha256": "6a137526a182dd3fc6324bc96498b1372ee7d38f83bdd055f0a14e5552e3dc92",
-      "size_bytes": 33208
-    },
-    {
-      "path": "results/release/paper_claim_traceability.html",
-      "sha256": "1046dbd49dc71c00542712eb2bd9d6c8e46021225e0a92b21113f81172ba5615",
-      "size_bytes": 48828
-    },
-    {
-      "path": "results/release/statistical_claims.csv",
-      "sha256": "2f103f1e09349cbf14b67d23755d60d4c4e4d4c95945df323139114fc4d77e1c",
-      "size_bytes": 3550
-    },
-    {
       "path": "results/publication/key_numbers.json",
       "sha256": "72eabff59f8218826fb6bdac03e33cb9fdfc2b3c20ea0d0f79fa9b9e04fdc3f3",
       "size_bytes": 2049
     },
     {
       "path": "docs/site/index.html",
-      "sha256": "4aeb2447a3a1d91526cef2c5d78b8b32b5ab9cfa9c1adc3efe474672ad04b4d6",
-      "size_bytes": 1908
+      "sha256": "f360db2077a5f7041194787e0b7aec1c2dab1029eb522146c9efa92591151fa4",
+      "size_bytes": 1715
     },
     {
       "path": "docs/site/leaderboard.html",
@@ -76,11 +51,6 @@
       "path": "docs/reporting_checklist.yaml",
       "sha256": "96103202f153c281f918939b497e7120e8ff866ee290e8d8457b78c34c0bc1a9",
       "size_bytes": 2068
-    },
-    {
-      "path": "paper/claims.yaml",
-      "sha256": "e8dd76fa4d57bcb1d7114004b7bba56aaa11d77b89356b3f0670b5314fae40b8",
-      "size_bytes": 6148
     }
   ]
 }

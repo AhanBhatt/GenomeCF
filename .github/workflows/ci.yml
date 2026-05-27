@@ -29,7 +29,6 @@ jobs:
         run: |
           python -m genomecf.cli validate-results
           python -m genomecf.cli check-report --results results/release/benchmark_registry.csv
-          python -m genomecf.cli trace-paper --strict
       - name: Build local website
         run: |
           python -m genomecf.cli build-website

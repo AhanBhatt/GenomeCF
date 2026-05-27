@@ -42,17 +42,6 @@ genomecf check-report --results results/release/benchmark_registry.csv
 genomecf build-website
 ```
 
-## Regenerate Publication Artifacts Only
-
-```bash
-python src/generate_publication_artifacts.py
-```
-
-## Build the Paper
-
-```bash
-genomecf build-paper
-```
 
 ## Caduceus Environment
 
@@ -65,19 +54,17 @@ Completed Caduceus-Ph rows were run through WSL2/Linux CUDA rather than the defa
 
 ## Canonical Outputs
 
-- final PDF: `../paper/genomecf_report.pdf`
-- supplement PDF: `../paper/genomecf_supplement.pdf`
+
 - canonical registry: `results/release/benchmark_registry.csv`
 - release summary: `results/release/benchmark_summary.csv`
-- publication tables: `results/publication/*.csv`
-- publication TeX tables: `results/publication/*.tex`
+
 - release validation report: `results/release/validation_report.json`
 - website root: `docs/site/index.html`
 - reporting checklist: `docs/reporting_checklist.yaml`
 
 ## Environment Note
 
-The paper and smoke benchmark can be reproduced locally on CPU. Larger foundation-model experiments are intended for WSL2 or Linux with CUDA.
+The benchmark and smoke paths can be reproduced locally on CPU. Larger foundation-model experiments are intended for WSL2 or Linux with CUDA.
 
 ## Honest Scope Note
 

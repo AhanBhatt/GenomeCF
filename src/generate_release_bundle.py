@@ -466,22 +466,16 @@ def write_release_bundle() -> None:
     RELEASE_DIR.mkdir(parents=True, exist_ok=True)
 
     artifacts = [
-        PROJECT_ROOT / "paper" / "genomecf_report.pdf",
-        PROJECT_ROOT / "paper" / "genomecf_supplement.pdf",
         RESULTS_RELEASE / "benchmark_registry.csv",
         RESULTS_RELEASE / "benchmark_registry.jsonl",
         RESULTS_RELEASE / "benchmark_summary.csv",
         RESULTS_RELEASE / "external_transfer_stats.json",
-        RESULTS_RELEASE / "paper_claim_traceability.csv",
-        RESULTS_RELEASE / "paper_claim_traceability.html",
-        RESULTS_RELEASE / "statistical_claims.csv",
         RESULTS_PUBLICATION / "key_numbers.json",
         DOCS_DIR / "site" / "index.html",
         DOCS_DIR / "site" / "leaderboard.html",
         DOCS_DIR / "site" / "quickstart.html",
         DOCS_DIR / "site" / "reporting_standard.html",
         DOCS_DIR / "reporting_checklist.yaml",
-        PAPER_DIR / "claims.yaml",
     ]
 
     manifest = {
@@ -517,12 +511,9 @@ def write_release_bundle() -> None:
                 "python -m pytest",
                 "python -m genomecf.cli validate-results",
                 "python -m genomecf.cli check-report --results results/release/benchmark_registry.csv",
-                "python -m genomecf.cli trace-paper --strict",
                 "python -m genomecf.cli reproduce-quickstart",
                 "python -m genomecf.cli reproduce-focal",
                 "python -m genomecf.cli reproduce-external",
-                "python -m genomecf.cli build-supplement",
-                "python -m genomecf.cli build-paper",
                 "python -m genomecf.cli build-website",
             ]
         )
@@ -534,15 +525,11 @@ def write_release_bundle() -> None:
             [
                 "# GenomeCF v1 Expected Outputs",
                 "",
-                "- `paper/genomecf_report.pdf`",
-                "- `paper/genomecf_supplement.pdf`",
+                "- (manuscript kept private; not included in this repo)",
                 "- `results/release/benchmark_registry.csv`",
                 "- `results/release/benchmark_summary.csv`",
                 "- `results/release/external_transfer_stats.json`",
-                "- `results/release/paper_claim_traceability.csv`",
-                "- `results/release/paper_claim_traceability.html`",
-                "- `results/release/statistical_claims.csv`",
-                "- `docs/site/index.html`",
+                "- `docs/site/index.html`", 
                 "- `docs/site/leaderboard.html`",
                 "- `docs/reporting_checklist.yaml`",
                 "- `release/GenomeCF_v1_manifest.json`",
@@ -555,15 +542,10 @@ def write_release_bundle() -> None:
 
 
 def main() -> None:
-    claim_rows = build_statistical_claims()
-    write_statistical_claims(claim_rows)
-    write_claims_yaml(claim_rows)
     write_release_bundle()
     print(
         json.dumps(
             {
-                "statistical_claims": str(RESULTS_RELEASE / "statistical_claims.csv"),
-                "claims_yaml": str(PAPER_DIR / "claims.yaml"),
                 "release_manifest": str(RELEASE_DIR / "GenomeCF_v1_manifest.json"),
             },
             indent=2,

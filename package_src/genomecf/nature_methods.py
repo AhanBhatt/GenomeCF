@@ -253,9 +253,7 @@ def build_website(output_dir: Path | None = None, regenerate: bool = False) -> P
     <a href=\"external.html\">External validation</a> ·
     <a href=\"synthetic.html\">GenomeCF-Synth</a>
   </p>
-  <p class=\"small\">
-    PDFs: <a href=\"../../paper/genomecf_report.pdf\">paper</a>, <a href=\"../../paper/genomecf_supplement.pdf\">supplement</a>
-  </p>
+  <p class=\"small\">The manuscript is kept private and is not hosted in this repository.</p>
 </div>
 
 <h2>Key commands</h2>
@@ -264,7 +262,6 @@ def build_website(output_dir: Path | None = None, regenerate: bool = False) -> P
 genomecf reproduce-quickstart
 genomecf validate-results
 genomecf check-report --results results/release/benchmark_registry.csv
-genomecf trace-paper --strict
 </code></pre>
 
 <h2>Downloads</h2>
@@ -272,7 +269,7 @@ genomecf trace-paper --strict
   <li><a href=\"leaderboard.csv\">leaderboard.csv</a> (model-level)</li>
   <li><a href=\"leaderboard_rows.csv\">leaderboard_rows.csv</a> (task-model rows)</li>
   <li><a href=\"../../results/release/benchmark_registry.csv\">benchmark_registry.csv</a></li>
-  <li><a href=\"../../results/release/paper_claim_traceability.html\">paper claim traceability</a></li>
+
 </ul>
 </body>
 </html>

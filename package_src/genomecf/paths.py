@@ -27,11 +27,41 @@ PAPER_ROOT = _local_paper_root if _local_paper_root.exists() else _sibling_paper
 
 
 def normalize_legacy_path_text(value: str | None) -> str | None:
+    """Normalize previously-recorded path strings.
+
+    This repo has existed in a few on-disk layouts during development (sibling results folders,
+    duplicated `GenomeCF/GenomeCF` roots, and JSON-escaped backslashes). For public release
+    artifacts we also avoid leaking absolute local paths by rewriting paths under the repo
+    root to repo-relative strings.
+    """
+
     if value is None:
         return None
+
     text = str(value)
-    old_windows = str(PROJECT_ROOT / "GenomeCF")
-    old_posix = old_windows.replace("\\", "/")
-    new_windows = str(PROJECT_ROOT)
-    new_posix = new_windows.replace("\\", "/")
-    return text.replace(old_windows, new_windows).replace(old_posix, new_posix)
+
+    def _replace_all(old: str, new: str) -> None:
+        nonlocal text
+        variants = {
+            old,
+            old.replace("\\", "/"),
+            old.replace("\\", "\\\\"),
+        }
+        for v in variants:
+            if v in text:
+                nv = new
+                if v.endswith("\\\\") or "\\\\" in v:
+                    nv = new.replace("\\", "\\\\")
+                text = text.replace(v, nv)
+
+    # Fix legacy repo-root mistakes.
+    _replace_all(str(PROJECT_ROOT / "GenomeCF"), str(PROJECT_ROOT))
+
+    # Fix cases where results/figures were recorded under the parent project directory.
+    for sub in ("results", "figures", "data", "external"):
+        _replace_all(str(PROJECT_ROOT.parent / sub), str(PROJECT_ROOT / sub))
+
+    # Finally, strip absolute repo root prefixes to avoid leaking local paths.
+    _replace_all(str(PROJECT_ROOT), ".")
+
+    return text

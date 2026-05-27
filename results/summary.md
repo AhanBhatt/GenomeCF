@@ -28,7 +28,7 @@
 
 ## Files
 
-- Combined metrics: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\results\combined_model_comparison.csv`
-- Comparison figure: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\figures\model_comparison_grid.png`
-- GC shortcut metrics: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\results\gc_shortcut_check\gc_baseline_metrics.csv`
-- GC distribution figure: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\figures\gc_fraction_by_class.png`
+- Combined metrics: `results/combined_model_comparison.csv`
+- Comparison figure: `figures/model_comparison_grid.png`
+- GC shortcut metrics: `results/gc_shortcut_check/gc_baseline_metrics.csv`
+- GC distribution figure: `figures/gc_fraction_by_class.png`

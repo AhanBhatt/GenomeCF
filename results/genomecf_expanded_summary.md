@@ -31,9 +31,9 @@
 
 ## Files
 
-- Real benchmark summary: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\results\genomecf_real\summary_metrics.csv`
-- Synthetic benchmark summary: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\results\genomecf_synthetic\summary_metrics.csv`
-- Split comparison table: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\results\genomecf_split_comparison.csv`
-- Holdout comparison figure: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\figures\genomecf_holdout_comparison.png`
-- Official benchmark overview figure: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\figures\genomecf_overview.png`
-- Synthetic benchmark figure: `C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\figures\genomecf_synthetic_summary.png`
+- Real benchmark summary: `results/genomecf_real/summary_metrics.csv`
+- Synthetic benchmark summary: `results/genomecf_synthetic/summary_metrics.csv`
+- Split comparison table: `results/genomecf_split_comparison.csv`
+- Holdout comparison figure: `figures/genomecf_holdout_comparison.png`
+- Official benchmark overview figure: `figures/genomecf_overview.png`
+- Synthetic benchmark figure: `figures/genomecf_synthetic_summary.png`
