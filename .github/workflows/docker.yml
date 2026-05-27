@@ -1,0 +1,21 @@
+name: GenomeCF Docker
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  docker-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: |
+          docker build -t genomecf:ci .
+      - name: Docker CLI help
+        run: |
+          docker run --rm genomecf:ci genomecf --help
+      - name: Docker quickstart smoke
+        run: |
+          docker run --rm genomecf:ci genomecf reproduce-quickstart

@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: python:3.13-slim
+
+%post
+    cd /tmp
+    python -m pip install --upgrade pip
+
+%files
+    . /workspace/GenomeCF
+
+%post
+    cd /workspace/GenomeCF
+    python -m pip install -e .[benchmark,dev]
+
+%runscript
+    cd /workspace/GenomeCF
+    exec python -m genomecf.cli reproduce-quickstart

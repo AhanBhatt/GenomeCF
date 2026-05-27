@@ -1,0 +1,14 @@
+{
+  "dataset": "human_enhancers_cohn",
+  "model": "kmer_logistic_regression",
+  "kmer_size": 6,
+  "test_auroc": 0.76934371259946,
+  "test_accuracy": 0.697754749568221,
+  "reverse_complement_mean_abs_delta": 0.19835081181956246,
+  "reverse_complement_prediction_flip_rate": 0.24640184225676454,
+  "positive_original_mean_prob": 0.6584835898800343,
+  "positive_gc_shuffle_mean_prob": 0.7692076843975172,
+  "positive_gc_shuffle_prob_drop": -0.11072409451748289,
+  "negative_original_mean_prob": 0.3400903960894019,
+  "negative_gc_shuffle_mean_prob": 0.61344032688765
+}

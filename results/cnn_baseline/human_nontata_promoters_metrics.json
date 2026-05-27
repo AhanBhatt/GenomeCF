@@ -1,0 +1,13 @@
+{
+  "dataset": "human_nontata_promoters",
+  "model": "small_sequence_cnn",
+  "test_auroc": 0.9169663102556522,
+  "test_accuracy": 0.8480185964135488,
+  "reverse_complement_mean_abs_delta": 0.12091560661792755,
+  "reverse_complement_prediction_flip_rate": 0.1327208324108922,
+  "positive_original_mean_prob": 0.8140465021133423,
+  "positive_gc_shuffle_mean_prob": 0.838523268699646,
+  "positive_gc_shuffle_prob_drop": -0.02447676658630371,
+  "negative_original_mean_prob": 0.2466399371623993,
+  "negative_gc_shuffle_mean_prob": 0.6493812799453735
+}

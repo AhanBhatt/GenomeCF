@@ -1,0 +1,4 @@
+model_id,status,notes
+dnabert2,completed,Frozen embeddings completed on all four core tasks with a lower-data subset protocol.
+caduceus_ph,completed,Frozen official rows completed in the WSL2/Linux CUDA environment after installing mamba-ssm and a compatible CUDA compiler stack.
+nucleotide_transformer_v2,appendix_only_validation_warning,"Frozen official focal-task rows completed, but the validation report shows weak sanity-task behavior under the current mean-pooled frozen protocol; keep NT-v2 appendix-only."

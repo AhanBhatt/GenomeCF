@@ -1,0 +1,88 @@
+\begin{tabular}{p{2.4cm}p{1.9cm}rrrrrrrr}
+\toprule
+External task & Model & Official AUROC & AUPRC & ECE & Brier & Matched AUROC & Matched shift & Worst-bin AUROC & GC-bin gap \\
+\midrule
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{6-mer logistic\\regression} & 0.782 & 0.742 & 0.151 & 0.213 & 0.804 & -0.022 & 0.742 & 0.117 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{CNN} & 0.728 & 0.689 & 0.143 & 0.229 & 0.873 & -0.145 & 0.680 & 0.099 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{RC-aug CNN} & 0.810 & 0.762 & 0.184 & 0.226 & 0.873 & -0.063 & 0.753 & 0.159 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{DNABERT-2} & 0.824 & 0.817 & 0.093 & 0.179 & 0.880 & -0.056 & 0.761 & 0.175 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{DNABERT-2} & 0.846 & 0.844 & 0.061 & 0.165 & 0.883 & -0.038 & 0.761 & 0.175 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{DNABERT-2} & 0.846 & 0.844 & 0.067 & 0.164 & 0.883 & -0.038 & 0.761 & 0.175 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{Caduceus-Ph} & 0.716 & 0.674 & 0.121 & 0.239 & 0.810 & -0.094 & 0.721 & 0.150 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{Caduceus-Ph} & 0.758 & 0.705 & 0.155 & 0.232 & 0.823 & -0.064 & 0.721 & 0.150 \\
+\shortstack[l]{External TF\\(human\_tf\_0)} & \shortstack[l]{Caduceus-Ph} & 0.758 & 0.705 & 0.130 & 0.222 & 0.784 & -0.026 & 0.721 & 0.150 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{6-mer logistic\\regression} & 0.863 & 0.832 & 0.097 & 0.157 & 0.849 & 0.014 & 0.831 & 0.071 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{CNN} & 0.794 & 0.783 & 0.136 & 0.205 & 0.885 & -0.091 & 0.711 & 0.102 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{RC-aug CNN} & 0.886 & 0.875 & 0.132 & 0.155 & 0.899 & -0.012 & 0.868 & 0.076 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{DNABERT-2} & 0.923 & 0.906 & 0.119 & 0.126 & 0.909 & 0.014 & 0.877 & 0.070 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{DNABERT-2} & 0.924 & 0.921 & 0.079 & 0.120 & -- & -- & 0.877 & 0.070 \\
+\shortstack[l]{External TF\\(human\_tf\_1)} & \shortstack[l]{Caduceus-Ph} & 0.802 & 0.784 & 0.188 & 0.220 & 0.853 & -0.051 & 0.817 & 0.105 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{6-mer logistic\\regression} & 0.586 & 0.598 & 0.299 & 0.348 & 0.622 & -0.036 & 0.536 & 0.103 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{CNN} & 0.594 & 0.574 & 0.021 & 0.249 & 0.589 & 0.006 & 0.489 & 0.200 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{RC-aug CNN} & 0.595 & 0.595 & 0.015 & 0.250 & 0.607 & -0.012 & 0.510 & 0.182 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{DNABERT-2} & 0.648 & 0.643 & 0.046 & 0.234 & 0.663 & -0.015 & 0.569 & 0.121 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{DNABERT-2} & 0.666 & 0.682 & 0.028 & 0.229 & -- & -- & 0.569 & 0.121 \\
+\shortstack[l]{External H3K4me3} & \shortstack[l]{Caduceus-Ph} & 0.577 & 0.556 & 0.028 & 0.246 & 0.570 & 0.008 & 0.478 & 0.175 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{6-mer logistic\\regression} & 0.665 & 0.678 & 0.237 & 0.294 & 0.686 & -0.021 & 0.571 & 0.145 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{CNN} & 0.621 & 0.619 & 0.033 & 0.249 & 0.694 & -0.073 & 0.623 & 0.122 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{RC-aug CNN} & 0.634 & 0.638 & 0.023 & 0.239 & 0.713 & -0.079 & 0.624 & 0.098 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{DNABERT-2} & 0.755 & 0.756 & 0.037 & 0.202 & 0.761 & -0.006 & 0.617 & 0.213 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{DNABERT-2} & 0.762 & 0.800 & 0.064 & 0.199 & -- & -- & 0.617 & 0.213 \\
+\shortstack[l]{External H3K14ac} & \shortstack[l]{Caduceus-Ph} & 0.591 & 0.613 & 0.045 & 0.245 & 0.597 & -0.006 & 0.430 & 0.157 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{6-mer logistic\\regression} & 0.463 & 0.080 & 0.061 & 0.093 & -- & -- & 0.331 & 0.195 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{CNN} & 0.434 & 0.097 & 0.039 & 0.074 & -- & -- & 0.369 & 0.223 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{CNN} & 0.583 & 0.167 & 0.042 & 0.074 & -- & -- & 0.539 & 0.156 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{RC-aug CNN} & 0.441 & 0.073 & 0.036 & 0.074 & -- & -- & 0.431 & 0.071 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{RC-aug CNN} & 0.441 & 0.073 & 0.041 & 0.074 & -- & -- & 0.431 & 0.071 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{DNABERT-2} & 0.507 & 0.083 & 0.423 & 0.251 & -- & -- & 0.489 & 0.037 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{DNABERT-2} & 0.540 & 0.125 & 0.052 & 0.075 & -- & -- & 0.340 & 0.275 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{DNABERT-2} & 0.540 & 0.125 & 0.041 & 0.074 & -- & -- & 0.340 & 0.275 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.583 & 0.090 & 0.422 & 0.250 & -- & -- & 0.328 & 0.393 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.431 & 0.074 & 0.051 & 0.075 & -- & -- & 0.323 & 0.154 \\
+\shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.431 & 0.074 & 0.042 & 0.074 & -- & -- & 0.323 & 0.154 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{6-mer logistic\\regression} & 0.672 & 0.726 & 0.153 & 0.234 & -- & -- & 0.614 & 0.096 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{CNN} & 0.524 & 0.520 & 0.021 & 0.250 & -- & -- & 0.448 & 0.135 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{CNN} & 0.524 & 0.520 & 0.034 & 0.251 & -- & -- & 0.448 & 0.135 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{RC-aug CNN} & 0.468 & 0.459 & 0.003 & 0.250 & -- & -- & 0.445 & 0.014 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{RC-aug CNN} & 0.468 & 0.459 & 0.002 & 0.250 & -- & -- & 0.445 & 0.014 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{DNABERT-2} & 0.543 & 0.547 & 0.051 & 0.249 & -- & -- & 0.477 & 0.154 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{DNABERT-2} & 0.524 & 0.534 & 0.018 & 0.249 & -- & -- & 0.451 & 0.179 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{DNABERT-2} & 0.524 & 0.534 & 0.016 & 0.249 & -- & -- & 0.451 & 0.179 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.546 & 0.550 & 0.037 & 0.250 & -- & -- & 0.521 & 0.014 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.579 & 0.535 & 0.003 & 0.249 & -- & -- & 0.533 & 0.040 \\
+\shortstack[l]{MPRA F9\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.579 & 0.535 & 0.004 & 0.250 & -- & -- & 0.533 & 0.040 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{6-mer logistic\\regression} & 0.714 & 0.624 & 0.051 & 0.210 & -- & -- & 0.624 & 0.127 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{CNN} & 0.580 & 0.540 & 0.057 & 0.242 & -- & -- & 0.248 & 0.434 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{CNN} & 0.580 & 0.540 & 0.077 & 0.244 & -- & -- & 0.248 & 0.434 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{RC-aug CNN} & 0.622 & 0.535 & 0.042 & 0.240 & -- & -- & 0.547 & 0.090 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{RC-aug CNN} & 0.622 & 0.535 & 0.078 & 0.245 & -- & -- & 0.547 & 0.090 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{DNABERT-2} & 0.488 & 0.385 & 0.099 & 0.251 & -- & -- & 0.444 & 0.059 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{DNABERT-2} & 0.485 & 0.378 & 0.059 & 0.243 & -- & -- & 0.444 & 0.041 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{DNABERT-2} & 0.485 & 0.378 & 0.060 & 0.244 & -- & -- & 0.444 & 0.041 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.466 & 0.382 & 0.107 & 0.250 & -- & -- & 0.461 & 0.001 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.453 & 0.360 & 0.053 & 0.241 & -- & -- & 0.350 & 0.108 \\
+\shortstack[l]{MPRA HBB\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.453 & 0.360 & 0.078 & 0.245 & -- & -- & 0.350 & 0.108 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{6-mer logistic\\regression} & 0.764 & 0.855 & 0.128 & 0.199 & -- & -- & 0.740 & 0.101 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{CNN} & 0.600 & 0.673 & 0.009 & 0.239 & -- & -- & 0.556 & 0.290 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{CNN} & 0.600 & 0.673 & 0.046 & 0.241 & -- & -- & 0.556 & 0.290 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{RC-aug CNN} & 0.483 & 0.588 & 0.052 & 0.242 & -- & -- & 0.436 & 0.215 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{RC-aug CNN} & 0.483 & 0.588 & 0.046 & 0.241 & -- & -- & 0.436 & 0.215 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{DNABERT-2} & 0.657 & 0.754 & 0.044 & 0.237 & -- & -- & 0.577 & 0.088 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{DNABERT-2} & 0.657 & 0.754 & 0.044 & 0.237 & -- & -- & 0.577 & 0.088 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{DNABERT-2} & 0.657 & 0.754 & 0.068 & 0.239 & -- & -- & 0.577 & 0.088 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.498 & 0.633 & 0.033 & 0.240 & -- & -- & 0.439 & 0.060 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.498 & 0.633 & 0.033 & 0.240 & -- & -- & 0.439 & 0.060 \\
+\shortstack[l]{MPRA LDLR\\promoter} & \shortstack[l]{Caduceus-Ph} & 0.498 & 0.633 & 0.045 & 0.241 & -- & -- & 0.439 & 0.060 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{6-mer logistic\\regression} & 0.617 & 0.273 & 0.070 & 0.133 & -- & -- & 0.579 & 0.103 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{CNN} & 0.458 & 0.159 & 0.032 & 0.132 & -- & -- & 0.440 & 0.014 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{CNN} & 0.458 & 0.159 & 0.028 & 0.132 & -- & -- & 0.440 & 0.014 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{RC-aug CNN} & 0.543 & 0.168 & 0.012 & 0.131 & -- & -- & 0.491 & 0.149 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{RC-aug CNN} & 0.543 & 0.168 & 0.027 & 0.132 & -- & -- & 0.491 & 0.149 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{DNABERT-2} & 0.554 & 0.203 & 0.345 & 0.250 & -- & -- & 0.440 & 0.279 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{DNABERT-2} & 0.580 & 0.221 & 0.002 & 0.131 & -- & -- & 0.503 & 0.207 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{DNABERT-2} & 0.580 & 0.221 & 0.027 & 0.132 & -- & -- & 0.503 & 0.207 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.520 & 0.184 & 0.345 & 0.250 & -- & -- & 0.488 & 0.120 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.525 & 0.192 & 0.002 & 0.131 & -- & -- & 0.431 & 0.145 \\
+\shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{Caduceus-Ph} & 0.525 & 0.192 & 0.027 & 0.132 & -- & -- & 0.431 & 0.145 \\
+\bottomrule
+\end{tabular}

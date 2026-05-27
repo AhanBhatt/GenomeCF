@@ -1,0 +1,24 @@
+\begin{tabular}{p{2.3cm}p{2.2cm}rrrrrrrrrr}
+\toprule
+Task & Model & Orig. AUROC & Matched AUROC & Orig. GC-only & Matched GC-only & Orig. ECE & Matched ECE & Orig. mono & Matched mono & Orig. dinuc & Matched dinuc \\
+\midrule
+\shortstack[l]{Promoters} & \shortstack[l]{GC-only logistic\\regression} & 0.796 & 0.712 & 0.796 & 0.712 & 0.047 & 0.122 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & 0.916 & 0.911 & 0.796 & 0.712 & 0.095 & 0.113 & -0.013 & -0.008 & 0.049 & 0.058 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & 0.891 & 0.873 & 0.796 & 0.712 & 0.024 & 0.128 & -0.034 & -0.059 & 0.049 & 0.042 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & 0.901 & 0.874 & 0.796 & 0.712 & 0.061 & 0.087 & -0.066 & -0.068 & 0.028 & 0.031 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & 0.913 & 0.897 & 0.796 & 0.712 & 0.039 & 0.080 & -0.037 & -0.039 & 0.018 & 0.021 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & 0.853 & 0.793 & 0.796 & 0.712 & 0.024 & 0.103 & -0.060 & -0.061 & 0.002 & 0.002 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{GC-only logistic\\regression} & 0.734 & 0.639 & 0.734 & 0.639 & 0.011 & 0.069 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & 0.720 & 0.684 & 0.734 & 0.639 & 0.223 & 0.249 & -0.099 & -0.105 & 0.092 & 0.091 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & 0.750 & 0.673 & 0.734 & 0.639 & 0.037 & 0.074 & 0.025 & -0.006 & 0.005 & 0.015 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & 0.756 & 0.696 & 0.734 & 0.639 & 0.035 & 0.081 & -0.020 & 0.016 & 0.004 & 0.013 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & 0.832 & 0.783 & 0.734 & 0.639 & 0.018 & 0.060 & -0.077 & -0.041 & 0.011 & 0.028 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & 0.773 & 0.693 & 0.734 & 0.639 & 0.034 & 0.073 & -0.103 & -0.102 & -0.021 & -0.021 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{GC-only logistic\\regression} & 0.662 & 0.576 & 0.662 & 0.576 & 0.048 & 0.108 & 0.000 & 0.000 & 0.000 & 0.000 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & 0.778 & 0.759 & 0.662 & 0.576 & 0.175 & 0.196 & 0.202 & 0.209 & 0.256 & 0.253 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & 0.881 & 0.864 & 0.662 & 0.576 & 0.053 & 0.066 & 0.390 & 0.376 & 0.175 & 0.156 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & 0.887 & 0.870 & 0.662 & 0.576 & 0.034 & 0.094 & 0.365 & 0.366 & 0.173 & 0.169 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{DNABERT-2} & 0.775 & 0.774 & 0.662 & 0.576 & 0.027 & 0.076 & 0.043 & 0.092 & 0.009 & 0.034 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & 0.718 & 0.652 & 0.662 & 0.576 & 0.043 & 0.103 & -0.032 & -0.032 & -0.009 & -0.010 \\
+\bottomrule
+\end{tabular}

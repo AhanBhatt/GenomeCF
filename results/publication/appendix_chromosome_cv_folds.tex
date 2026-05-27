@@ -1,0 +1,96 @@
+\begin{tabular}{p{2.15cm}p{2.1cm}crrrrrrrc}
+\toprule
+Task & Model & Fold & AUROC & ECE & Brier & RC $\Delta$ & Mono drop & Dinuc drop & P:N & Test n \\
+\midrule
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & A & 0.723 & 0.061 & 0.213 & 0.028 & -0.107 & -0.019 & 2,460:2,099 & 4,559 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & B & 0.771 & 0.037 & 0.190 & 0.027 & -0.101 & -0.018 & 2,241:3,503 & 5,744 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & C & 0.765 & 0.030 & 0.195 & 0.028 & -0.096 & -0.019 & 2,106:2,687 & 4,793 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & D & 0.758 & 0.054 & 0.198 & 0.029 & -0.105 & -0.030 & 2,727:1,934 & 4,661 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{Caduceus-Ph} & E & 0.807 & 0.032 & 0.180 & 0.025 & -0.100 & -0.028 & 4,361:3,673 & 8,034 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & A & 0.797 & 0.051 & 0.184 & 0.066 & -0.033 & 0.027 & 2,460:2,099 & 4,559 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & B & 0.835 & 0.020 & 0.160 & 0.066 & -0.049 & 0.027 & 2,241:3,503 & 5,744 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & C & 0.827 & 0.024 & 0.169 & 0.065 & 0.026 & 0.023 & 2,106:2,687 & 4,793 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & D & 0.821 & 0.028 & 0.169 & 0.066 & -0.015 & 0.004 & 2,727:1,934 & 4,661 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{DNABERT-2} & E & 0.853 & 0.017 & 0.156 & 0.062 & 0.038 & 0.033 & 4,361:3,673 & 8,034 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & A & 0.706 & 0.242 & 0.283 & 0.306 & -0.091 & 0.099 & 2,460:2,099 & 4,559 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & B & 0.715 & 0.216 & 0.262 & 0.304 & -0.085 & 0.091 & 2,241:3,503 & 5,744 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & C & 0.727 & 0.219 & 0.264 & 0.304 & -0.066 & 0.106 & 2,106:2,687 & 4,793 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & D & 0.722 & 0.213 & 0.261 & 0.311 & -0.009 & 0.104 & 2,727:1,934 & 4,661 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{6-mer logistic\\regression} & E & 0.752 & 0.196 & 0.245 & 0.303 & -0.079 & 0.073 & 4,361:3,673 & 8,034 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & A & 0.708 & 0.090 & 0.225 & 0.051 & 0.010 & 0.014 & 2,460:2,099 & 4,559 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & B & 0.734 & 0.077 & 0.206 & 0.051 & -0.002 & 0.014 & 2,241:3,503 & 5,744 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & C & 0.744 & 0.071 & 0.207 & 0.046 & 0.041 & 0.028 & 2,106:2,687 & 4,793 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & D & 0.745 & 0.032 & 0.201 & 0.056 & 0.036 & 0.027 & 2,727:1,934 & 4,661 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{CNN} & E & 0.792 & 0.039 & 0.187 & 0.045 & 0.033 & 0.019 & 4,361:3,673 & 8,034 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & A & 0.733 & 0.067 & 0.212 & 0.059 & -0.007 & 0.040 & 2,460:2,099 & 4,559 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & B & 0.766 & 0.030 & 0.189 & 0.060 & -0.043 & 0.017 & 2,241:3,503 & 5,744 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & C & 0.774 & 0.031 & 0.191 & 0.059 & 0.009 & 0.064 & 2,106:2,687 & 4,793 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & D & 0.765 & 0.081 & 0.200 & 0.058 & 0.010 & 0.045 & 2,727:1,934 & 4,661 \\
+\shortstack[l]{Enhancers\\(Cohn)} & \shortstack[l]{RC-aug CNN} & E & 0.815 & 0.078 & 0.184 & 0.047 & 0.006 & 0.035 & 4,361:3,673 & 8,034 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & A & 0.710 & 0.054 & 0.220 & 0.049 & -0.039 & -0.010 & 13,578:12,384 & 25,962 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & B & 0.716 & 0.046 & 0.216 & 0.044 & -0.041 & -0.011 & 12,595:15,062 & 27,657 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & C & 0.716 & 0.054 & 0.218 & 0.040 & -0.037 & -0.009 & 12,743:12,396 & 25,139 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & D & 0.711 & 0.031 & 0.217 & 0.042 & -0.038 & -0.011 & 14,529:13,732 & 28,261 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{Caduceus-Ph} & E & 0.731 & 0.046 & 0.213 & 0.048 & -0.044 & -0.013 & 23,976:23,847 & 47,823 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & A & 0.762 & 0.191 & 0.240 & 0.275 & 0.181 & 0.233 & 13,578:12,384 & 25,962 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & B & 0.769 & 0.183 & 0.232 & 0.285 & 0.207 & 0.218 & 12,595:15,062 & 27,657 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & C & 0.771 & 0.178 & 0.231 & 0.287 & 0.140 & 0.241 & 12,743:12,396 & 25,139 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & D & 0.774 & 0.174 & 0.228 & 0.282 & 0.286 & 0.244 & 14,529:13,732 & 28,261 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{6-mer logistic\\regression} & E & 0.777 & 0.181 & 0.229 & 0.284 & 0.144 & 0.213 & 23,976:23,847 & 47,823 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & A & 0.883 & 0.016 & 0.139 & 0.096 & 0.387 & 0.156 & 13,578:12,384 & 25,962 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & B & 0.871 & 0.053 & 0.149 & 0.128 & 0.346 & 0.158 & 12,595:15,062 & 27,657 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & C & 0.872 & 0.013 & 0.145 & 0.105 & 0.358 & 0.144 & 12,743:12,396 & 25,139 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & D & 0.881 & 0.087 & 0.152 & 0.096 & 0.376 & 0.122 & 14,529:13,732 & 28,261 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{CNN} & E & 0.876 & 0.014 & 0.144 & 0.106 & 0.349 & 0.125 & 23,976:23,847 & 47,823 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & A & 0.886 & 0.033 & 0.138 & 0.077 & 0.402 & 0.172 & 13,578:12,384 & 25,962 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & B & 0.886 & 0.059 & 0.141 & 0.070 & 0.383 & 0.172 & 12,595:15,062 & 27,657 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & C & 0.887 & 0.013 & 0.136 & 0.081 & 0.360 & 0.157 & 12,743:12,396 & 25,139 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & D & 0.884 & 0.051 & 0.142 & 0.101 & 0.398 & 0.175 & 14,529:13,732 & 28,261 \\
+\shortstack[l]{Enhancers\\(Ensembl)} & \shortstack[l]{RC-aug CNN} & E & 0.888 & 0.031 & 0.137 & 0.103 & 0.387 & 0.163 & 23,976:23,847 & 47,823 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & A & 0.885 & 0.108 & 0.148 & 0.034 & -0.060 & 0.002 & 3,284:1,983 & 5,267 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & B & 0.928 & 0.134 & 0.133 & 0.033 & -0.048 & 0.003 & 2,794:1,934 & 4,728 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & C & 0.824 & 0.075 & 0.163 & 0.048 & -0.050 & 0.000 & 2,601:1,986 & 4,587 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & D & 0.805 & 0.067 & 0.175 & 0.079 & -0.061 & 0.003 & 3,872:2,415 & 6,287 \\
+\shortstack[l]{Promoters} & \shortstack[l]{Caduceus-Ph} & E & 0.852 & 0.068 & 0.158 & 0.066 & -0.070 & 0.002 & 7,106:8,156 & 15,262 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & A & 0.891 & 0.048 & 0.127 & 0.086 & -0.048 & 0.013 & 3,284:1,983 & 5,267 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & B & 0.917 & 0.055 & 0.112 & 0.081 & -0.014 & 0.041 & 2,794:1,934 & 4,728 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & C & 0.892 & 0.037 & 0.128 & 0.088 & -0.034 & 0.024 & 2,601:1,986 & 4,587 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & D & 0.893 & 0.043 & 0.127 & 0.105 & -0.039 & 0.024 & 3,872:2,415 & 6,287 \\
+\shortstack[l]{Promoters} & \shortstack[l]{DNABERT-2} & E & 0.893 & 0.069 & 0.130 & 0.119 & -0.075 & 0.008 & 7,106:8,156 & 15,262 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & A & 0.832 & 0.201 & 0.219 & 0.263 & 0.007 & 0.060 & 3,284:1,983 & 5,267 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & B & 0.833 & 0.205 & 0.224 & 0.288 & 0.003 & 0.034 & 2,794:1,934 & 4,728 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & C & 0.830 & 0.225 & 0.240 & 0.276 & -0.006 & 0.032 & 2,601:1,986 & 4,587 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & D & 0.839 & 0.214 & 0.231 & 0.240 & -0.001 & 0.045 & 3,872:2,415 & 6,287 \\
+\shortstack[l]{Promoters} & \shortstack[l]{6-mer logistic\\regression} & E & 0.835 & 0.286 & 0.289 & 0.276 & -0.030 & 0.036 & 7,106:8,156 & 15,262 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & A & 0.880 & 0.070 & 0.139 & 0.042 & -0.024 & 0.051 & 3,284:1,983 & 5,267 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & B & 0.898 & 0.059 & 0.120 & 0.087 & -0.003 & 0.067 & 2,794:1,934 & 4,728 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & C & 0.863 & 0.033 & 0.145 & 0.117 & 0.004 & 0.063 & 2,601:1,986 & 4,587 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & D & 0.842 & 0.056 & 0.158 & 0.091 & -0.042 & 0.035 & 3,872:2,415 & 6,287 \\
+\shortstack[l]{Promoters} & \shortstack[l]{CNN} & E & 0.865 & 0.095 & 0.156 & 0.129 & -0.043 & 0.047 & 7,106:8,156 & 15,262 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & A & 0.856 & 0.069 & 0.146 & 0.042 & -0.040 & 0.040 & 3,284:1,983 & 5,267 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & B & 0.902 & 0.017 & 0.116 & 0.057 & -0.097 & 0.023 & 2,794:1,934 & 4,728 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & C & 0.866 & 0.083 & 0.153 & 0.089 & -0.026 & 0.055 & 2,601:1,986 & 4,587 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & D & 0.868 & 0.086 & 0.152 & 0.083 & -0.071 & 0.044 & 3,872:2,415 & 6,287 \\
+\shortstack[l]{Promoters} & \shortstack[l]{RC-aug CNN} & E & 0.871 & 0.227 & 0.228 & 0.078 & -0.072 & 0.026 & 7,106:8,156 & 15,262 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{Caduceus-Ph} & A & 0.626 & 0.057 & 0.242 & 0.017 & -0.023 & -0.020 & 14,807:14,011 & 28,818 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{Caduceus-Ph} & B & 0.637 & 0.061 & 0.241 & 0.015 & -0.017 & -0.019 & 18,184:17,061 & 35,245 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{Caduceus-Ph} & C & 0.626 & 0.052 & 0.241 & 0.024 & -0.017 & -0.018 & 14,678:14,179 & 28,857 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{Caduceus-Ph} & D & 0.621 & 0.055 & 0.242 & 0.021 & -0.018 & -0.018 & 15,844:15,351 & 31,195 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{Caduceus-Ph} & E & 0.619 & 0.050 & 0.242 & 0.025 & -0.021 & -0.019 & 23,865:26,776 & 50,641 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{6-mer logistic\\regression} & A & 0.679 & 0.213 & 0.277 & 0.311 & 0.216 & 0.121 & 14,807:14,011 & 28,818 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{6-mer logistic\\regression} & B & 0.684 & 0.219 & 0.279 & 0.304 & 0.193 & 0.097 & 18,184:17,061 & 35,245 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{6-mer logistic\\regression} & C & 0.681 & 0.216 & 0.279 & 0.311 & 0.196 & 0.126 & 14,678:14,179 & 28,857 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{6-mer logistic\\regression} & D & 0.683 & 0.213 & 0.276 & 0.323 & 0.259 & 0.111 & 15,844:15,351 & 31,195 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{6-mer logistic\\regression} & E & 0.681 & 0.212 & 0.276 & 0.321 & 0.197 & 0.116 & 23,865:26,776 & 50,641 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{CNN} & A & 0.677 & 0.070 & 0.230 & 0.131 & 0.057 & 0.029 & 14,807:14,011 & 28,818 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{CNN} & B & 0.712 & 0.035 & 0.216 & 0.105 & 0.094 & 0.023 & 18,184:17,061 & 35,245 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{CNN} & C & 0.688 & 0.058 & 0.226 & 0.070 & 0.076 & 0.022 & 14,678:14,179 & 28,857 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{CNN} & D & 0.705 & 0.104 & 0.229 & 0.091 & 0.074 & 0.014 & 15,844:15,351 & 31,195 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{CNN} & E & 0.696 & 0.037 & 0.222 & 0.069 & 0.034 & -0.001 & 23,865:26,776 & 50,641 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{RC-aug CNN} & A & 0.729 & 0.029 & 0.211 & 0.096 & 0.121 & 0.037 & 14,807:14,011 & 28,818 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{RC-aug CNN} & B & 0.731 & 0.041 & 0.211 & 0.127 & 0.135 & 0.043 & 18,184:17,061 & 35,245 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{RC-aug CNN} & C & 0.739 & 0.084 & 0.214 & 0.120 & 0.169 & 0.067 & 14,678:14,179 & 28,857 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{RC-aug CNN} & D & 0.734 & 0.043 & 0.210 & 0.102 & 0.133 & 0.049 & 15,844:15,351 & 31,195 \\
+\shortstack[l]{Open\\chromatin} & \shortstack[l]{RC-aug CNN} & E & 0.738 & 0.019 & 0.207 & 0.128 & 0.138 & 0.046 & 23,865:26,776 & 50,641 \\
+\bottomrule
+\end{tabular}

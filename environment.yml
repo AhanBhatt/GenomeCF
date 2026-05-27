@@ -1,0 +1,15 @@
+name: genomecf
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - pytorch
+  - transformers
+  - pytest
+  - pip:
+      - -e .[benchmark,dev]

@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenomeCF-Synth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Overview</a>
+  <a href="quickstart.html">Quickstart</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="models.html">Models</a>
+  <a href="metrics.html">Metrics</a>
+  <a href="external.html">External validation</a>
+  <a href="synthetic.html">GenomeCF-Synth</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="reporting_standard.html">Reporting checklist</a>
+  <a href="reproducibility.html">Reproducibility</a>
+  <a href="downloads.html">Downloads</a>
+  <a href="citation.html">Citation</a>
+</nav>
+
+<h1>GenomeCF-Synth</h1>
+<p>GenomeCF-Synth isolates shortcut mechanisms under known ground truth.</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>task_id</th>
+      <th>task_label</th>
+      <th>model_id</th>
+      <th>model_label</th>
+      <th>seed</th>
+      <th>auroc</th>
+      <th>ece</th>
+      <th>brier</th>
+      <th>rc_mean_abs_delta</th>
+      <th>mono_positive_prob_drop</th>
+      <th>dinuc_positive_prob_drop</th>
+      <th>motif_positive_prob_drop</th>
+      <th>shortcut_conflict_accuracy</th>
+      <th>rule_following_rate</th>
+      <th>shortcut_following_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>gc_conflict</td>
+      <td>GC shortcut conflict</td>
+      <td>kmer_logistic_regression</td>
+      <td>6-mer logistic regression</td>
+      <td>2026</td>
+      <td>0.000</td>
+      <td>0.999</td>
+      <td>0.998</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_conflict</td>
+      <td>GC shortcut conflict</td>
+      <td>small_cnn</td>
+      <td>CNN</td>
+      <td>2026</td>
+      <td>0.000</td>
+      <td>0.992</td>
+      <td>0.991</td>
+      <td>0.009</td>
+      <td>0.001</td>
+      <td>0.002</td>
+      <td>0.001</td>
+      <td>0.008</td>
+      <td>0.008</td>
+      <td>0.992</td>
+    </tr>
+    <tr>
+      <td>gc_conflict</td>
+      <td>GC shortcut conflict</td>
+      <td>small_cnn_rc_aug</td>
+      <td>RC-aug CNN</td>
+      <td>2026</td>
+      <td>0.000</td>
+      <td>0.968</td>
+      <td>0.966</td>
+      <td>0.013</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.029</td>
+      <td>0.029</td>
+      <td>0.971</td>
+    </tr>
+    <tr>
+      <td>gc_conflict</td>
+      <td>GC shortcut conflict</td>
+      <td>dnabert2</td>
+      <td>DNABERT-2</td>
+      <td>2026</td>
+      <td>0.000</td>
+      <td>0.994</td>
+      <td>0.989</td>
+      <td>0.003</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_conflict</td>
+      <td>GC shortcut conflict</td>
+      <td>caduceus_ph</td>
+      <td>Caduceus-Ph</td>
+      <td>2026</td>
+      <td>0.000</td>
+      <td>0.995</td>
+      <td>0.990</td>
+      <td>0.001</td>
+      <td>-0.000</td>
+      <td>-0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>two_motif_grammar</td>
+      <td>Two-motif grammar</td>
+      <td>kmer_logistic_regression</td>
+      <td>6-mer logistic regression</td>
+      <td>2026</td>
+      <td>0.585</td>
+      <td>0.358</td>
+      <td>0.379</td>
+      <td>0.460</td>
+      <td>0.079</td>
+      <td>0.069</td>
+      <td>-0.013</td>
+      <td>0.564</td>
+      <td>0.564</td>
+      <td>0.501</td>
+    </tr>
+    <tr>
+      <td>two_motif_grammar</td>
+      <td>Two-motif grammar</td>
+      <td>small_cnn</td>
+      <td>CNN</td>
+      <td>2026</td>
+      <td>0.997</td>
+      <td>0.007</td>
+      <td>0.009</td>
+      <td>0.506</td>
+      <td>0.929</td>
+      <td>0.933</td>
+      <td>0.225</td>
+      <td>0.989</td>
+      <td>0.989</td>
+      <td>0.617</td>
+    </tr>
+    <tr>
+      <td>two_motif_grammar</td>
+      <td>Two-motif grammar</td>
+      <td>small_cnn_rc_aug</td>
+      <td>RC-aug CNN</td>
+      <td>2026</td>
+      <td>0.995</td>
+      <td>0.012</td>
+      <td>0.010</td>
+      <td>0.018</td>
+      <td>0.788</td>
+      <td>0.784</td>
+      <td>0.161</td>
+      <td>0.988</td>
+      <td>0.988</td>
+      <td>0.618</td>
+    </tr>
+    <tr>
+      <td>two_motif_grammar</td>
+      <td>Two-motif grammar</td>
+      <td>dnabert2</td>
+      <td>DNABERT-2</td>
+      <td>2026</td>
+      <td>0.602</td>
+      <td>0.016</td>
+      <td>0.243</td>
+      <td>0.125</td>
+      <td>0.049</td>
+      <td>0.048</td>
+      <td>0.018</td>
+      <td>0.574</td>
+      <td>0.574</td>
+      <td>0.549</td>
+    </tr>
+    <tr>
+      <td>two_motif_grammar</td>
+      <td>Two-motif grammar</td>
+      <td>caduceus_ph</td>
+      <td>Caduceus-Ph</td>
+      <td>2026</td>
+      <td>0.548</td>
+      <td>0.014</td>
+      <td>0.249</td>
+      <td>0.051</td>
+      <td>0.001</td>
+      <td>0.002</td>
+      <td>0.002</td>
+      <td>0.539</td>
+      <td>0.539</td>
+      <td>0.526</td>
+    </tr>
+    <tr>
+      <td>motif_position_conflict</td>
+      <td>Motif identity vs position shortcut</td>
+      <td>kmer_logistic_regression</td>
+      <td>6-mer logistic regression</td>
+      <td>2026</td>
+      <td>0.981</td>
+      <td>0.028</td>
+      <td>0.029</td>
+      <td>0.041</td>
+      <td>0.896</td>
+      <td>0.885</td>
+      <td>0.818</td>
+      <td>0.970</td>
+      <td>0.970</td>
+      <td>0.030</td>
+    </tr>
+    <tr>
+      <td>motif_position_conflict</td>
+      <td>Motif identity vs position shortcut</td>
+      <td>small_cnn</td>
+      <td>CNN</td>
+      <td>2026</td>
+      <td>0.534</td>
+      <td>0.481</td>
+      <td>0.485</td>
+      <td>0.016</td>
+      <td>-0.006</td>
+      <td>-0.009</td>
+      <td>-0.002</td>
+      <td>0.500</td>
+      <td>0.500</td>
+      <td>0.499</td>
+    </tr>
+    <tr>
+      <td>motif_position_conflict</td>
+      <td>Motif identity vs position shortcut</td>
+      <td>small_cnn_rc_aug</td>
+      <td>RC-aug CNN</td>
+      <td>2026</td>
+      <td>0.443</td>
+      <td>0.495</td>
+      <td>0.495</td>
+      <td>0.001</td>
+      <td>0.005</td>
+      <td>0.001</td>
+      <td>0.003</td>
+      <td>0.502</td>
+      <td>0.502</td>
+      <td>0.497</td>
+    </tr>
+    <tr>
+      <td>motif_position_conflict</td>
+      <td>Motif identity vs position shortcut</td>
+      <td>dnabert2</td>
+      <td>DNABERT-2</td>
+      <td>2026</td>
+      <td>0.854</td>
+      <td>0.061</td>
+      <td>0.160</td>
+      <td>0.188</td>
+      <td>0.240</td>
+      <td>0.194</td>
+      <td>0.177</td>
+      <td>0.774</td>
+      <td>0.774</td>
+      <td>0.226</td>
+    </tr>
+    <tr>
+      <td>motif_position_conflict</td>
+      <td>Motif identity vs position shortcut</td>
+      <td>caduceus_ph</td>
+      <td>Caduceus-Ph</td>
+      <td>2026</td>
+      <td>0.602</td>
+      <td>0.007</td>
+      <td>0.242</td>
+      <td>0.108</td>
+      <td>0.005</td>
+      <td>-0.002</td>
+      <td>0.002</td>
+      <td>0.570</td>
+      <td>0.570</td>
+      <td>0.430</td>
+    </tr>
+    <tr>
+      <td>gc_correlated</td>
+      <td>GC correlated</td>
+      <td>kmer_logistic_regression</td>
+      <td>6-mer logistic regression</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_matched</td>
+      <td>GC matched</td>
+      <td>kmer_logistic_regression</td>
+      <td>6-mer logistic regression</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.005</td>
+      <td>0.000</td>
+      <td>0.003</td>
+      <td>0.946</td>
+      <td>0.927</td>
+      <td>0.675</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>0.500</td>
+    </tr>
+    <tr>
+      <td>gc_correlated</td>
+      <td>GC correlated</td>
+      <td>small_cnn</td>
+      <td>CNN</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_matched</td>
+      <td>GC matched</td>
+      <td>small_cnn</td>
+      <td>CNN</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.095</td>
+      <td>0.053</td>
+      <td>0.082</td>
+      <td>0.772</td>
+      <td>0.731</td>
+      <td>0.514</td>
+      <td>0.920</td>
+      <td>0.920</td>
+      <td>0.420</td>
+    </tr>
+    <tr>
+      <td>gc_correlated</td>
+      <td>GC correlated</td>
+      <td>small_cnn_rc_aug</td>
+      <td>RC-aug CNN</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_matched</td>
+      <td>GC matched</td>
+      <td>small_cnn_rc_aug</td>
+      <td>RC-aug CNN</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.003</td>
+      <td>0.001</td>
+      <td>0.003</td>
+      <td>0.951</td>
+      <td>0.933</td>
+      <td>0.675</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>0.499</td>
+    </tr>
+    <tr>
+      <td>gc_correlated</td>
+      <td>GC correlated</td>
+      <td>dnabert2</td>
+      <td>DNABERT-2</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.002</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>0.001</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_matched</td>
+      <td>GC matched</td>
+      <td>dnabert2</td>
+      <td>DNABERT-2</td>
+      <td>2026</td>
+      <td>0.848</td>
+      <td>0.086</td>
+      <td>0.166</td>
+      <td>0.165</td>
+      <td>0.254</td>
+      <td>0.207</td>
+      <td>0.168</td>
+      <td>0.772</td>
+      <td>0.772</td>
+      <td>0.537</td>
+    </tr>
+    <tr>
+      <td>gc_correlated</td>
+      <td>GC correlated</td>
+      <td>caduceus_ph</td>
+      <td>Caduceus-Ph</td>
+      <td>2026</td>
+      <td>1.000</td>
+      <td>0.004</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-0.000</td>
+      <td>-0.000</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <td>gc_matched</td>
+      <td>GC matched</td>
+      <td>caduceus_ph</td>
+      <td>Caduceus-Ph</td>
+      <td>2026</td>
+      <td>0.549</td>
+      <td>0.007</td>
+      <td>0.248</td>
+      <td>0.033</td>
+      <td>0.003</td>
+      <td>-0.001</td>
+      <td>0.003</td>
+      <td>0.531</td>
+      <td>0.531</td>
+      <td>0.500</td>
+    </tr>
+  </tbody>
+</table><img src='../../figures/genomecf_synthetic_publication.png' alt='GenomeCF-Synth'>
+</body>
+</html>

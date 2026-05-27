@@ -1,0 +1,52 @@
+{
+  "name": "GenomeCF minimum reporting standard",
+  "items": [
+    {
+      "id": "heldout_metrics",
+      "description": "Held-out AUROC, AUPRC, ECE, and Brier score on the original split.",
+      "required_columns": ["auroc", "auprc", "ece", "brier"],
+      "filters": {"split_id": "official", "perturbation_id": "original"}
+    },
+    {
+      "id": "reverse_complement",
+      "description": "Reverse-complement counterfactual rows with mean absolute delta and flip rate.",
+      "required_columns": ["mean_abs_delta", "flip_rate"],
+      "filters": {"perturbation_id": "reverse_complement"}
+    },
+    {
+      "id": "mono_shuffle",
+      "description": "Mononucleotide shuffle rows with positive-probability drop.",
+      "required_columns": ["positive_prob_drop"],
+      "filters": {"perturbation_id": "k1_shuffle"}
+    },
+    {
+      "id": "dinuc_shuffle",
+      "description": "Dinucleotide shuffle rows with positive-probability drop.",
+      "required_columns": ["positive_prob_drop"],
+      "filters": {"perturbation_id": "k2_shuffle"}
+    },
+    {
+      "id": "matched_negative",
+      "description": "Matched-negative evaluation rows.",
+      "required_columns": ["auroc", "ece", "brier"],
+      "filters": {"split_id": "matched_test", "perturbation_id": "original"}
+    },
+    {
+      "id": "chromosome_cv",
+      "description": "Chromosome- or group-held-out split rows.",
+      "required_columns": ["auroc"],
+      "filters": {"split_id": ["chromosome_5fold_cv", "chromosome_chr1_chr2_holdout"], "perturbation_id": "original"}
+    },
+    {
+      "id": "synthetic_conflict",
+      "description": "At least one GenomeCF-Synth shortcut-conflict task.",
+      "required_columns": ["auroc"],
+      "filters": {"task_id": ["gc_conflict", "two_motif_grammar", "motif_position_conflict"], "perturbation_id": "original"}
+    },
+    {
+      "id": "traceability",
+      "description": "Traceability columns for registry-backed release artifacts.",
+      "required_columns": ["created_at", "config_hash", "data_hash", "task_id", "model_id", "split_id"]
+    }
+  ]
+}

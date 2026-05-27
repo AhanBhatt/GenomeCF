@@ -1,0 +1,16 @@
+{
+  "tables": [
+    "chromosome_cv_summary.csv",
+    "chromosome_cv_fold_metrics.csv",
+    "matched_negative_confounders.csv",
+    "matched_negative_model_summary.csv",
+    "mitigation_summary.csv",
+    "real_task_motif_disruption.csv",
+    "foundation_loader_status.csv"
+  ],
+  "figures": [
+    "genomecf_chromosome_cv_summary.png",
+    "genomecf_matched_negative_summary.png",
+    "genomecf_mitigation_summary.png"
+  ]
+}

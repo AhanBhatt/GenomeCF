@@ -1,0 +1,20 @@
+{
+  "motif": "CACGTG",
+  "conditions": {
+    "gc_correlated": {
+      "positive_gc": 0.7,
+      "negative_gc": 0.3
+    },
+    "gc_matched": {
+      "positive_gc": 0.5,
+      "negative_gc": 0.5
+    }
+  },
+  "seeds": [
+    11,
+    23,
+    37,
+    49,
+    61
+  ]
+}

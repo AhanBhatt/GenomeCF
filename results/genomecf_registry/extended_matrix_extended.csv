@@ -1,0 +1,2 @@
+task,split_name,split_fold,model,mode,auroc,auprc,accuracy,mcc,ece,brier,seeds,rc_instability,rc_flip_rate,mono_drop,mono_calibration_shift,dinuc_drop,gc_only_auroc,gc_only_explainability_ratio,mono_retention,dinuc_retention,shortcut_score
+dummy_mouse_enhancers_ensembl,official,na,small_cnn,full,0.8933815996175125,0.8880996028591304,0.8140495867768595,0.6286361115149225,0.0729813879155669,0.1350509836297722,1,0.1053892821073532,0.128099173553719,0.3317682445049286,0.2134383301874084,0.1700844168663025,,,-0.3317682445049286,-0.1700844168663025,1.0

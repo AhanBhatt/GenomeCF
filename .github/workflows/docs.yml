@@ -1,0 +1,25 @@
+name: GenomeCF Docs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  docs-and-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GenomeCF
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[benchmark,dev]
+      - name: Generate website
+        run: |
+          python -m genomecf.cli build-website
+      - name: Regenerate publication artifacts
+        run: |
+          python src/generate_nature_methods_artifacts.py
+          python src/generate_publication_artifacts.py

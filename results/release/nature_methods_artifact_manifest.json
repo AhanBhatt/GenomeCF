@@ -1,0 +1,15 @@
+{
+  "tables": [
+    "external_validation_summary.csv",
+    "external_validation_family_summary.csv",
+    "external_core_profile.csv",
+    "external_transfer_prediction.csv",
+    "biological_case_study.csv"
+  ],
+  "figures": [
+    "genomecf_external_validation.png",
+    "genomecf_external_prediction.png",
+    "genomecf_biological_case_study.png"
+  ],
+  "stats": "external_transfer_stats.json"
+}

@@ -1,0 +1,3 @@
+dataset,model,kmer_size,test_auroc,test_accuracy
+human_nontata_promoters,kmer_logistic_regression,6,0.9363923282350084,0.8834403365065309
+human_enhancers_cohn,kmer_logistic_regression,6,0.76934371259946,0.697754749568221

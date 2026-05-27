@@ -1,0 +1,9 @@
+{
+  "smoke_registry": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\smoke\\smoke_registry.csv",
+  "smoke_core_summary": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\smoke\\smoke_core_core.csv",
+  "smoke_appendix": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\smoke\\appendix\\appendix_results.csv",
+  "release_registry": "results\\release\\benchmark_registry.csv",
+  "release_validation_ok": "True",
+  "smoke_rows": "2",
+  "smoke_report": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\smoke\\smoke_report.json"
+}

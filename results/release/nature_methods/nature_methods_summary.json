@@ -1,0 +1,8 @@
+{
+  "summary_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\nature_methods\\nature_methods_summary.csv",
+  "paper_pdf": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\paper\\genomecf_report.pdf",
+  "supplement_pdf": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\paper\\genomecf_supplement.pdf",
+  "registry_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\benchmark_registry.csv",
+  "external_validation_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\external_validation_summary.csv",
+  "external_prediction_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\external_transfer_prediction.csv"
+}

@@ -1,0 +1,46 @@
+{
+  "model_id": "nucleotide_transformer_v2",
+  "validated": false,
+  "checkpoint": "InstaDeepAI/nucleotide-transformer-v2-100m-multi-species",
+  "tokenizer_class": "EsmTokenizer",
+  "model_class": "EsmForMaskedLM",
+  "max_length": 1024,
+  "pooling": "mean",
+  "tokenizer_has_attention_mask": true,
+  "pad_fraction": 0.020833333333333332,
+  "unk_fraction": 0.0,
+  "truncation_applied_on_long_sequence": false,
+  "sample_embedding_shape": [
+    4,
+    512
+  ],
+  "sample_embedding_variance": 0.9945191740989685,
+  "sample_embeddings_reproducible": true,
+  "gc_sanity_auroc": 0.6978759765625,
+  "task_checks": [
+    {
+      "task_id": "human_nontata_promoters",
+      "train_positive": 128,
+      "train_negative": 128,
+      "test_positive": 128,
+      "test_negative": 128,
+      "max_eval_length": 251,
+      "max_length_under_limit": true,
+      "embedding_dim": 512,
+      "probe_auroc": 0.5975341796875,
+      "probe_reproducible": true
+    },
+    {
+      "task_id": "human_enhancers_cohn",
+      "train_positive": 128,
+      "train_negative": 128,
+      "test_positive": 128,
+      "test_negative": 128,
+      "max_eval_length": 500,
+      "max_length_under_limit": true,
+      "embedding_dim": 512,
+      "probe_auroc": 0.4681396484375,
+      "probe_reproducible": true
+    }
+  ]
+}

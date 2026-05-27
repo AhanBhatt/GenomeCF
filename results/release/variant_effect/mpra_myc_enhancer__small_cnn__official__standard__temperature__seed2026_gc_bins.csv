@@ -1,0 +1,3 @@
+gc_bin,count,positive_count,negative_count,gc_mean,gc_min,gc_max,auroc,ece,brier,task_id,model_id,split_id,seed,calibration_method,intervention_id
+0,189,29,160,0.46767195767195774,0.4666666666666667,0.4683333333333333,0.4546336206896552,0.02938066438707726,0.1307776230186656,mpra_myc_enhancer,small_cnn,official,2026,temperature,standard
+1,114,18,96,0.4699999999999998,0.47,0.47,0.44039351851851855,0.024857979202479646,0.13357549576087338,mpra_myc_enhancer,small_cnn,official,2026,temperature,standard

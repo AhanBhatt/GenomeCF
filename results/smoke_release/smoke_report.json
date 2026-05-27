@@ -1,0 +1,9 @@
+{
+  "smoke_registry": "results\\smoke_release\\smoke_registry.csv",
+  "smoke_core_summary": "results\\smoke_release\\smoke_core_core.csv",
+  "smoke_appendix": "results\\smoke_release\\appendix\\appendix_results.csv",
+  "release_registry": "results\\release\\benchmark_registry.csv",
+  "release_validation_ok": "True",
+  "smoke_rows": "2",
+  "smoke_report": "results\\smoke_release\\smoke_report.json"
+}

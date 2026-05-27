@@ -1,0 +1,14 @@
+{
+  "dataset": "human_nontata_promoters",
+  "model": "kmer_logistic_regression",
+  "kmer_size": 6,
+  "test_auroc": 0.9363923282350084,
+  "test_accuracy": 0.8834403365065309,
+  "reverse_complement_mean_abs_delta": 0.2582111396805872,
+  "reverse_complement_prediction_flip_rate": 0.2721939340270091,
+  "positive_original_mean_prob": 0.8592735396948087,
+  "positive_gc_shuffle_mean_prob": 0.8736739071370141,
+  "positive_gc_shuffle_prob_drop": -0.014400367442205408,
+  "negative_original_mean_prob": 0.14746893516653398,
+  "negative_gc_shuffle_mean_prob": 0.7613166394025298
+}

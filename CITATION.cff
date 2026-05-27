@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "GenomeCF: Counterfactual Stress Testing Reveals Shortcut Learning in DNA Sequence Models"
+message: "If you use GenomeCF, please cite the benchmark paper and reference the release registry."
+type: software
+authors:
+  - family-names: Bhatt
+    given-names: Ahan
+license: MIT
+version: 0.3.0
+date-released: 2026-05-21
+abstract: >
+  GenomeCF is a counterfactual stress-testing benchmark for DNA sequence models.
+  It evaluates whether strong held-out performance also survives biologically
+  motivated perturbations, calibration analysis, stronger split protocols, and
+  synthetic ground-truth tasks.

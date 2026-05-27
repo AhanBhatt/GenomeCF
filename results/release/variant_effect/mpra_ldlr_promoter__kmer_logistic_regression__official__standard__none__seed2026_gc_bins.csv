@@ -1,0 +1,3 @@
+gc_bin,count,positive_count,negative_count,gc_mean,gc_min,gc_max,auroc,ece,brier,task_id,model_id,split_id,seed,calibration_method,intervention_id
+0,122,71,51,0.548639034952057,0.5471698113207547,0.550314465408805,0.7404032035349352,0.16206797281044905,0.21056840300944757,mpra_ldlr_promoter,kmer_logistic_regression,official,2026,none,standard
+1,30,21,9,0.5534591194968554,0.5534591194968553,0.5534591194968553,0.8412698412698413,0.13744018051175091,0.15064866759860354,mpra_ldlr_promoter,kmer_logistic_regression,official,2026,none,standard

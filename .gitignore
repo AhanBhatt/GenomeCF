@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Packaging
+*.egg-info/
+build/
+dist/
+
+# Test / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+.venv*/
+venv/
+env/
+
+# Local temp helpers
+tmp_*
+
+# Local benchmark/runtime assets kept outside the public repo
+results/cache/
+results/tmp/
+external/dnabert2_local/
+data/drosophila_enhancers_stark/
+data/dummy_mouse_enhancers_ensembl/
+data/human_nontata_promoters/
+data/human_enhancers_cohn/
+data/human_enhancers_ensembl/
+data/human_ocr_ensembl/
+data/human_enhancers_ensembl_v0.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# LaTeX build artifacts
+paper/build/
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc

@@ -1,0 +1,6 @@
+artifact_group,path,description
+core_benchmark,C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\GenomeCF\results\release\benchmark_summary.csv,"Canonical benchmark summary across core, screening, external, and synthetic tiers."
+external_validation,C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\GenomeCF\results\release\external_validation_summary.csv,"External biological validation summary across TF-binding, histone-mark, and variant-effect assay families."
+external_transfer,C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\GenomeCF\results\release\external_transfer_prediction.csv,Model-task external reliability prediction table used in the Nature Methods analysis.
+publication_tables,C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\GenomeCF\results\publication\table9_external_prediction_summary.csv,Main-paper external transfer prediction summary.
+supplement,C:\Users\bhatt\Documents\Masters\Subjects\AM-234 Machine Learning and Artificial Intelligence in Genomics\Project\GenomeCF\paper\genomecf_supplement.pdf,Supplementary information PDF.

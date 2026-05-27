@@ -1,0 +1,9 @@
+{
+  "release_validation_ok": true,
+  "summary_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\benchmark_summary.csv",
+  "table2_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\publication\\table2_main_results.csv",
+  "table3_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\publication\\table3_cv_summary.csv",
+  "table4_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\publication\\table4_matched_negative_summary.csv",
+  "table5_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\publication\\table5_mitigation_summary.csv",
+  "reproduce_focal_report": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\focal_reproduction\\reproduce_focal_report.json"
+}

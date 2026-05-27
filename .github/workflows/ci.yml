@@ -1,0 +1,35 @@
+name: GenomeCF CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  fast-release-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install GenomeCF
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .[benchmark,dev]
+      - name: CLI help
+        run: |
+          genomecf --help
+      - name: Fast tests
+        run: |
+          python -m pytest
+      - name: Quickstart reproduction
+        run: |
+          python -m genomecf.cli reproduce-quickstart
+      - name: Validate registry and reporting
+        run: |
+          python -m genomecf.cli validate-results
+          python -m genomecf.cli check-report --results results/release/benchmark_registry.csv
+          python -m genomecf.cli trace-paper --strict
+      - name: Build local website
+        run: |
+          python -m genomecf.cli build-website

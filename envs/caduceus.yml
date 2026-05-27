@@ -1,0 +1,14 @@
+name: caduceus
+channels:
+  - conda-forge
+  - nvidia
+dependencies:
+  - python=3.10
+  - pip
+  - cuda-nvcc
+  - pip:
+      - numpy
+      - pandas
+      - scikit-learn
+      - pytest
+      - pytest-cov

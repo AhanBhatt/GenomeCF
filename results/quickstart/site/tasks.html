@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenomeCF tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Overview</a>
+  <a href="quickstart.html">Quickstart</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="models.html">Models</a>
+  <a href="metrics.html">Metrics</a>
+  <a href="external.html">External validation</a>
+  <a href="synthetic.html">GenomeCF-Synth</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="reporting_standard.html">Reporting checklist</a>
+  <a href="reproducibility.html">Reproducibility</a>
+  <a href="downloads.html">Downloads</a>
+  <a href="citation.html">Citation</a>
+</nav>
+
+<h1>GenomeCF tasks</h1>
+<p>Core, screening, and external tasks.</p><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>tier</th>
+      <th>task_id</th>
+      <th>task_label</th>
+      <th>species</th>
+      <th>length_type</th>
+      <th>full_counts</th>
+      <th>eval_counts</th>
+      <th>class_balance</th>
+      <th>chrom_meta</th>
+      <th>coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Core tasks</td>
+      <td>human_nontata_promoters</td>
+      <td>Promoters</td>
+      <td>Human</td>
+      <td>Fixed (251)</td>
+      <td>27,097 / 9,034</td>
+      <td>10,000 / 2,000 / 9,034</td>
+      <td>4915:4119</td>
+      <td>Yes</td>
+      <td>Diag., 6-mer, CNNs, DNABERT-2, Caduceus</td>
+    </tr>
+    <tr>
+      <td>Core tasks</td>
+      <td>human_enhancers_cohn</td>
+      <td>Enhancers (Cohn)</td>
+      <td>Human</td>
+      <td>Fixed (500)</td>
+      <td>20,843 / 6,948</td>
+      <td>10,000 / 2,000 / 6,948</td>
+      <td>3474:3474</td>
+      <td>Yes</td>
+      <td>Diag., 6-mer, CNNs, DNABERT-2, Caduceus</td>
+    </tr>
+    <tr>
+      <td>Core tasks</td>
+      <td>human_enhancers_ensembl</td>
+      <td>Enhancers (Ensembl)</td>
+      <td>Human</td>
+      <td>Variable (9-488)</td>
+      <td>123,872 / 30,970</td>
+      <td>10,000 / 2,000 / 30,970</td>
+      <td>15485:15485</td>
+      <td>Yes</td>
+      <td>Diag., 6-mer, CNNs, DNABERT-2, Caduceus</td>
+    </tr>
+    <tr>
+      <td>Core tasks</td>
+      <td>human_ocr_ensembl</td>
+      <td>Open chromatin</td>
+      <td>Human</td>
+      <td>Variable (112-591)</td>
+      <td>139,804 / 34,952</td>
+      <td>10,000 / 2,000 / 34,952</td>
+      <td>17476:17476</td>
+      <td>Yes</td>
+      <td>Diag., 6-mer, CNNs, DNABERT-2, Caduceus</td>
+    </tr>
+    <tr>
+      <td>Extended screening tasks</td>
+      <td>dummy_mouse_enhancers_ensembl</td>
+      <td>Mouse enhancers</td>
+      <td>Mouse</td>
+      <td>Variable (538-4549)</td>
+      <td>968 / 242</td>
+      <td>806 / 162 / 242</td>
+      <td>121:121</td>
+      <td>No</td>
+      <td>6-mer</td>
+    </tr>
+    <tr>
+      <td>Extended screening tasks</td>
+      <td>drosophila_enhancers_stark</td>
+      <td>Fly enhancers</td>
+      <td>Fly</td>
+      <td>Variable (1607-2921)</td>
+      <td>5,184 / 1,730</td>
+      <td>4,320 / 864 / 1,730</td>
+      <td>865:865</td>
+      <td>No</td>
+      <td>6-mer</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

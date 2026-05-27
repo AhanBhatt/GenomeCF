@@ -1,0 +1,8 @@
+{
+  "release_validation_ok": true,
+  "external_validation_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\external_validation_summary.csv",
+  "external_prediction_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\external_transfer_prediction.csv",
+  "case_study_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\biological_case_study.csv",
+  "variant_effect_dir": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\variant_effect",
+  "reproduce_external_report": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\external_reproduction\\reproduce_external_report.json"
+}

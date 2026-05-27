@@ -1,0 +1,11 @@
+\begin{tabular}{p{0.85cm}p{2.0cm}p{1.6cm}p{1.8cm}p{3.2cm}rrrrrr}
+\toprule
+Case & Task & Model & Config. & Decision role & Core ECE & External AUROC & External AUPRC & Top-k enrich. & Spearman & Worst-bin AUROC \\
+\midrule
+Case A & \shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{CNN} & Standard & AUROC-only default configuration & 0.061 & 0.434 & 0.097 & 1.234 & -0.078 & 0.369 \\
+Case A & \shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{CNN} & Temperature-scaled & GenomeCF-aware configuration & 0.040 & 0.583 & 0.167 & 2.056 & 0.013 & 0.539 \\
+Case A & \shortstack[l]{MPRA BCL11A\\enhancer} & \shortstack[l]{DNABERT-2} & Standard & Reference comparison & 0.029 & 0.540 & 0.125 & 1.234 & 0.007 & 0.340 \\
+Case B & \shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{DNABERT-2} & Standard & GenomeCF-aware variant-ranking choice & 0.029 & 0.580 & 0.221 & 1.934 & 0.105 & 0.503 \\
+Case B & \shortstack[l]{MPRA MYC\\enhancer} & \shortstack[l]{6-mer logistic\\regression} & Standard & AUROC-only variant-ranking choice & 0.235 & 0.617 & 0.273 & 1.504 & 0.130 & 0.579 \\
+\bottomrule
+\end{tabular}

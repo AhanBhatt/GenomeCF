@@ -1,0 +1,18 @@
+{
+  "site_root": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\site",
+  "leaderboard_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\quickstart\\site\\leaderboard.csv",
+  "pages": [
+    "citation.html",
+    "downloads.html",
+    "external.html",
+    "index.html",
+    "leaderboard.html",
+    "metrics.html",
+    "models.html",
+    "quickstart.html",
+    "reporting_standard.html",
+    "reproducibility.html",
+    "synthetic.html",
+    "tasks.html"
+  ]
+}

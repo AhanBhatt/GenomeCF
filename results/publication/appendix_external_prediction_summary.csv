@@ -1,0 +1,24 @@
+analysis,metric,value,ci_low,ci_high,n
+Core AUROC vs external biological reliability,Spearman,0.21471441337022792,-0.017897592587767106,0.42802395505565916,82
+GenomeCF Shortcut Score vs external biological reliability,Spearman,0.07690238291646789,-0.12940333568246104,0.2711396466296953,82
+Core AUROC vs external reliability risk,Spearman,-0.04281495485385554,-0.27823815001003965,0.17148858948249876,82
+GenomeCF Shortcut Score vs external reliability risk,Spearman,-0.16560561416182876,-0.383543866194425,0.05325435078625337,82
+Core AUROC vs external matched-negative shift,Pearson,-0.14213563230665038,-0.46035314723438303,0.15189998976372152,24
+GenomeCF Shortcut Score vs external matched-negative shift,Pearson,0.28298819786892404,-0.12067035161846594,0.6146548054825507,24
+Held-out core AUROC model,R^2,0.06170684121560244,0.0010653101221095279,0.21470674009466065,82
+GenomeCF Shortcut Score model,R^2,0.022971964913799936,5.196545710638434e-05,0.11119951828624694,82
+Combined AUROC + Shortcut Score model,R^2,0.08611856848571298,0.019866896402223357,0.2388995558214317,82
+Full GenomeCF profile model,R^2,0.3828453974599544,0.2628916352444744,0.5642315135660869,82
+Histone marks family: Held-out core AUROC model,Family-stratified R^2,0.6142014206192772,0.36148942483962165,0.8546862869559256,12
+TF binding family: Held-out core AUROC model,Family-stratified R^2,0.3891853032456921,0.03329989620766231,0.7533820573875011,15
+Variant effect family: Held-out core AUROC model,Family-stratified R^2,0.00016808999307271755,2.959548783971755e-05,0.09688218967024531,55
+Histone marks family: Full GenomeCF profile model,Family-stratified R^2,0.95778316400216,0.913392644421122,1.0,12
+TF binding family: Full GenomeCF profile model,Family-stratified R^2,0.8445162285758199,0.7429700172217402,0.9986552110987204,15
+Variant effect family: Full GenomeCF profile model,Family-stratified R^2,0.3561628971677966,0.1848804863484248,0.6167291334331076,55
+Held-out core AUROC model,Leave-one-family-out R^2,-0.3175100698488236,,,82
+GenomeCF Shortcut Score model,Leave-one-family-out R^2,-0.03662773230643768,,,82
+Combined AUROC + Shortcut Score model,Leave-one-family-out R^2,-0.32078080786963237,,,82
+Full GenomeCF profile model,Leave-one-family-out R^2,-0.1094618533034164,,,82
+Full GenomeCF profile vs AUROC model,Delta R^2,0.32113855624435206,0.18174012816986054,0.5145493217912405,82
+Shortcut Score vs AUROC leave-one-family-out advantage,Permutation p,0.006,,,1000
+Full GenomeCF profile vs AUROC leave-one-family-out advantage,Permutation p,0.361,,,1000

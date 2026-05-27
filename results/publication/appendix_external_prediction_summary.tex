@@ -1,0 +1,29 @@
+\begin{tabular}{p{6.1cm}p{1.2cm}p{3.6cm}c}
+\toprule
+Analysis & Statistic & Estimate (95\% CI) & n \\
+\midrule
+Core AUROC vs external biological reliability & Spearman & 0.215 [-0.018, 0.428] & 82 \\
+GenomeCF Shortcut Score vs external biological reliability & Spearman & 0.077 [-0.129, 0.271] & 82 \\
+Core AUROC vs external reliability risk & Spearman & -0.043 [-0.278, 0.171] & 82 \\
+GenomeCF Shortcut Score vs external reliability risk & Spearman & -0.166 [-0.384, 0.053] & 82 \\
+Core AUROC vs external matched-negative shift & Pearson & -0.142 [-0.460, 0.152] & 24 \\
+GenomeCF Shortcut Score vs external matched-negative shift & Pearson & 0.283 [-0.121, 0.615] & 24 \\
+Held-out core AUROC model & R$^2$ & 0.062 [0.001, 0.215] & 82 \\
+GenomeCF Shortcut Score model & R$^2$ & 0.023 [0.000, 0.111] & 82 \\
+Combined AUROC + Shortcut Score model & R$^2$ & 0.086 [0.020, 0.239] & 82 \\
+Full GenomeCF profile model & R$^2$ & 0.383 [0.263, 0.564] & 82 \\
+Histone marks family: Held-out core AUROC model & Family-stratified R$^2$ & 0.614 [0.361, 0.855] & 12 \\
+TF binding family: Held-out core AUROC model & Family-stratified R$^2$ & 0.389 [0.033, 0.753] & 15 \\
+Variant effect family: Held-out core AUROC model & Family-stratified R$^2$ & 0.000 [0.000, 0.097] & 55 \\
+Histone marks family: Full GenomeCF profile model & Family-stratified R$^2$ & 0.958 [0.913, 1.000] & 12 \\
+TF binding family: Full GenomeCF profile model & Family-stratified R$^2$ & 0.845 [0.743, 0.999] & 15 \\
+Variant effect family: Full GenomeCF profile model & Family-stratified R$^2$ & 0.356 [0.185, 0.617] & 55 \\
+Held-out core AUROC model & Leave-one-family-out R$^2$ & -0.318 & 82 \\
+GenomeCF Shortcut Score model & Leave-one-family-out R$^2$ & -0.037 & 82 \\
+Combined AUROC + Shortcut Score model & Leave-one-family-out R$^2$ & -0.321 & 82 \\
+Full GenomeCF profile model & Leave-one-family-out R$^2$ & -0.109 & 82 \\
+Full GenomeCF profile vs AUROC model & Delta R$^2$ & 0.321 [0.182, 0.515] & 82 \\
+Shortcut Score vs AUROC leave-one-family-out advantage & Permutation p & 0.006 & 1,000 \\
+Full GenomeCF profile vs AUROC leave-one-family-out advantage & Permutation p & 0.361 & 1,000 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,7 @@
+{
+  "title": "GenomeCF",
+  "description": "Counterfactual validation standard for DNA sequence models",
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": ["genomics", "dna models", "benchmark", "counterfactual evaluation", "shortcut learning"]
+}
