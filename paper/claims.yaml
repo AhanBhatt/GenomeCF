@@ -1,0 +1,136 @@
+claims:
+  - claim_id: abstract_promoter_kmer_auroc
+    paper_location: "Abstract; Results/Held-out AUROC"
+    claim_text: "AUROC = 0.898"
+    source_registry_file: "results/publication/table2_main_results.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.898491
+    tolerance: 0.001
+    status: validated
+  - claim_id: abstract_promoter_kmer_rc_instability
+    paper_location: "Abstract; Results/Held-out AUROC"
+    claim_text: "RC instability = 0.263"
+    source_registry_file: "results/publication/table2_main_results.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.263443
+    tolerance: 0.001
+    status: validated
+  - claim_id: abstract_promoter_rcaug_rc_instability
+    paper_location: "Abstract; Results/Held-out AUROC"
+    claim_text: "RC instability = 0.017"
+    source_registry_file: "results/publication/table2_main_results.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.016550
+    tolerance: 0.001
+    status: validated
+  - claim_id: cohn_dnabert_negative_mono_drop
+    paper_location: "Abstract; Results/Held-out AUROC"
+    claim_text: "Mononucleotide shuffle drop = -0.049"
+    source_registry_file: "results/publication/table2_main_results.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: -0.048889
+    tolerance: 0.001
+    status: validated
+  - claim_id: promoter_caduceus_vs_dnabert_rc_delta_gain
+    paper_location: "Results/Foundation models"
+    claim_text: "RC instability improvement = 0.037"
+    source_registry_file: "results/publication/table2_main_results.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.037309
+    tolerance: 0.001
+    status: validated
+  - claim_id: promoter_gc_only_matched_negative_drop
+    paper_location: "Abstract; Results/Matched-negative"
+    claim_text: "Matched-negative AUROC drop = 0.084"
+    source_registry_file: "results/release/matched_negative_model_summary.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.084061
+    tolerance: 0.001
+    status: validated
+  - claim_id: promoter_rcaug_temperature_ece_reduction
+    paper_location: "Abstract; Results/Matched-negative and GC-bin analyses"
+    claim_text: "ECE reduction = 0.031"
+    source_registry_file: "results/release/mitigation_summary.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.031445
+    tolerance: 0.001
+    status: validated
+  - claim_id: external_auroc_only_r2
+    paper_location: "Abstract; Results/External validation"
+    claim_text: "R^2 = 0.062"
+    source_registry_file: "results/release/external_transfer_stats.json"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.061707
+    tolerance: 0.001
+    status: validated
+  - claim_id: external_shortcut_only_r2
+    paper_location: "Abstract; Results/External validation"
+    claim_text: "R^2 = 0.023"
+    source_registry_file: "results/release/external_transfer_stats.json"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.022972
+    tolerance: 0.001
+    status: validated
+  - claim_id: external_full_profile_r2
+    paper_location: "Abstract; Results/External validation"
+    claim_text: "R^2 = 0.383"
+    source_registry_file: "results/release/external_transfer_stats.json"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.382845
+    tolerance: 0.001
+    status: validated
+  - claim_id: external_full_profile_advantage
+    paper_location: "Abstract; Results/External validation"
+    claim_text: "Delta R^2 over AUROC-only = 0.321"
+    source_registry_file: "results/release/external_transfer_stats.json"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.321139
+    tolerance: 0.001
+    status: validated
+  - claim_id: case_a_bcl11a_auprc_gain
+    paper_location: "Abstract; Results/Case study"
+    claim_text: "AUPRC gain = 0.069"
+    source_registry_file: "results/release/biological_case_study.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.069199
+    tolerance: 0.001
+    status: validated
+  - claim_id: case_a_bcl11a_topk_gain
+    paper_location: "Abstract; Results/Case study"
+    claim_text: "Top-k enrichment gain = 0.823"
+    source_registry_file: "results/release/biological_case_study.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.822581
+    tolerance: 0.001
+    status: validated
+  - claim_id: case_b_myc_dnabert_topk_advantage
+    paper_location: "Abstract; Results/Case study"
+    claim_text: "Top-k enrichment advantage = 0.430"
+    source_registry_file: "results/release/biological_case_study.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 0.429787
+    tolerance: 0.001
+    status: validated
+  - claim_id: synthetic_gc_conflict_dnabert_shortcut_following
+    paper_location: "Abstract; Results/GenomeCF-Synth"
+    claim_text: "Shortcut-following rate = 1.000"
+    source_registry_file: "results/release/synthetic_extended_summary.csv"
+    source_rows_filter: "see generating script filters"
+    source_script: "src/generate_release_bundle.py"
+    validated_value: 1.000000
+    tolerance: 0.001
+    status: validated

@@ -1,13 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><title>GenomeCF</title></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenomeCF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<h1>GenomeCF</h1>
-<p>Counterfactual validation standard for DNA sequence models.</p>
+<nav>
+  <a href="index.html">Overview</a>
+  <a href="quickstart.html">Quickstart</a>
+  <a href="tasks.html">Tasks</a>
+  <a href="models.html">Models</a>
+  <a href="metrics.html">Metrics</a>
+  <a href="external.html">External validation</a>
+  <a href="synthetic.html">GenomeCF-Synth</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="reporting_standard.html">Reporting checklist</a>
+  <a href="reproducibility.html">Reproducibility</a>
+  <a href="downloads.html">Downloads</a>
+  <a href="citation.html">Citation</a>
+</nav>
+
+<div class="hero">
+  <h1>GenomeCF</h1>
+  <p class="small">Counterfactual stress testing and external validation for DNA sequence models.</p>
+  <p>
+    <a href="leaderboard.html">Leaderboard</a> ·
+    <a href="external.html">External validation</a> ·
+    <a href="synthetic.html">GenomeCF-Synth</a>
+  </p>
+  <p class="small">
+    PDFs: <a href="../../paper/genomecf_report.pdf">paper</a>, <a href="../../paper/genomecf_supplement.pdf">supplement</a>
+  </p>
+</div>
+
+<h2>Key commands</h2>
+<pre><code>pip install -e .[benchmark,dev]
+
+genomecf reproduce-quickstart
+genomecf validate-results
+genomecf check-report --results results/release/benchmark_registry.csv
+genomecf trace-paper --strict
+</code></pre>
+
+<h2>Downloads</h2>
 <ul>
-  <li><a href="leaderboard.csv">Leaderboard CSV</a></li>
-  <li><a href="../reporting_checklist.md">Reporting checklist</a></li>
-  <li><a href="../QUICKSTART.md">Quickstart</a></li>
+  <li><a href="leaderboard.csv">leaderboard.csv</a> (model-level)</li>
+  <li><a href="leaderboard_rows.csv">leaderboard_rows.csv</a> (task-model rows)</li>
+  <li><a href="../../results/release/benchmark_registry.csv">benchmark_registry.csv</a></li>
+  <li><a href="../../results/release/paper_claim_traceability.html">paper claim traceability</a></li>
 </ul>
 </body>
 </html>

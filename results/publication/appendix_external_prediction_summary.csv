@@ -20,5 +20,5 @@ GenomeCF Shortcut Score model,Leave-one-family-out R^2,-0.03662773230643768,,,82
 Combined AUROC + Shortcut Score model,Leave-one-family-out R^2,-0.32078080786963237,,,82
 Full GenomeCF profile model,Leave-one-family-out R^2,-0.1094618533034164,,,82
 Full GenomeCF profile vs AUROC model,Delta R^2,0.32113855624435206,0.18174012816986054,0.5145493217912405,82
-Shortcut Score vs AUROC leave-one-family-out advantage,Permutation p,0.006,,,1000
-Full GenomeCF profile vs AUROC leave-one-family-out advantage,Permutation p,0.361,,,1000
+Shortcut Score vs AUROC leave-one-family-out advantage,Permutation p,0.006993006993006993,,,1000
+Full GenomeCF profile vs AUROC leave-one-family-out advantage,Permutation p,0.36163836163836166,,,1000

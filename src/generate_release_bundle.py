@@ -178,6 +178,7 @@ def build_statistical_claims() -> list[dict[str, object]]:
     gc_conflict_dnabert = find_row(synth_rows, task_id="gc_conflict", model_id="dnabert2")
 
     reg_auroc = next(item for item in external_stats["regression"] if item["predictors"] == "core_mean_auroc")
+    reg_shortcut = next(item for item in external_stats["regression"] if item["predictors"] == "core_mean_shortcut_score")
     reg_full = next(
         item
         for item in external_stats["regression"]
@@ -288,6 +289,19 @@ def build_statistical_claims() -> list[dict[str, object]]:
             "test": "bootstrap confidence interval",
             "p_value_or_bootstrap_probability": None,
             "n": reg_auroc["n"],
+            "registry_source": "results/release/external_transfer_stats.json",
+            "script": "src/generate_release_bundle.py",
+        },
+        {
+            "claim_id": "external_shortcut_only_r2",
+            "paper_location": "Abstract; Results/External validation",
+            "metric": "R^2",
+            "estimate": reg_shortcut["r2"],
+            "CI_low": reg_shortcut["ci_low"],
+            "CI_high": reg_shortcut["ci_high"],
+            "test": "bootstrap confidence interval",
+            "p_value_or_bootstrap_probability": None,
+            "n": reg_shortcut["n"],
             "registry_source": "results/release/external_transfer_stats.json",
             "script": "src/generate_release_bundle.py",
         },
@@ -520,8 +534,8 @@ def write_release_bundle() -> None:
             [
                 "# GenomeCF v1 Expected Outputs",
                 "",
-                "- `../paper/genomecf_report.pdf`",
-                "- `../paper/genomecf_supplement.pdf`",
+                "- `paper/genomecf_report.pdf`",
+                "- `paper/genomecf_supplement.pdf`",
                 "- `results/release/benchmark_registry.csv`",
                 "- `results/release/benchmark_summary.csv`",
                 "- `results/release/external_transfer_stats.json`",

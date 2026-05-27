@@ -1,0 +1,13 @@
+\begin{tabular}{p{4.0cm}c r r r p{2.7cm} c p{4.1cm}}
+\toprule
+Analysis & n & AUROC-only R$^2$ & Shortcut-only R$^2$ & Full profile R$^2$ & $\Delta R^2$ (95\% CI) & Perm. $p$ & Notes \\
+\midrule
+in-sample (pooled) & 82 & 0.062 & 0.023 & 0.383 & 0.321 [0.182, 0.515] & 0.0005 & Primary analysis: full GenomeCF profile vs AUROC-only (pooled). \\
+leave-one-task-out & 82 & 0.026 & -0.027 & 0.238 & 0.212 & -- & Task-held-out prediction within the same mix of assay families. \\
+leave-one-family-out & 82 & -0.318 & -0.037 & -0.109 & 0.208 & 0.3616 & Hard setting: extrapolation to a held-out assay family. \\
+within-family leave-one-task-out (Variant effect) & 55 & -0.025 & -0.060 & 0.089 & 0.114 & -- & Within-family robustness (assay-family specific). \\
+in-sample model-family stratified (k-mer baseline) & 9 & 0.000 & 0.000 & 0.000 & 0.000 & -- & Checks robustness when restricting to a model family. \\
+in-sample model-family stratified (CNN) & 28 & 0.006 & 0.028 & 0.076 & 0.069 & -- & Checks robustness when restricting to a model family. \\
+in-sample model-family stratified (foundation model) & 45 & 0.247 & 0.086 & 0.555 & 0.308 & -- & Checks robustness when restricting to a model family. \\
+\bottomrule
+\end{tabular}

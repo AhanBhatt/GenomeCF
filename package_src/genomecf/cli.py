@@ -58,6 +58,20 @@ def cmd_build_appendix(args: argparse.Namespace) -> None:
 def cmd_build_supplement(args: argparse.Namespace) -> None:
     payload = build_publication(skip_tests=True, skip_latex=True, skip_validation=False)
     print(f"Supplement artifacts ready in {payload['publication_dir']}")
+    tex_path = PAPER_ROOT / "genomecf_supplement.tex"
+    if tex_path.exists():
+        result = subprocess.run(
+            ["pdflatex", "-interaction=nonstopmode", tex_path.name],
+            cwd=PAPER_ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        pdf_path = PAPER_ROOT / "genomecf_supplement.pdf"
+        if result.returncode == 0 and pdf_path.exists():
+            print(f"Built supplement PDF at {pdf_path}")
+        else:
+            print("Supplement LaTeX build did not succeed (pdflatex missing or compilation failed).")
 
 
 def cmd_build_website(args: argparse.Namespace) -> None:

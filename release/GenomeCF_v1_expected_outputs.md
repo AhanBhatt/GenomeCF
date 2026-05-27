@@ -1,7 +1,7 @@
 # GenomeCF v1 Expected Outputs
 
-- `../paper/genomecf_report.pdf`
-- `../paper/genomecf_supplement.pdf`
+- `paper/genomecf_report.pdf`
+- `paper/genomecf_supplement.pdf`
 - `results/release/benchmark_registry.csv`
 - `results/release/benchmark_summary.csv`
 - `results/release/external_transfer_stats.json`

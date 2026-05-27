@@ -1,6 +1,7 @@
 {
   "site_root": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site",
   "leaderboard_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\leaderboard.csv",
+  "leaderboard_rows_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\leaderboard_rows.csv",
   "pages": [
     "citation.html",
     "downloads.html",

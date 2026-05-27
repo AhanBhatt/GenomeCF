@@ -1,0 +1,263 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!55!black]{hyperref}
+\hypersetup{pdfborder={0 0 0}}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{natbib}
+
+\captionsetup{font=small}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4em}
+\pretolerance=1000
+\tolerance=2000
+\emergencystretch=2em
+\hyphenpenalty=8000
+\exhyphenpenalty=8000
+
+\title{\textbf{Supplementary Information for}\\[0.4em]GenomeCF: a counterfactual validation standard for DNA sequence models}
+\author{Ahan Bhatt}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+\section{Core and Screening Benchmark Tables}
+
+\begin{table}[h]
+  \centering
+  \caption{GC-only diagnostic baselines on the focal human tasks.}
+  \small
+  \input{../results/publication/appendix_gc_only.tex}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Completed official-split real-data matrix for core and screening tasks.}
+  \scriptsize
+  \resizebox{\linewidth}{!}{\input{../results/publication/appendix_real_results.tex}}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{Split Robustness}
+
+\begin{table}[h]
+  \centering
+  \caption{Five-fold chromosome-grouped cross-validation summary.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_chromosome_cv_summary.tex}}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Per-fold chromosome-grouped cross-validation metrics and fold-wise counts.}
+  \scriptsize
+  \resizebox{\linewidth}{!}{\input{../results/publication/appendix_chromosome_cv_folds.tex}}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{Matched-negative and Mitigation Results}
+
+\begin{table}[h]
+  \centering
+  \caption{Matched-negative evaluation on the focal real tasks.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_matched_negative_results.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Before-and-after confounder balance under matched-negative evaluation.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_matched_negative_confounders.tex}}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Completed mitigation experiments, including matched-negative retraining and completed frozen-foundation interventions.}
+  \scriptsize
+  \resizebox{\linewidth}{!}{\input{../results/publication/appendix_mitigation_results.tex}}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{GC-bin Robustness}
+
+\begin{table}[h]
+  \centering
+  \caption{GC-bin robustness summary on the core human tasks.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_gc_bin_summary.tex}}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{Full GC-bin metrics by task, model and composition bin.}
+  \scriptsize
+  \resizebox{\linewidth}{!}{\input{../results/publication/appendix_gc_bin_by_bin.tex}}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{External Biological Validation}
+
+\begin{table}[h]
+  \centering
+  \caption{Full external biological validation matrix.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_external_validation_results.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{External transfer prediction statistics used in the main-text correlation analysis.}
+  \small
+  \resizebox{0.92\textwidth}{!}{\input{../results/publication/appendix_external_prediction_summary.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{External prediction robustness analysis across task- and family-stratified settings.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_external_prediction_robustness.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{External biological case-study results for the BCL11A and MYC MPRA regulatory variant-effect tasks.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_case_study_results.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{External GC-bin robustness summary.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_external_gc_bin_summary.tex}}
+\end{table}
+
+\begin{landscape}
+\begin{table}[p]
+  \centering
+  \caption{External GC-bin metrics by task, model and composition bin.}
+  \scriptsize
+  \resizebox{\linewidth}{!}{\input{../results/publication/appendix_external_gc_bin_by_bin.tex}}
+\end{table}
+\end{landscape}
+\clearpage
+
+\section{Real-task Motif Probes}
+
+\begin{table}[h]
+  \centering
+  \caption{Controlled real-task motif probes with GC-preserving and random-edit controls.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_real_motif_results.tex}}
+\end{table}
+\clearpage
+
+\section{GenomeCF-Synth}
+
+\begin{table}[h]
+  \centering
+  \caption{Original planted-motif synthetic benchmark summary.}
+  \small
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_synthetic_results.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Extended GenomeCF-Synth shortcut-conflict and motif-grammar results.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_synthetic_extended.tex}}
+\end{table}
+\clearpage
+
+\section{Shortcut Score and Confounder Summaries}
+
+\begin{table}[h]
+  \centering
+  \caption{GenomeCF Shortcut Score summary.}
+  \small
+  \input{../results/publication/appendix_shortcut_score_summary.tex}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Per-task Shortcut Score components.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_shortcut_score_by_task.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Confounder summary on the sampled official test subsets used for the completed benchmark budget.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_confounders.tex}}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \caption{Human-task chromosome-fold counts on the sampled official test subsets.}
+  \small
+  \input{../results/publication/appendix_chrom_folds.tex}
+\end{table}
+
+\section{Statistical Support and Traceability}
+
+\begin{table}[h]
+  \centering
+  \caption{Statistical support for the main manuscript claims. Bootstrap confidence intervals are reported where available from aggregated analyses; direct registry point estimates are retained for single-assay case-study and synthetic-mechanism claims.}
+  \scriptsize
+  \resizebox{\textwidth}{!}{\input{../results/publication/appendix_statistical_claims.tex}}
+\end{table}
+
+\section{Availability and Registry Traceability}
+
+\begin{table}[h]
+  \centering
+  \caption{Key release artifacts and local paths.}
+  \small
+  \begin{tabular}{p{4.2cm}p{9.2cm}}
+    \toprule
+    Artifact & Local path \\
+    \midrule
+    Canonical registry & \texttt{results/release/benchmark\_registry.csv} \\
+    Release summary & \texttt{results/release/benchmark\_summary.csv} \\
+    Publication tables & \texttt{results/publication/*.csv} \\
+    Publication TeX tables & \texttt{results/publication/*.tex} \\
+    Main manuscript PDF & \texttt{paper/genomecf\_report.pdf} \\
+    Supplementary PDF & \texttt{paper/genomecf\_supplement.pdf} \\
+    Release validation report & \texttt{results/release/validation\_report.json} \\
+    Statistical claims table & \texttt{results/release/statistical\_claims.csv} \\
+    Paper claims YAML & \texttt{paper/claims.yaml} \\
+    Release bundle manifest & \texttt{release/GenomeCF\_v1\_manifest.json} \\
+    Release bundle checksums & \texttt{release/GenomeCF\_v1\_checksums.txt} \\
+    Nature Methods artifact manifest & \texttt{results/release/nature\_methods\_artifact\_manifest.json} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\end{document}
+
+

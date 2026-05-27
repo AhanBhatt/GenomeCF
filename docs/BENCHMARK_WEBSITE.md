@@ -12,5 +12,7 @@ Main outputs:
 
 - `docs/site/index.html`
 - `docs/site/leaderboard.html`
-- `docs/site/leaderboard.csv`
+- `docs/site/leaderboard.csv` (model-level summary)
+- `docs/site/leaderboard_rows.csv` (task-model rows for filtering)
+- `docs/site/site_manifest.json`
 

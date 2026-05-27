@@ -12,11 +12,11 @@ GenomeCF answers that question with a reusable benchmark, a release registry, a 
 
 This folder is the GitHub-ready repository root.
 
-The manuscript is intentionally **not** stored in this GitHub upload folder. In the local project layout used for manuscript work, the paper lives in the sibling folder:
+The manuscript sources and build outputs are versioned in this repository under:
 
-- `../paper/`
+- `paper/` (LaTeX sources, `genomecf_report.pdf`, `genomecf_supplement.pdf`)
 
-Large local-only runtime assets are also kept outside the public repo in the sibling folder:
+Large local-only runtime assets (for example cached embeddings and checkpoints) are kept outside the public repo in:
 
 - `../local_runtime_assets/`
 

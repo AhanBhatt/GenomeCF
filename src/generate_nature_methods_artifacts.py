@@ -74,6 +74,13 @@ MODEL_LABELS = {
     "dnabert2": "DNABERT-2",
     "caduceus_ph": "Caduceus-Ph",
 }
+MODEL_FAMILY = {
+    "kmer_logistic_regression": "k-mer baseline",
+    "small_cnn": "CNN",
+    "small_cnn_rc_aug": "CNN",
+    "dnabert2": "foundation model",
+    "caduceus_ph": "foundation model",
+}
 MODEL_COLORS = {
     "kmer_logistic_regression": "#184e77",
     "small_cnn": "#2a9d8f",
@@ -279,6 +286,87 @@ def _leave_one_family_out(frame: pd.DataFrame, predictors: list[str], outcome: s
     }
 
 
+def _leave_one_group_out(
+    frame: pd.DataFrame,
+    group_col: str,
+    predictors: list[str],
+    outcome: str,
+) -> dict[str, object]:
+    clean = frame[predictors + [outcome, group_col]].dropna().reset_index(drop=True)
+    if clean.empty:
+        return {
+            "predictors": "+".join(predictors),
+            "outcome": outcome,
+            "group_col": group_col,
+            "cv_r2": float("nan"),
+            "folds": [],
+        }
+    predictions: list[pd.DataFrame] = []
+    fold_rows: list[dict[str, object]] = []
+    for group in sorted(clean[group_col].unique()):
+        train = clean[clean[group_col] != group]
+        test = clean[clean[group_col] == group]
+        if train.empty or test.empty:
+            continue
+        if len(train) < 3:
+            continue
+        model = LinearRegression().fit(train[predictors].to_numpy(dtype=float), train[outcome].to_numpy(dtype=float))
+        pred = model.predict(test[predictors].to_numpy(dtype=float))
+        fold_r2 = _safe_r2(test[outcome].to_numpy(dtype=float), pred)
+        fold_rows.append({"held_out": group, "n": int(len(test)), "r2": fold_r2})
+        predictions.append(
+            pd.DataFrame(
+                {
+                    "held_out": group,
+                    "y_true": test[outcome].to_numpy(dtype=float),
+                    "y_pred": pred,
+                }
+            )
+        )
+    if not predictions:
+        return {
+            "predictors": "+".join(predictors),
+            "outcome": outcome,
+            "group_col": group_col,
+            "cv_r2": float("nan"),
+            "folds": fold_rows,
+        }
+    pred_frame = pd.concat(predictions, ignore_index=True)
+    return {
+        "predictors": "+".join(predictors),
+        "outcome": outcome,
+        "group_col": group_col,
+        "cv_r2": _safe_r2(pred_frame["y_true"].to_numpy(dtype=float), pred_frame["y_pred"].to_numpy(dtype=float)),
+        "folds": fold_rows,
+    }
+
+
+def _in_sample_permutation_pvalue(
+    frame: pd.DataFrame,
+    *,
+    outcome: str,
+    predictors_a: list[str],
+    predictors_b: list[str],
+    seed: int = SEED,
+    n_perm: int = 2000,
+) -> dict[str, float]:
+    clean = frame[predictors_a + predictors_b + [outcome]].dropna().reset_index(drop=True)
+    observed_delta = float(_fit_linear_r2(clean, predictors_b, outcome) - _fit_linear_r2(clean, predictors_a, outcome))
+    rng = np.random.default_rng(seed)
+    deltas: list[float] = []
+    for _ in range(n_perm):
+        shuffled = clean.copy()
+        shuffled[outcome] = rng.permutation(shuffled[outcome].to_numpy())
+        delta = _fit_linear_r2(shuffled, predictors_b, outcome) - _fit_linear_r2(shuffled, predictors_a, outcome)
+        if np.isfinite(delta):
+            deltas.append(float(delta))
+    if not deltas:
+        return {"observed_delta": observed_delta, "p_value": float("nan"), "n_perm": 0}
+    hits = float((np.abs(deltas) >= abs(observed_delta)).sum())
+    p_value = float((hits + 1.0) / (len(deltas) + 1.0))
+    return {"observed_delta": observed_delta, "p_value": p_value, "n_perm": int(len(deltas))}
+
+
 def _permutation_pvalue(
     frame: pd.DataFrame,
     *,
@@ -303,7 +391,8 @@ def _permutation_pvalue(
             deltas.append(float(b - a))
     if not deltas:
         return {"observed_delta": observed_delta, "p_value": float("nan"), "n_perm": 0}
-    p_value = float((np.abs(deltas) >= abs(observed_delta)).mean())
+    hits = float((np.abs(deltas) >= abs(observed_delta)).sum())
+    p_value = float((hits + 1.0) / (len(deltas) + 1.0))
     return {"observed_delta": observed_delta, "p_value": p_value, "n_perm": int(len(deltas))}
 
 
@@ -703,18 +792,28 @@ def build_external_prediction_analysis(points: pd.DataFrame) -> dict[str, object
         ]
     ].copy()
     frame["configuration_label"] = frame["model_label"] + " | " + frame["condition_label"]
+    frame["model_family"] = frame["model_id"].map(MODEL_FAMILY).fillna("other")
+
     auroc_corr = _corr_payload(frame, "core_mean_auroc", "external_biological_reliability", method="spearman")
     shortcut_corr = _corr_payload(frame, "core_mean_shortcut_score", "external_biological_reliability", method="spearman")
     risk_auroc_corr = _corr_payload(frame, "core_mean_auroc", "external_reliability_risk", method="spearman")
     risk_shortcut_corr = _corr_payload(frame, "core_mean_shortcut_score", "external_reliability_risk", method="spearman")
     matched_auroc_corr = _corr_payload(frame, "core_mean_auroc", "matched_negative_shift", method="pearson")
     matched_shortcut_corr = _corr_payload(frame, "core_mean_shortcut_score", "matched_negative_shift", method="pearson")
+
     partial_shortcut = _partial_corr_payload(
         frame,
         "core_mean_shortcut_score",
         "external_biological_reliability",
         numeric_controls=["core_mean_auroc"],
         categorical_controls=["model_id", "external_family"],
+    )
+    partial_shortcut_by_family = _partial_corr_payload(
+        frame,
+        "core_mean_shortcut_score",
+        "external_biological_reliability",
+        numeric_controls=["core_mean_auroc"],
+        categorical_controls=["model_family", "external_family"],
     )
     partial_gc_gap = _partial_corr_payload(
         frame,
@@ -736,34 +835,74 @@ def build_external_prediction_analysis(points: pd.DataFrame) -> dict[str, object
             "core_gc_bin_auroc_gap",
         ],
     ]
+    full_profile_predictors = [
+        "core_mean_auroc",
+        "core_mean_rc_delta",
+        "core_mean_ece",
+        "core_matched_negative_shift",
+        "core_gc_bin_auroc_gap",
+    ]
+
     regression = [_linear_fit(frame, predictors, "external_biological_reliability") for predictors in regression_specs]
     lofo = [_leave_one_family_out(frame, predictors, "external_biological_reliability") for predictors in regression_specs]
+    loto = [_leave_one_group_out(frame, "task_id", predictors, "external_biological_reliability") for predictors in regression_specs]
+
+    within_family_task_cv: list[dict[str, object]] = []
+    for family, subset in frame.groupby("external_family", sort=True):
+        if subset["task_id"].nunique() < 3:
+            continue
+        within_family_task_cv.append(
+            {
+                "external_family": family,
+                "results": [
+                    _leave_one_group_out(subset, "task_id", predictors, "external_biological_reliability")
+                    for predictors in regression_specs
+                ],
+            }
+        )
+
     family_stratified = [
         * _family_stratified_regression(frame, ["core_mean_auroc"], "external_biological_reliability"),
-        * _family_stratified_regression(
-            frame,
-            ["core_mean_auroc", "core_mean_rc_delta", "core_mean_ece", "core_matched_negative_shift", "core_gc_bin_auroc_gap"],
-            "external_biological_reliability",
-        ),
+        * _family_stratified_regression(frame, full_profile_predictors, "external_biological_reliability"),
     ]
+
+    model_family_stratified: list[dict[str, object]] = []
+    for model_family, subset in frame.groupby("model_family", sort=True):
+        model_family_stratified.append(
+            {
+                "model_family": model_family,
+                "auroc_only": _linear_fit(subset, ["core_mean_auroc"], "external_biological_reliability"),
+                "shortcut_only": _linear_fit(subset, ["core_mean_shortcut_score"], "external_biological_reliability"),
+                "full_profile": _linear_fit(subset, full_profile_predictors, "external_biological_reliability"),
+                "n": int(len(subset.dropna(subset=["external_biological_reliability"]))),
+            }
+        )
+
     full_profile_advantage = _bootstrap_r2_advantage(
         frame,
         outcome="external_biological_reliability",
         predictors_a=["core_mean_auroc"],
-        predictors_b=["core_mean_auroc", "core_mean_rc_delta", "core_mean_ece", "core_matched_negative_shift", "core_gc_bin_auroc_gap"],
+        predictors_b=full_profile_predictors,
     )
-    shortcut_permutation = _permutation_pvalue(
+    shortcut_lofo_permutation = _permutation_pvalue(
         frame,
         outcome="external_biological_reliability",
         predictors_a=["core_mean_auroc"],
         predictors_b=["core_mean_shortcut_score"],
     )
-    full_profile_permutation = _permutation_pvalue(
+    full_profile_lofo_permutation = _permutation_pvalue(
         frame,
         outcome="external_biological_reliability",
         predictors_a=["core_mean_auroc"],
-        predictors_b=["core_mean_auroc", "core_mean_rc_delta", "core_mean_ece", "core_matched_negative_shift", "core_gc_bin_auroc_gap"],
+        predictors_b=full_profile_predictors,
     )
+    full_profile_in_sample_permutation = _in_sample_permutation_pvalue(
+        frame,
+        outcome="external_biological_reliability",
+        predictors_a=["core_mean_auroc"],
+        predictors_b=full_profile_predictors,
+    )
+
     return {
         "frame": frame,
         "stats": {
@@ -776,13 +915,18 @@ def build_external_prediction_analysis(points: pd.DataFrame) -> dict[str, object
             "auroc_vs_external_matched_shift": matched_auroc_corr,
             "shortcut_vs_external_matched_shift": matched_shortcut_corr,
             "partial_shortcut_vs_external_reliability": partial_shortcut,
+            "partial_shortcut_vs_external_reliability_controls": partial_shortcut_by_family,
             "partial_gc_gap_vs_external_risk": partial_gc_gap,
             "regression": regression,
             "leave_one_family_out": lofo,
+            "leave_one_task_out": loto,
+            "within_family_leave_one_task_out": within_family_task_cv,
             "family_stratified_regression": family_stratified,
+            "model_family_stratified_regression": model_family_stratified,
             "full_profile_advantage": full_profile_advantage,
-            "shortcut_permutation": shortcut_permutation,
-            "permutation": full_profile_permutation,
+            "shortcut_permutation": shortcut_lofo_permutation,
+            "permutation": full_profile_lofo_permutation,
+            "in_sample_permutation": full_profile_in_sample_permutation,
         },
     }
 
@@ -881,6 +1025,114 @@ def plot_external_validation(family_summary: pd.DataFrame) -> None:
     fig.tight_layout()
     fig.savefig(FIGURES_ROOT / "genomecf_external_validation.png", bbox_inches="tight")
     plt.close(fig)
+
+
+def build_external_prediction_robustness(stats: dict[str, object]) -> pd.DataFrame:
+    def _predictor_key(predictors: list[str]) -> str:
+        return "+".join(predictors)
+
+    auroc_key = _predictor_key(["core_mean_auroc"])
+    shortcut_key = _predictor_key(["core_mean_shortcut_score"])
+    full_key = _predictor_key([
+        "core_mean_auroc",
+        "core_mean_rc_delta",
+        "core_mean_ece",
+        "core_matched_negative_shift",
+        "core_gc_bin_auroc_gap",
+    ])
+
+    reg = pd.DataFrame(stats.get("regression", []))
+    lofo = pd.DataFrame(stats.get("leave_one_family_out", []))
+    loto = pd.DataFrame(stats.get("leave_one_task_out", []))
+
+    def _r2_from(df: pd.DataFrame, key: str, col: str) -> float:
+        if df.empty:
+            return float("nan")
+        subset = df[df["predictors"] == key]
+        if subset.empty:
+            return float("nan")
+        return float(subset.iloc[0][col])
+
+    in_sample = {
+        "analysis_type": "in-sample (pooled)",
+        "n": int(stats.get("pair_count", 0)),
+        "auroc_only_r2": _r2_from(reg, auroc_key, "r2"),
+        "shortcut_only_r2": _r2_from(reg, shortcut_key, "r2"),
+        "full_profile_r2": _r2_from(reg, full_key, "r2"),
+    }
+    in_sample["delta_full_vs_auroc"] = float(in_sample["full_profile_r2"] - in_sample["auroc_only_r2"])
+    advantage = stats.get("full_profile_advantage", {})
+    in_sample["delta_ci_low"] = float(advantage.get("ci_low", float("nan")))
+    in_sample["delta_ci_high"] = float(advantage.get("ci_high", float("nan")))
+    in_perm = stats.get("in_sample_permutation", {})
+    in_sample["permutation_p"] = float(in_perm.get("p_value", float("nan")))
+    in_sample["interpretation"] = "Primary analysis: full GenomeCF profile vs AUROC-only (pooled)."
+
+    lofo_row = {
+        "analysis_type": "leave-one-family-out",
+        "n": int(stats.get("pair_count", 0)),
+        "auroc_only_r2": _r2_from(lofo, auroc_key, "cv_r2"),
+        "shortcut_only_r2": _r2_from(lofo, shortcut_key, "cv_r2"),
+        "full_profile_r2": _r2_from(lofo, full_key, "cv_r2"),
+    }
+    lofo_row["delta_full_vs_auroc"] = float(lofo_row["full_profile_r2"] - lofo_row["auroc_only_r2"])
+    lofo_row["delta_ci_low"] = float("nan")
+    lofo_row["delta_ci_high"] = float("nan")
+    lofo_perm = stats.get("permutation", {})
+    lofo_row["permutation_p"] = float(lofo_perm.get("p_value", float("nan")))
+    lofo_row["interpretation"] = "Hard setting: extrapolation to a held-out assay family."
+
+    loto_row = {
+        "analysis_type": "leave-one-task-out",
+        "n": int(stats.get("pair_count", 0)),
+        "auroc_only_r2": _r2_from(loto, auroc_key, "cv_r2"),
+        "shortcut_only_r2": _r2_from(loto, shortcut_key, "cv_r2"),
+        "full_profile_r2": _r2_from(loto, full_key, "cv_r2"),
+    }
+    loto_row["delta_full_vs_auroc"] = float(loto_row["full_profile_r2"] - loto_row["auroc_only_r2"])
+    loto_row["delta_ci_low"] = float("nan")
+    loto_row["delta_ci_high"] = float("nan")
+    loto_row["permutation_p"] = float("nan")
+    loto_row["interpretation"] = "Task-held-out prediction within the same mix of assay families."
+
+    rows: list[dict[str, object]] = [in_sample, lofo_row, loto_row]
+
+    within = stats.get("within_family_leave_one_task_out", [])
+    for payload in within:
+        family = payload.get("external_family", "")
+        results = pd.DataFrame(payload.get("results", []))
+        row = {
+            "analysis_type": f"within-family leave-one-task-out ({family})",
+            "n": int(stats.get("family_counts", {}).get(family, 0)),
+            "auroc_only_r2": _r2_from(results, auroc_key, "cv_r2"),
+            "shortcut_only_r2": _r2_from(results, shortcut_key, "cv_r2"),
+            "full_profile_r2": _r2_from(results, full_key, "cv_r2"),
+        }
+        row["delta_full_vs_auroc"] = float(row["full_profile_r2"] - row["auroc_only_r2"])
+        row["delta_ci_low"] = float("nan")
+        row["delta_ci_high"] = float("nan")
+        row["permutation_p"] = float("nan")
+        row["interpretation"] = "Within-family robustness (assay-family specific)."
+        rows.append(row)
+
+    model_stratified = stats.get("model_family_stratified_regression", [])
+    for payload in model_stratified:
+        mfam = payload.get("model_family", "")
+        row = {
+            "analysis_type": f"in-sample model-family stratified ({mfam})",
+            "n": int(payload.get("n", 0)),
+            "auroc_only_r2": float(payload.get("auroc_only", {}).get("r2", float("nan"))),
+            "shortcut_only_r2": float(payload.get("shortcut_only", {}).get("r2", float("nan"))),
+            "full_profile_r2": float(payload.get("full_profile", {}).get("r2", float("nan"))),
+        }
+        row["delta_full_vs_auroc"] = float(row["full_profile_r2"] - row["auroc_only_r2"])
+        row["delta_ci_low"] = float("nan")
+        row["delta_ci_high"] = float("nan")
+        row["permutation_p"] = float("nan")
+        row["interpretation"] = "Checks robustness when restricting to a model family."
+        rows.append(row)
+
+    return pd.DataFrame(rows)
 
 
 def plot_external_prediction(frame: pd.DataFrame, stats: dict[str, object]) -> None:
@@ -991,12 +1243,14 @@ def main() -> None:
     prediction_bundle = build_external_prediction_analysis(external_points)
     transfer = prediction_bundle["frame"]
     stats = prediction_bundle["stats"]
+    robustness = build_external_prediction_robustness(stats)
     case_study = build_case_study(external_points)
 
     external_points.to_csv(RESULTS_ROOT / "external_validation_summary.csv", index=False)
     family_summary.to_csv(RESULTS_ROOT / "external_validation_family_summary.csv", index=False)
     profiles.to_csv(RESULTS_ROOT / "external_core_profile.csv", index=False)
     transfer.to_csv(RESULTS_ROOT / "external_transfer_prediction.csv", index=False)
+    robustness.to_csv(RESULTS_ROOT / "external_prediction_robustness.csv", index=False)
     case_study.to_csv(RESULTS_ROOT / "biological_case_study.csv", index=False)
     (RESULTS_ROOT / "external_transfer_stats.json").write_text(json.dumps(stats, indent=2))
 
@@ -1010,6 +1264,7 @@ def main() -> None:
             "external_validation_family_summary.csv",
             "external_core_profile.csv",
             "external_transfer_prediction.csv",
+            "external_prediction_robustness.csv",
             "biological_case_study.csv",
         ],
         "figures": [

@@ -4,9 +4,10 @@ GenomeCF is released as a counterfactual validation resource for DNA sequence mo
 
 Core release artifacts:
 
-- main paper: `../paper/genomecf_report.pdf`
-- supplement: `../paper/genomecf_supplement.pdf`
+- main paper: `paper/genomecf_report.pdf`
+- supplement: `paper/genomecf_supplement.pdf`
 - canonical registry: `results/release/benchmark_registry.csv`
+- paper-claim traceability: `results/release/paper_claim_traceability.{csv,html}`
 - publication tables: `results/publication/*.csv`
 - local site: `docs/site/index.html`
 
@@ -14,9 +15,13 @@ Key commands:
 
 ```bash
 genomecf build-paper
+genomecf build-supplement
 genomecf build-appendix
+
 genomecf validate-results
 genomecf build-website
+
 genomecf reproduce-quickstart
 genomecf check-report --results results/release/benchmark_registry.csv
+genomecf trace-paper --strict
 ```

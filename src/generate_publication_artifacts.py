@@ -261,6 +261,7 @@ def load_release_inputs() -> dict[str, pd.DataFrame]:
         "external_validation_summary": RELEASE_ROOT / "external_validation_summary.csv",
         "external_validation_family_summary": RELEASE_ROOT / "external_validation_family_summary.csv",
         "external_transfer_prediction": RELEASE_ROOT / "external_transfer_prediction.csv",
+        "external_prediction_robustness": RELEASE_ROOT / "external_prediction_robustness.csv",
         "external_case_study": RELEASE_ROOT / "biological_case_study.csv",
         "synthetic_extended": RELEASE_ROOT / "synthetic_extended_summary.csv",
         "foundation_status": RELEASE_ROOT / "foundation_loader_status.csv",
@@ -1489,6 +1490,61 @@ def write_external_prediction_tex(frame: pd.DataFrame) -> None:
     )
 
 
+def build_external_prediction_robustness_table(frame: pd.DataFrame) -> pd.DataFrame:
+    if frame.empty:
+        return frame.copy()
+    order = [
+        "in-sample (pooled)",
+        "leave-one-task-out",
+        "leave-one-family-out",
+        "within-family leave-one-task-out (Variant effect)",
+        "in-sample model-family stratified (k-mer baseline)",
+        "in-sample model-family stratified (CNN)",
+        "in-sample model-family stratified (foundation model)",
+    ]
+    subset = frame.copy()
+    subset["order"] = subset["analysis_type"].map({name: idx for idx, name in enumerate(order)}).fillna(9999)
+    return subset.sort_values(["order", "analysis_type"]).drop(columns=["order"]).reset_index(drop=True)
+
+
+def write_external_prediction_robustness_tex(frame: pd.DataFrame) -> None:
+    rows: list[list[str]] = []
+    for row in frame.to_dict(orient="records"):
+        delta_cell = fmt(float(row["delta_full_vs_auroc"])) if pd.notna(row["delta_full_vs_auroc"]) else "--"
+        if pd.notna(row.get("delta_ci_low")) and pd.notna(row.get("delta_ci_high")):
+            delta_cell = f"{delta_cell} [{fmt(float(row['delta_ci_low']))}, {fmt(float(row['delta_ci_high']))}]"
+        perm_cell = "--"
+        if pd.notna(row.get("permutation_p")):
+            perm_cell = latex_escape(f"{float(row['permutation_p']):.4f}")
+        rows.append(
+            [
+                latex_escape(row["analysis_type"]),
+                fmt_count(row["n"]),
+                fmt(float(row["auroc_only_r2"])) if pd.notna(row["auroc_only_r2"]) else "--",
+                fmt(float(row["shortcut_only_r2"])) if pd.notna(row["shortcut_only_r2"]) else "--",
+                fmt(float(row["full_profile_r2"])) if pd.notna(row["full_profile_r2"]) else "--",
+                delta_cell,
+                perm_cell,
+                latex_escape(str(row.get("interpretation", ""))),
+            ]
+        )
+    write_tabular(
+        PUBLICATION_ROOT / "appendix_external_prediction_robustness.tex",
+        [
+            "Analysis",
+            "n",
+            "AUROC-only R$^2$",
+            "Shortcut-only R$^2$",
+            "Full profile R$^2$",
+            "$\\Delta R^2$ (95\\% CI)",
+            "Perm. $p$",
+            "Notes",
+        ],
+        rows,
+        "p{4.0cm}c r r r p{2.7cm} c p{4.1cm}",
+    )
+
+
 def write_case_study_tex(frame: pd.DataFrame) -> None:
     rows: list[list[str]] = []
     for row in frame.to_dict(orient="records"):
@@ -2011,6 +2067,7 @@ def main() -> None:
     external_validation_summary = release["external_validation_summary"]
     external_validation_family_summary = release["external_validation_family_summary"]
     external_transfer_prediction = release["external_transfer_prediction"]
+    external_prediction_robustness = release["external_prediction_robustness"]
     external_case_study = release["external_case_study"]
     synthetic_extended = release["synthetic_extended"]
     external_stats = json.loads((RELEASE_ROOT / "external_transfer_stats.json").read_text())
@@ -2033,6 +2090,7 @@ def main() -> None:
     synthetic_extended_results = build_synthetic_extended_results(synthetic_extended)
     external_validation_results = build_external_validation_results(external_validation_family_summary)
     external_prediction_results = build_external_prediction_summary(external_transfer_prediction, external_stats)
+    external_prediction_robustness_table = build_external_prediction_robustness_table(external_prediction_robustness)
     case_study_results = build_case_study_results(external_case_study)
     appendix_external_results = build_external_appendix_results(external_validation_summary)
     shortcut_task_results, shortcut_model_results = build_shortcut_score_results(summary, matched_results, gc_bin_results)
@@ -2064,6 +2122,7 @@ def main() -> None:
         ("appendix_gc_bin_by_bin", gc_bin_by_bin),
         ("appendix_external_validation_results", appendix_external_results),
         ("appendix_external_prediction_summary", external_prediction_results),
+        ("appendix_external_prediction_robustness", external_prediction_robustness_table),
         ("appendix_case_study_results", case_study_results),
         ("appendix_external_gc_bin_summary", external_gc_bin_summary),
         ("appendix_external_gc_bin_by_bin", external_gc_bin_by_bin),
@@ -2094,6 +2153,7 @@ def main() -> None:
     write_gc_bin_tex(gc_bin_results, gc_bin_by_bin)
     write_external_validation_tex(appendix_external_results)
     write_external_prediction_tex(external_prediction_results)
+    write_external_prediction_robustness_tex(external_prediction_robustness_table)
     write_case_study_tex(case_study_results)
     write_external_gc_bin_tex(external_gc_bin_summary, external_gc_bin_by_bin)
     write_shortcut_score_tex(shortcut_task_results, shortcut_model_results)
@@ -2144,6 +2204,7 @@ def main() -> None:
             "appendix_gc_bin_by_bin",
             "appendix_external_validation_results",
             "appendix_external_prediction_summary",
+            "appendix_external_prediction_robustness",
             "appendix_case_study_results",
             "appendix_external_gc_bin_summary",
             "appendix_external_gc_bin_by_bin",
