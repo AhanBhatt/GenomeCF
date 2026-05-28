@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -54,12 +55,16 @@ def test_cli_validate_results() -> None:
 
 @pytest.mark.fast
 def test_generate_release_upgrade_artifacts() -> None:
+    env = os.environ.copy()
+    # Simulate the public GitHub checkout, which does not include sibling local_runtime_assets.
+    env["GENOMECF_DISABLE_LOCAL_RUNTIME_ASSETS"] = "1"
     result = subprocess.run(
         [sys.executable, "src/generate_release_upgrade_artifacts.py"],
         cwd=PROJECT_ROOT,
         check=True,
         capture_output=True,
         text=True,
+        env=env,
     )
     assert "chromosome_cv_summary.csv" in result.stdout
     assert (PROJECT_ROOT / "results" / "release" / "chromosome_cv_summary.csv").exists()

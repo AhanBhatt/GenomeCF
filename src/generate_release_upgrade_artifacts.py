@@ -17,6 +17,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from genomecf.config import get_split_spec, get_task_spec
 from genomecf.data import build_split_frames, load_task_frame
+from genomecf.paths import DISABLE_LOCAL_RUNTIME_ASSETS
 from genomecf.release import build_release_registry, summarize_release_registry
 
 
@@ -181,20 +182,39 @@ def _confounder_block(frame: pd.DataFrame, prefix: str) -> dict[str, float | int
     return block
 
 
+def _existing_matched_confounders() -> pd.DataFrame | None:
+    path = RESULTS_ROOT / "matched_negative_confounders.csv"
+    if not path.exists():
+        return None
+    return pd.read_csv(path)
+
+
 def build_matched_negative_tables(summary: pd.DataFrame, package_summary: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     rows: list[dict[str, object]] = []
     official_spec = get_split_spec("official")
     matched_spec = get_split_spec("matched_test")
+    existing_confounders = _existing_matched_confounders()
+    used_existing = False
     for task_name in MATCHED_TASKS:
-        frame = load_task_frame(get_task_spec(task_name), PROJECT_ROOT)
-        official = build_split_frames(frame, official_spec, seed=SEED)["test"]
-        matched = build_split_frames(frame, matched_spec, seed=SEED)["test"]
-        row: dict[str, object] = {
-            "task_id": task_name,
-            "task_label": TASK_LABELS[task_name],
-            **_confounder_block(official, "official"),
-            **_confounder_block(matched, "matched"),
-        }
+        row: dict[str, object]
+        try:
+            frame = load_task_frame(get_task_spec(task_name), PROJECT_ROOT)
+            official = build_split_frames(frame, official_spec, seed=SEED)["test"]
+            matched = build_split_frames(frame, matched_spec, seed=SEED)["test"]
+            row = {
+                "task_id": task_name,
+                "task_label": TASK_LABELS[task_name],
+                **_confounder_block(official, "official"),
+                **_confounder_block(matched, "matched"),
+            }
+        except FileNotFoundError:
+            if existing_confounders is None:
+                raise
+            cached = existing_confounders[existing_confounders["task_id"] == task_name]
+            if cached.empty:
+                raise
+            row = cached.iloc[0].to_dict()
+            used_existing = True
         official_gc = summary[
             (summary["task_id"] == task_name)
             & (summary["split_id"] == "official")
@@ -214,6 +234,8 @@ def build_matched_negative_tables(summary: pd.DataFrame, package_summary: pd.Dat
         rows.append(row)
 
     confounders = pd.DataFrame(rows)
+    if used_existing:
+        print("Reused committed matched-negative confounder summaries because raw task data is not available in the public repo checkout.")
     rows: list[dict[str, object]] = []
     requested_models = ["gc_only", "kmer_logistic_regression", "small_cnn", "small_cnn_rc_aug", "dnabert2", "caduceus_ph", "nucleotide_transformer_v2"]
     for task_name in MATCHED_TASKS:
@@ -494,8 +516,12 @@ def main() -> None:
     build_release_registry()
     summary = pd.read_csv(RESULTS_ROOT / "benchmark_summary.csv")
     registry = pd.read_csv(RESULTS_ROOT / "benchmark_registry.csv")
-    package_registry = pd.read_csv(CURRENT_REGISTRY) if CURRENT_REGISTRY.exists() else pd.DataFrame()
-    package_summary = summarize_release_registry(package_registry) if not package_registry.empty else pd.DataFrame(columns=summary.columns)
+    if DISABLE_LOCAL_RUNTIME_ASSETS:
+        package_summary = summary.copy()
+        print("Using committed release summary for upgrade artifacts because local runtime assets are disabled.")
+    else:
+        package_registry = pd.read_csv(CURRENT_REGISTRY) if CURRENT_REGISTRY.exists() else pd.DataFrame()
+        package_summary = summarize_release_registry(package_registry) if not package_registry.empty else summary.copy()
 
     cv_summary, cv_folds = build_chromosome_cv_tables(summary, registry)
     matched_confounders, matched_models = build_matched_negative_tables(summary, package_summary)

@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-LOCAL_RUNTIME_ROOT = PROJECT_ROOT.parent / "local_runtime_assets"
+LOCAL_RUNTIME_ROOT = Path(os.environ.get("GENOMECF_LOCAL_RUNTIME_ROOT", PROJECT_ROOT.parent / "local_runtime_assets"))
+DISABLE_LOCAL_RUNTIME_ASSETS = os.environ.get("GENOMECF_DISABLE_LOCAL_RUNTIME_ASSETS", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
 CONFIG_ROOT = PROJECT_ROOT / "configs"
 RESULTS_ROOT = PROJECT_ROOT / "results"
 RELEASE_ROOT = RESULTS_ROOT / "release"
@@ -14,13 +21,13 @@ FIGURES_ROOT = PROJECT_ROOT / "figures"
 DOCS_ROOT = PROJECT_ROOT / "docs"
 _local_data_root = PROJECT_ROOT / "data"
 _sibling_data_root = LOCAL_RUNTIME_ROOT / "data"
-DATA_ROOT = _local_data_root if _local_data_root.exists() else _sibling_data_root
+DATA_ROOT = _local_data_root if (_local_data_root.exists() or DISABLE_LOCAL_RUNTIME_ASSETS) else _sibling_data_root
 _local_external_root = PROJECT_ROOT / "external"
 _sibling_external_root = LOCAL_RUNTIME_ROOT / "external"
-EXTERNAL_ROOT = _local_external_root if _local_external_root.exists() else _sibling_external_root
+EXTERNAL_ROOT = _local_external_root if (_local_external_root.exists() or DISABLE_LOCAL_RUNTIME_ASSETS) else _sibling_external_root
 _local_cache_root = RESULTS_ROOT / "cache"
 _sibling_cache_root = LOCAL_RUNTIME_ROOT / "results" / "cache"
-CACHE_ROOT = _local_cache_root if _local_cache_root.exists() else _sibling_cache_root
+CACHE_ROOT = _local_cache_root if (_local_cache_root.exists() or DISABLE_LOCAL_RUNTIME_ASSETS) else _sibling_cache_root
 _local_paper_root = PROJECT_ROOT / "paper"
 _sibling_paper_root = PROJECT_ROOT.parent / "paper"
 PAPER_ROOT = _local_paper_root if _local_paper_root.exists() else _sibling_paper_root
