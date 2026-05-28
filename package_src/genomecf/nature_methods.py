@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 from pathlib import Path
 
 import pandas as pd
@@ -95,6 +96,11 @@ def build_website(output_dir: Path | None = None, regenerate: bool = False) -> P
     summary, external_family = _load_release_summary(regenerate=regenerate)
     output_dir = output_dir or (DOCS_ROOT / "site")
     output_dir.mkdir(parents=True, exist_ok=True)
+    figures_dir = PROJECT_ROOT / "figures"
+    site_figures_dir = output_dir / "assets" / "figures"
+    site_downloads_dir = output_dir / "downloads"
+    site_figures_dir.mkdir(parents=True, exist_ok=True)
+    site_downloads_dir.mkdir(parents=True, exist_ok=True)
 
     official = summary[
         (summary["split_id"] == "official")
@@ -155,6 +161,20 @@ def build_website(output_dir: Path | None = None, regenerate: bool = False) -> P
     ]
     leaderboard_rows = leaderboard_rows[[c for c in keep_cols if c in leaderboard_rows.columns]].copy()
     leaderboard_rows.to_csv(output_dir / "leaderboard_rows.csv", index=False)
+    shutil.copy2(RELEASE_ROOT / "benchmark_registry.csv", site_downloads_dir / "benchmark_registry.csv")
+    shutil.copy2(RELEASE_ROOT / "benchmark_summary.csv", site_downloads_dir / "benchmark_summary.csv")
+    shutil.copy2(DOCS_ROOT / "reporting_checklist.yaml", site_downloads_dir / "reporting_checklist.yaml")
+    shutil.copy2(DOCS_ROOT / "reporting_checklist.md", site_downloads_dir / "reporting_checklist.md")
+
+    for figure_name in [
+        "genomecf_external_prediction.png",
+        "genomecf_foundation_comparison.png",
+        "genomecf_gc_bin_robustness.png",
+        "genomecf_synthetic_publication.png",
+    ]:
+        source_path = figures_dir / figure_name
+        if source_path.exists():
+            shutil.copy2(source_path, site_figures_dir / figure_name)
 
     leaderboard_models = (
         official.rename(columns={"model_readable_name": "model_label"})
@@ -268,7 +288,8 @@ genomecf check-report --results results/release/benchmark_registry.csv
 <ul>
   <li><a href=\"leaderboard.csv\">leaderboard.csv</a> (model-level)</li>
   <li><a href=\"leaderboard_rows.csv\">leaderboard_rows.csv</a> (task-model rows)</li>
-  <li><a href=\"../../results/release/benchmark_registry.csv\">benchmark_registry.csv</a></li>
+  <li><a href=\"downloads/benchmark_registry.csv\">benchmark_registry.csv</a></li>
+  <li><a href=\"downloads/benchmark_summary.csv\">benchmark_summary.csv</a></li>
 
 </ul>
 </body>
@@ -380,6 +401,29 @@ document.getElementById('q').addEventListener('input', (e) => {{
 """
     (output_dir / "quickstart.html").write_text(quickstart_html, encoding="utf-8")
 
+    reproducibility_html = f"""<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+  <title>GenomeCF reproducibility</title>
+  <link rel=\"stylesheet\" href=\"style.css\">
+</head>
+<body>
+{nav}
+<h1>Reproducibility</h1>
+<p>Key commands:</p>
+<ul>
+  <li><code>genomecf reproduce-quickstart</code></li>
+  <li><code>genomecf build-paper</code></li>
+  <li><code>genomecf validate-results</code></li>
+  <li><code>genomecf check-report --results results/release/benchmark_registry.csv</code></li>
+</ul>
+</body>
+</html>
+"""
+    (output_dir / "reproducibility.html").write_text(reproducibility_html, encoding="utf-8")
+
     reporting_html = f"""<!doctype html>
 <html lang=\"en\">
 <head>
@@ -391,17 +435,70 @@ document.getElementById('q').addEventListener('input', (e) => {{
 <body>
 {nav}
 <h1>Reporting checklist</h1>
-<p>See the machine-readable checklist at <code>docs/reporting_checklist.yaml</code> and the markdown summary in <code>docs/reporting_checklist.md</code>.</p>
+<p>See the machine-readable checklist at <a href=\"downloads/reporting_checklist.yaml\"><code>reporting_checklist.yaml</code></a> and the markdown summary at <a href=\"downloads/reporting_checklist.md\"><code>reporting_checklist.md</code></a>.</p>
 </body>
 </html>
 """
     (output_dir / "reporting_standard.html").write_text(reporting_html, encoding="utf-8")
+
+    downloads_html = f"""<!doctype html>
+<html lang=\"en\">
+<head>
+  <meta charset=\"utf-8\">
+  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+  <title>GenomeCF downloads</title>
+  <link rel=\"stylesheet\" href=\"style.css\">
+</head>
+<body>
+{nav}
+<h1>Downloads</h1>
+<p class=\"small\">These files are bundled into the Pages artifact so the public website stays self-contained.</p>
+<ul>
+  <li><a href=\"downloads/benchmark_registry.csv\">benchmark_registry.csv</a></li>
+  <li><a href=\"downloads/benchmark_summary.csv\">benchmark_summary.csv</a></li>
+  <li><a href=\"leaderboard.csv\">leaderboard.csv</a></li>
+  <li><a href=\"leaderboard_rows.csv\">leaderboard_rows.csv</a></li>
+  <li><a href=\"downloads/reporting_checklist.yaml\">reporting_checklist.yaml</a></li>
+  <li><a href=\"downloads/reporting_checklist.md\">reporting_checklist.md</a></li>
+</ul>
+</body>
+</html>
+"""
+    (output_dir / "downloads.html").write_text(downloads_html, encoding="utf-8")
+
+    replacements = {
+        "../../figures/genomecf_external_prediction.png": "assets/figures/genomecf_external_prediction.png",
+        "../../figures/genomecf_foundation_comparison.png": "assets/figures/genomecf_foundation_comparison.png",
+        "../../figures/genomecf_gc_bin_robustness.png": "assets/figures/genomecf_gc_bin_robustness.png",
+        "../../figures/genomecf_synthetic_publication.png": "assets/figures/genomecf_synthetic_publication.png",
+        "../../results/release/benchmark_registry.csv": "downloads/benchmark_registry.csv",
+        "docs/reporting_checklist.yaml": "downloads/reporting_checklist.yaml",
+        "docs/reporting_checklist.md": "downloads/reporting_checklist.md",
+        "docs/site/leaderboard.csv": "leaderboard.csv",
+    }
+    for html_path in output_dir.glob("*.html"):
+        text = html_path.read_text(encoding="utf-8")
+        for old, new in replacements.items():
+            text = text.replace(old, new)
+        html_path.write_text(text, encoding="utf-8")
+
+    # Re-write generated top-level pages after broad HTML path fixes so CLI
+    # examples keep repository-relative paths rather than download links.
+    (output_dir / "index.html").write_text(index_html, encoding="utf-8")
+    (output_dir / "quickstart.html").write_text(quickstart_html, encoding="utf-8")
+    (output_dir / "reproducibility.html").write_text(reproducibility_html, encoding="utf-8")
+    (output_dir / "reporting_standard.html").write_text(reporting_html, encoding="utf-8")
+    (output_dir / "downloads.html").write_text(downloads_html, encoding="utf-8")
+
+    (output_dir / ".nojekyll").write_text("", encoding="utf-8")
 
     pages = sorted([p.name for p in output_dir.glob("*.html")])
     manifest = {
         "site_root": str(output_dir),
         "leaderboard_csv": str(output_dir / "leaderboard.csv"),
         "leaderboard_rows_csv": str(output_dir / "leaderboard_rows.csv"),
+        "downloads_dir": str(site_downloads_dir),
+        "figures_dir": str(site_figures_dir),
         "pages": pages,
     }
     (output_dir / "site_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
