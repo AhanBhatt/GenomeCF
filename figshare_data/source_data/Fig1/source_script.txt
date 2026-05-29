@@ -1,0 +1,7 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Parse final main-paper display items from paper/genomecf_report.tex.
+- Map Fig. 1 schematic blocks to the registry-backed artifacts and public docs they summarize.
+- Write panel_definitions.csv as the source-data equivalent for this schematic figure.

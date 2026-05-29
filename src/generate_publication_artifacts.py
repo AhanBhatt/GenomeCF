@@ -22,6 +22,7 @@ from genomecf.data import build_split_frames, load_task_frame
 PUBLICATION_ROOT = PROJECT_ROOT / "results" / "publication"
 RELEASE_ROOT = PROJECT_ROOT / "results" / "release"
 FIGURES_ROOT = PROJECT_ROOT / "figures"
+SOURCE_DATA_ROOT = PROJECT_ROOT / "source_data"
 SEED = 2026
 
 CORE_TASKS = [
@@ -231,14 +232,14 @@ def configure_matplotlib() -> None:
     plt.rcParams.update(
         {
             "figure.dpi": 220,
-            "font.size": 11,
-            "axes.titlesize": 13,
-            "axes.labelsize": 11,
+            "font.size": 12,
+            "axes.titlesize": 14,
+            "axes.labelsize": 12,
             "axes.spines.top": False,
             "axes.spines.right": False,
-            "legend.fontsize": 9,
-            "xtick.labelsize": 10,
-            "ytick.labelsize": 10,
+            "legend.fontsize": 10,
+            "xtick.labelsize": 11,
+            "ytick.labelsize": 11,
         }
     )
 
@@ -818,31 +819,25 @@ def write_tabular(path: Path, columns: list[str], rows: list[list[str]], alignme
 
 def write_task_overview_tex(frame: pd.DataFrame) -> None:
     lines = [
-        "\\begin{tabular}{p{3.35cm}p{0.85cm}p{1.35cm}p{2.0cm}p{2.15cm}p{0.95cm}p{0.9cm}p{2.8cm}}",
+        "\\begin{tabular}{@{}llllll@{}}",
         "\\toprule",
-        "Task & Species & Length & Full train/test & Eval train/val/test & P:N & Chr. meta & Coverage \\\\",
+        "Task & Species & Length & Eval train/val/test & Chr. meta & Main coverage \\\\",
         "\\midrule",
     ]
     current_tier = None
     for row in frame.to_dict(orient="records"):
         if row["tier"] != current_tier:
-            lines.append(f"\\multicolumn{{8}}{{l}}{{\\textbf{{{latex_escape(row['tier'])}}}}} \\\\")
+            lines.append(f"\\multicolumn{{6}}{{l}}{{\\textbf{{{latex_escape(row['tier'])}}}}} \\\\")
             current_tier = row["tier"]
-        task_cell = latex_escape(row["task_label"]) + "\\\\ \\scriptsize\\texttt{" + latex_escape(row["task_id"]) + "}"
-        coverage_cell = (
-            r"\shortstack[l]{Diag., 6-mer, CNNs,\\DNABERT-2, Caduceus}"
-            if "DNABERT-2, Caduceus" in str(row["coverage"])
-            else latex_escape(row["coverage"])
-        )
+        task_cell = latex_escape(row["task_label"])
+        coverage_cell = "All main models" if "DNABERT-2, Caduceus" in str(row["coverage"]) else "6-mer only"
         lines.append(
             " & ".join(
                 [
                     task_cell,
                     latex_escape(row["species"]),
                     latex_escape(row["length_type"]),
-                    latex_escape(row["full_counts"]),
                     latex_escape(row["eval_counts"]),
-                    latex_escape(row["class_balance"]),
                     latex_escape(row["chrom_meta"]),
                     coverage_cell,
                 ]
@@ -1625,13 +1620,15 @@ def plot_tradeoff(summary: pd.DataFrame) -> None:
     configure_matplotlib()
     subset = official_standard_rows(summary)
     subset = subset[(subset["task_id"].isin(CORE_TASKS)) & (subset["model_id"].isin(PAPER_MODELS))].copy()
-    fig, axes = plt.subplots(1, 3, figsize=(14.3, 4.6))
+    fig, axes = plt.subplots(2, 2, figsize=(12.6, 8.8))
+    panel_axes = [axes[0, 0], axes[0, 1], axes[1, 0]]
+    legend_ax = axes[1, 1]
     panels = [
         ("rc_mean_abs_delta", "AUROC vs reverse-complement instability", "Reverse-complement instability (lower is better)"),
         ("mono_positive_prob_drop", "AUROC vs mononucleotide-shuffle sensitivity", "Positive-probability drop (higher is better)"),
         ("ece", "AUROC vs expected calibration error", "Expected calibration error (lower is better)"),
     ]
-    for ax, (metric, title, ylabel) in zip(axes, panels):
+    for ax, (metric, title, ylabel) in zip(panel_axes, panels):
         if metric == "mono_positive_prob_drop":
             ax.axhline(0.0, color="#777777", linewidth=1.0, linestyle="--")
         for model_id in PAPER_MODELS:
@@ -1641,7 +1638,7 @@ def plot_tradeoff(summary: pd.DataFrame) -> None:
             ax.scatter(
                 group["auroc"],
                 group[metric],
-                s=78,
+                s=92,
                 marker=MODEL_MARKERS[model_id],
                 color=MODEL_COLORS[model_id],
                 edgecolor="white",
@@ -1653,17 +1650,25 @@ def plot_tradeoff(summary: pd.DataFrame) -> None:
                 ax.annotate(
                     TASK_SHORT_LABELS[row["task_id"]],
                     (row["auroc"], row[metric]),
-                    xytext=(5, 5),
+                    xytext=(6, 6),
                     textcoords="offset points",
-                    fontsize=8.5,
+                    fontsize=9.2,
                     color="#333333",
                 )
         ax.set_xlabel("AUROC")
         ax.set_ylabel(ylabel)
         ax.set_title(title)
         ax.grid(alpha=0.18, linewidth=0.6)
-    axes[0].legend(frameon=False, loc="upper left", bbox_to_anchor=(0.0, 1.24), ncol=5)
-    fig.text(0.5, -0.03, "Task labels: Pr = Promoters, EC = Enhancers (Cohn), EE = Enhancers (Ensembl), OCR = Open chromatin.", ha="center", fontsize=9.5)
+    legend_ax.axis("off")
+    handles, labels = panel_axes[0].get_legend_handles_labels()
+    legend_ax.legend(handles, labels, frameon=False, loc="upper left", ncol=1, fontsize=10)
+    legend_ax.text(
+        0.0,
+        0.48,
+        "Task labels:\nPr = Promoters\nEC = Enhancers (Cohn)\nEE = Enhancers (Ensembl)\nOCR = Open chromatin",
+        fontsize=10,
+        va="top",
+    )
     fig.tight_layout()
     fig.savefig(FIGURES_ROOT / "genomecf_tradeoff_publication.png", bbox_inches="tight")
     plt.close(fig)
@@ -1720,6 +1725,13 @@ def plot_calibration(registry: pd.DataFrame) -> None:
 
 def plot_generalization_gap(summary: pd.DataFrame, cv_summary: pd.DataFrame) -> None:
     configure_matplotlib()
+    short_labels = {
+        "kmer_logistic_regression": "6-mer",
+        "small_cnn": "CNN",
+        "small_cnn_rc_aug": "RC-aug",
+        "dnabert2": "DNABERT-2",
+        "caduceus_ph": "Caduceus",
+    }
     official = official_standard_rows(summary)
     official = official[(official["task_id"].isin(CORE_TASKS)) & (official["model_id"].isin(CV_MODELS))][["task_id", "model_id", "auroc"]].rename(columns={"auroc": "official_auroc"})
     merged = official.merge(cv_summary[["task_id", "model_id", "auroc_mean", "auroc_std"]], on=["task_id", "model_id"], how="inner")
@@ -1742,14 +1754,14 @@ def plot_generalization_gap(summary: pd.DataFrame, cv_summary: pd.DataFrame) -> 
         ax.axhline(0.0, color="#777777", linestyle="--", linewidth=1.0)
         ax.set_title(TASK_LABELS[task_name])
         ax.set_xticks(x)
-        ax.set_xticklabels([MODEL_LABELS[name] for name in available], rotation=15, ha="right")
+        ax.set_xticklabels([short_labels.get(name, MODEL_LABELS[name]) for name in available], rotation=12, ha="right")
         ax.grid(axis="y", alpha=0.18, linewidth=0.6)
         for bar, value in zip(bars, values):
             offset = 0.006 if value >= 0 else -0.012
             ax.text(bar.get_x() + bar.get_width() / 2, value + offset, f"{value:.03f}", ha="center", va="bottom" if value >= 0 else "top", fontsize=8.5)
-    axes[0].set_ylabel("Official AUROC minus five-fold CV mean AUROC")
-    axes[2].set_ylabel("Official AUROC minus five-fold CV mean AUROC")
-    fig.tight_layout()
+    fig.supylabel("Official AUROC minus five-fold CV mean AUROC", x=0.04, fontsize=11)
+    fig.tight_layout(pad=1.0, w_pad=1.2, h_pad=1.4)
+    fig.subplots_adjust(left=0.12, bottom=0.12)
     fig.savefig(FIGURES_ROOT / "genomecf_generalization_gap.png", bbox_inches="tight")
     plt.close(fig)
 
@@ -1949,6 +1961,124 @@ def plot_foundation_comparison(summary: pd.DataFrame, mitigation_results: pd.Dat
     plt.close(fig)
 
 
+def write_source_data(
+    summary: pd.DataFrame,
+    main_results: pd.DataFrame,
+    mitigation_results: pd.DataFrame,
+    external_validation_results: pd.DataFrame,
+    external_prediction_results: pd.DataFrame,
+    external_prediction_robustness_table: pd.DataFrame,
+    case_study_results: pd.DataFrame,
+    synthetic_extended_results: pd.DataFrame,
+) -> None:
+    SOURCE_DATA_ROOT.mkdir(parents=True, exist_ok=True)
+
+    fig1_payload = {
+        "figure": "Fig. 1",
+        "title": "GenomeCF resource overview",
+        "blocks": [
+            {"group": "inputs", "label": "Core benchmark", "details": "4 human tasks; official split and chromosome CV"},
+            {"group": "inputs", "label": "External biological validation", "details": "TF binding, histone marks, MPRA variant effect"},
+            {"group": "inputs", "label": "GenomeCF-Synth", "details": "shortcut conflict, motif grammar, position conflict"},
+            {"group": "metrics", "label": "Counterfactual metrics", "details": "AUROC, AUPRC, ECE, Brier, RC, shuffle, matched-negative, GC-bin"},
+            {"group": "outputs", "label": "Software resource", "details": "package, CLI, registry, website, checklist"},
+            {"group": "outputs", "label": "Use cases", "details": "model reliability profiles, variant prioritization, reporting standard"},
+        ],
+        "source_artifacts": [
+            "results/publication/table1_task_overview.csv",
+            "docs/reporting_checklist.yaml",
+            "results/release/benchmark_registry.csv",
+        ],
+    }
+    (SOURCE_DATA_ROOT / "Fig1_source_data.json").write_text(json.dumps(fig1_payload, indent=2))
+
+    main_results.to_csv(SOURCE_DATA_ROOT / "Fig2_source_data.csv", index=False)
+
+    official = official_standard_rows(summary)
+    foundation_official = official[
+        official["task_id"].isin(FOCAL_TASKS) & official["model_id"].isin(["dnabert2", "caduceus_ph"])
+    ][["task_id", "model_id", "auroc", "rc_mean_abs_delta"]].copy()
+    foundation_official["task_label"] = foundation_official["task_id"].map(TASK_LABELS)
+    foundation_official["model_label"] = foundation_official["model_id"].map(MODEL_LABELS)
+    foundation_long = foundation_official.melt(
+        id_vars=["task_id", "task_label", "model_id", "model_label"],
+        value_vars=["auroc", "rc_mean_abs_delta"],
+        var_name="metric",
+        value_name="value",
+    )
+    foundation_long["panel"] = "frozen_foundation_models"
+    mitigation_long = mitigation_results[
+        mitigation_results["task_id"].isin(FOCAL_TASKS)
+        & mitigation_results["model_id"].isin(["dnabert2", "caduceus_ph"])
+        & mitigation_results["intervention"].isin(["Temperature scaling", "Matched-negative retraining"])
+    ].copy()
+    intervention_rows: list[dict[str, object]] = []
+    for _, row in mitigation_long.iterrows():
+        if row["intervention"] == "Temperature scaling":
+            pairs = [("ece_before", "before"), ("ece_after", "after")]
+            metric_name = "ece"
+        else:
+            pairs = [("matched_auroc_before", "before"), ("matched_auroc_after", "after")]
+            metric_name = "matched_auroc"
+        for field, phase in pairs:
+            intervention_rows.append(
+                {
+                    "panel": row["intervention"],
+                    "task_id": row["task_id"],
+                    "task_label": TASK_LABELS[row["task_id"]],
+                    "model_id": row["model_id"],
+                    "model_label": MODEL_LABELS[row["model_id"]],
+                    "metric": metric_name,
+                    "phase": phase,
+                    "value": row[field],
+                }
+            )
+    foundation_source = pd.concat([foundation_long, pd.DataFrame(intervention_rows)], ignore_index=True, sort=False)
+    foundation_source.to_csv(SOURCE_DATA_ROOT / "Fig3_source_data.csv", index=False)
+
+    external_validation_source = external_validation_results.copy()
+    external_validation_source["panel"] = "assay_family_performance"
+    external_prediction_source = external_prediction_results.copy()
+    external_prediction_source["panel"] = "prediction_summary"
+    external_prediction_robustness_source = external_prediction_robustness_table.copy()
+    external_prediction_robustness_source["panel"] = "prediction_robustness"
+    external_source = pd.concat(
+        [external_validation_source, external_prediction_source, external_prediction_robustness_source],
+        ignore_index=True,
+        sort=False,
+    )
+    external_source.to_csv(SOURCE_DATA_ROOT / "Fig4_source_data.csv", index=False)
+
+    case_study_results.to_csv(SOURCE_DATA_ROOT / "Fig5_source_data.csv", index=False)
+    synthetic_extended_results.to_csv(SOURCE_DATA_ROOT / "Fig6_source_data.csv", index=False)
+
+    manifest = {
+        "Fig1": {"path": "source_data/Fig1_source_data.json", "figure": "genomecf overview schematic"},
+        "Fig2": {"path": "source_data/Fig2_source_data.csv", "figure": "tradeoff scatter panels"},
+        "Fig3": {"path": "source_data/Fig3_source_data.csv", "figure": "foundation-model comparison"},
+        "Fig4": {"path": "source_data/Fig4_source_data.csv", "figure": "external validation and prediction"},
+        "Fig5": {"path": "source_data/Fig5_source_data.csv", "figure": "MPRA case studies"},
+        "Fig6": {"path": "source_data/Fig6_source_data.csv", "figure": "GenomeCF-Synth"},
+    }
+    (SOURCE_DATA_ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    (SOURCE_DATA_ROOT / "README.md").write_text(
+        "\n".join(
+            [
+                "# GenomeCF source data",
+                "",
+                "This directory contains the source-data files for the six main display items in the Nature Methods Resource manuscript.",
+                "",
+                "- `Fig1_source_data.json`: schematic block and artifact mapping for the resource overview.",
+                "- `Fig2_source_data.csv`: core-task AUROC and counterfactual metrics used in the tradeoff figure.",
+                "- `Fig3_source_data.csv`: focal-task foundation-model metrics and adaptation summaries.",
+                "- `Fig4_source_data.csv`: external assay-family results and external-prediction summaries.",
+                "- `Fig5_source_data.csv`: MPRA case-study results for BCL11A and MYC.",
+                "- `Fig6_source_data.csv`: GenomeCF-Synth results used in the synthetic mechanism figure.",
+            ]
+        )
+    )
+
+
 def write_key_numbers(
     summary: pd.DataFrame,
     matched_results: pd.DataFrame,
@@ -2049,6 +2179,7 @@ def write_key_numbers(
 def main() -> None:
     PUBLICATION_ROOT.mkdir(parents=True, exist_ok=True)
     FIGURES_ROOT.mkdir(parents=True, exist_ok=True)
+    SOURCE_DATA_ROOT.mkdir(parents=True, exist_ok=True)
 
     release = load_release_inputs()
     summary = release["summary"]
@@ -2165,6 +2296,16 @@ def main() -> None:
     plot_gc_bin_robustness(gc_bin_results)
     plot_synthetic(synthetic_extended_results)
     plot_shortcut_score(shortcut_model_results)
+    write_source_data(
+        summary,
+        main_results,
+        mitigation_results,
+        external_validation_results,
+        external_prediction_results,
+        external_prediction_robustness_table,
+        case_study_results,
+        synthetic_extended_results,
+    )
     write_key_numbers(
         summary,
         matched_results,

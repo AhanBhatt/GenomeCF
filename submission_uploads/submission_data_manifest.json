@@ -1,0 +1,15 @@
+{
+  "source_zip": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\submission_uploads\\GenomeCF_Source_Data.zip",
+  "supplementary_zip": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\submission_uploads\\GenomeCF_Supplementary_Data_and_Registry.zip",
+  "source_workbook": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\source_data\\GenomeCF_Source_Data.xlsx",
+  "registry_workbook": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\supplementary_data_registry\\GenomeCF_Supplementary_Data_and_Registry.xlsx",
+  "source_zip_file_count": 35,
+  "supplementary_zip_file_count": 66,
+  "canonical_registry_included": true,
+  "missing_expected_files": [
+    "results/release/motif_summary.csv"
+  ],
+  "report_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\submission_uploads\\SUBMISSION_DATA_PACKAGE_REPORT.md",
+  "main_figure_count": 6,
+  "main_table_count": 0
+}

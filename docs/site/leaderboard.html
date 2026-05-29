@@ -32,7 +32,8 @@
 <script>
 async function loadCSV(path) {
   const txt = await (await fetch(path)).text();
-  const lines = txt.trim().split(/?
+  const lines = txt.trim().split(/
+?
 /);
   const headers = lines[0].split(',');
   const rows = lines.slice(1).map(l => {

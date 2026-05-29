@@ -19,29 +19,70 @@ def _run_script(script_name: str) -> None:
     )
 
 
-def _run_pdflatex(tex_path: Path, *, passes: int = 2) -> None:
+def clean_latex_artifacts(*tex_stems: str) -> None:
+    suffixes = [
+        ".aux",
+        ".bbl",
+        ".bcf",
+        ".blg",
+        ".fdb_latexmk",
+        ".fls",
+        ".log",
+        ".out",
+        ".pdf",
+        ".run.xml",
+        ".toc",
+    ]
+    for stem in tex_stems:
+        for suffix in suffixes:
+            path = PAPER_ROOT / f"{stem}{suffix}"
+            if path.exists():
+                path.unlink()
+
+
+def _run_pdflatex(tex_path: Path) -> None:
     exe = shutil.which("pdflatex")
     if exe is None:
         raise RuntimeError(
             "pdflatex not found. Install a LaTeX distribution (for example MiKTeX/TeX Live) "
             "or re-run with --skip-latex."
         )
-    cmd = [
-        exe,
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-file-line-error",
-        tex_path.name,
-    ]
-    for _ in range(max(1, passes)):
-        result = subprocess.run(cmd, cwd=PAPER_ROOT, check=False, capture_output=True, text=True)
-        if result.returncode != 0:
-            combined = (result.stdout or "") + "\n" + (result.stderr or "")
-            tail = "\n".join(combined.splitlines()[-80:])
-            raise RuntimeError(f"pdflatex failed for {tex_path.name}. Output tail:\n{tail}")
+    cmd = [exe, "-interaction=nonstopmode", "-halt-on-error", "-file-line-error", tex_path.name]
+    result = subprocess.run(cmd, cwd=PAPER_ROOT, check=False, capture_output=True, text=True)
+    if result.returncode != 0:
+        combined = (result.stdout or "") + "\n" + (result.stderr or "")
+        tail = "\n".join(combined.splitlines()[-120:])
+        raise RuntimeError(f"pdflatex failed for {tex_path.name}. Output tail:\n{tail}")
+
+
+def _run_bibtex(tex_path: Path) -> None:
+    exe = shutil.which("bibtex")
+    if exe is None:
+        raise RuntimeError("bibtex not found. Install a LaTeX distribution with BibTeX support.")
+    aux_path = tex_path.with_suffix(".aux")
+    if not aux_path.exists():
+        return
+    aux_text = aux_path.read_text(encoding="utf-8", errors="ignore")
+    if "\\bibdata" not in aux_text:
+        return
+    result = subprocess.run([exe, tex_path.stem], cwd=PAPER_ROOT, check=False, capture_output=True, text=True)
+    if result.returncode != 0:
+        combined = (result.stdout or "") + "\n" + (result.stderr or "")
+        tail = "\n".join(combined.splitlines()[-120:])
+        raise RuntimeError(f"bibtex failed for {tex_path.stem}. Output tail:\n{tail}")
+
+
+def build_latex_document(tex_path: Path, *, clean: bool = True) -> Path:
+    if clean:
+        clean_latex_artifacts(tex_path.stem)
+    _run_pdflatex(tex_path)
+    _run_bibtex(tex_path)
+    _run_pdflatex(tex_path)
+    _run_pdflatex(tex_path)
     pdf_path = tex_path.with_suffix(".pdf")
     if not pdf_path.exists():
-        raise RuntimeError(f"pdflatex reported success but {pdf_path} was not created.")
+        raise RuntimeError(f"Expected PDF was not created: {pdf_path}")
+    return pdf_path
 
 
 def build_publication(*, skip_tests: bool = False, skip_latex: bool = False, skip_validation: bool = False) -> dict[str, str]:
@@ -60,7 +101,7 @@ def build_publication(*, skip_tests: bool = False, skip_latex: bool = False, ski
     if not skip_latex:
         tex_path = PAPER_ROOT / "genomecf_report.tex"
         if tex_path.exists():
-            _run_pdflatex(tex_path)
+            build_latex_document(tex_path, clean=True)
     return {
         "paper_tex": str(PAPER_ROOT / "genomecf_report.tex"),
         "paper_pdf": str(PAPER_ROOT / "genomecf_report.pdf"),

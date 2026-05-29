@@ -1,0 +1,7 @@
+tier,task_id,task_label,species,length_type,full_counts,eval_counts,class_balance,chrom_meta,coverage
+Core tasks,human_nontata_promoters,Promoters,Human,Fixed (251),"27,097 / 9,034","10,000 / 2,000 / 9,034",4915:4119,Yes,"Diag., 6-mer, CNNs, DNABERT-2, Caduceus"
+Core tasks,human_enhancers_cohn,Enhancers (Cohn),Human,Fixed (500),"20,843 / 6,948","10,000 / 2,000 / 6,948",3474:3474,Yes,"Diag., 6-mer, CNNs, DNABERT-2, Caduceus"
+Core tasks,human_enhancers_ensembl,Enhancers (Ensembl),Human,Variable (9-488),"123,872 / 30,970","10,000 / 2,000 / 30,970",15485:15485,Yes,"Diag., 6-mer, CNNs, DNABERT-2, Caduceus"
+Core tasks,human_ocr_ensembl,Open chromatin,Human,Variable (112-591),"139,804 / 34,952","10,000 / 2,000 / 34,952",17476:17476,Yes,"Diag., 6-mer, CNNs, DNABERT-2, Caduceus"
+Extended screening tasks,dummy_mouse_enhancers_ensembl,Mouse enhancers,Mouse,Variable (538-4549),968 / 242,194 / 774 / 242,121:121,No,6-mer
+Extended screening tasks,drosophila_enhancers_stark,Fly enhancers,Fly,Variable (1607-2921),"5,184 / 1,730","3,184 / 2,000 / 1,730",865:865,No,6-mer

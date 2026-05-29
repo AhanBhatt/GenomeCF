@@ -1,0 +1,3 @@
+gc_bin,count,positive_count,negative_count,gc_mean,gc_min,gc_max,auroc,ece,brier,task_id,model_id,split_id,seed,calibration_method,intervention_id
+0,67,26,41,0.5373932476654162,0.5347593582887701,0.5401069518716578,0.45872420262664165,0.08269239671852391,0.24432105964179623,mpra_hbb_promoter,caduceus_ph,official,2026,temperature,standard
+1,22,9,13,0.5454545454545453,0.5454545454545454,0.5454545454545454,0.3504273504273504,0.06184018237857292,0.24559655867476285,mpra_hbb_promoter,caduceus_ph,official,2026,temperature,standard

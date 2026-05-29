@@ -1,0 +1,7 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Load results/publication/table5_mitigation_summary.csv.
+- Filter to focal DNABERT-2 and Caduceus-Ph rows.
+- Expand before/after metrics into long format for the figure panels.

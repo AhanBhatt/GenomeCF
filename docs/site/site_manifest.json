@@ -2,6 +2,8 @@
   "site_root": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site",
   "leaderboard_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\leaderboard.csv",
   "leaderboard_rows_csv": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\leaderboard_rows.csv",
+  "downloads_dir": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\downloads",
+  "figures_dir": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\docs\\site\\assets\\figures",
   "pages": [
     "citation.html",
     "downloads.html",

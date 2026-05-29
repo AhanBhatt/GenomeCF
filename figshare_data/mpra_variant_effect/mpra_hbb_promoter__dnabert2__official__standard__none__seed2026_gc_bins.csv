@@ -1,0 +1,3 @@
+gc_bin,count,positive_count,negative_count,gc_mean,gc_min,gc_max,auroc,ece,brier,task_id,model_id,split_id,seed,calibration_method,intervention_id
+0,67,26,41,0.5373932476654162,0.5347593582887701,0.5401069518716578,0.4849906191369606,0.0512335048678733,0.24130453238198518,mpra_hbb_promoter,dnabert2,official,2026,none,standard
+1,22,9,13,0.5454545454545453,0.5454545454545454,0.5454545454545454,0.4444444444444444,0.08234446399094336,0.2501252715042036,mpra_hbb_promoter,dnabert2,official,2026,none,standard

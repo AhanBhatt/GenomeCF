@@ -1,0 +1,14 @@
+{
+  "figure_or_table": "Fig. 2",
+  "title": "Held-out AUROC versus three GenomeCF axes on the four core human tasks. High AUROC does not guarantee low reverse-complement instability, biologically sensible shuffle behavior or good calibration. Task labels are Pr = Promoters, EC = Enhancers (Cohn), EE = Enhancers (Ensembl), and OCR = Open chromatin.",
+  "manuscript_file": "paper/genomecf_report.tex",
+  "source_files": [
+    "results/publication/table2_main_results.csv",
+    "results/release/benchmark_summary.csv"
+  ],
+  "generation_script": "package_src/genomecf/submission_data.py",
+  "date_generated": "2026-05-28T04:47:28+00:00",
+  "registry_hash": "9525570a284110668cdc6a734234254792dbbc73d957b43fa26cb79918e701cb",
+  "notes": "Direct plotted points plus publication summary subset.",
+  "license_or_restrictions": "Derived from registry-backed benchmark summaries."
+}

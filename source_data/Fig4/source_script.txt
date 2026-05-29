@@ -1,0 +1,8 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Load external assay-family summaries and model-configuration-task point summaries.
+- Merge point-level metrics from external_validation_summary.csv onto external_transfer_prediction.csv.
+- Compute the full GenomeCF profile linear score and predicted external reliability using the coefficients recorded in external_transfer_stats.json.
+- Flatten the regression and robustness summaries into fig4_external_prediction_model_fits.csv.

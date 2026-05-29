@@ -1,0 +1,16 @@
+{
+  "figure_or_table": "Fig. 4",
+  "title": "External biological validation. Left, official and worst-bin assay-family results across TF-binding, histone-mark and MPRA variant-effect tasks. Right, external biological reliability is better explained by GenomeCF counterfactual metrics than by held-out core AUROC alone.",
+  "manuscript_file": "paper/genomecf_report.tex",
+  "source_files": [
+    "results/release/external_validation_family_summary.csv",
+    "results/release/external_validation_summary.csv",
+    "results/release/external_transfer_prediction.csv",
+    "results/release/external_transfer_stats.json"
+  ],
+  "generation_script": "package_src/genomecf/submission_data.py",
+  "date_generated": "2026-05-28T05:03:02+00:00",
+  "registry_hash": "793127116d438ea284cd252b50b95786b945c8920488db0d0017fb562cc643a6",
+  "notes": "Includes fitted full-profile predictions computed from coefficients stored in external_transfer_stats.json.",
+  "license_or_restrictions": "Derived summaries only; raw public assay files are not redistributed."
+}

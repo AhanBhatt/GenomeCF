@@ -16,19 +16,19 @@ human_enhancers_cohn,official,caduceus_ph,none,standard,0.7727349710937637,-0.00
 human_enhancers_cohn,official,caduceus_ph,temperature,standard,0.7740950208622719,-0.0004586041671443,-0.1116576710051441,-0.0238982159895394,Enhancers (Cohn),Caduceus-Ph
 human_enhancers_cohn,official,cpg_only,none,standard,0.6356744103495693,0.0,0.0,0.0,Enhancers (Cohn),CpG-only logistic regression
 human_enhancers_cohn,official,dnabert2,none,matched_negative_retraining,0.8198345866605418,0.0002737891030055,-0.1104394154676401,0.0139235312104178,Enhancers (Cohn),DNABERT-2
-human_enhancers_cohn,official,dnabert2,none,standard,0.832364,-0.000519391118564,-0.0773962200148066,0.010910567835066,Enhancers (Cohn),DNABERT-2
+human_enhancers_cohn,official,dnabert2,none,standard,0.829724,-0.000519391118564,-0.048888688524904,0.0233092158668266,Enhancers (Cohn),DNABERT-2
 human_enhancers_cohn,official,dnabert2,temperature,standard,0.8332256164636452,0.0001372697558235,-0.0420258569230306,0.0285053752941821,Enhancers (Cohn),DNABERT-2
 human_enhancers_cohn,official,gc_only,none,standard,0.7339186999468708,0.0,0.0,0.0,Enhancers (Cohn),GC-only logistic regression
-human_enhancers_cohn,official,kmer_logistic_regression,none,standard,0.7198406022334183,0.0093316905693945,-0.0989740670455717,0.091787624018841,Enhancers (Cohn),6-mer logistic regression
+human_enhancers_cohn,official,kmer_logistic_regression,none,standard,0.700194,0.0093316905693945,-0.0796955816894356,0.13848789357906,Enhancers (Cohn),6-mer logistic regression
 human_enhancers_cohn,official,nucleotide_transformer_v2,none,standard,0.518186,-0.0027119463482196,0.0170641230748194,-0.0129722851645666,Enhancers (Cohn),Nucleotide Transformer v2
 human_enhancers_cohn,official,repeat_only,none,standard,0.532776006249567,0.0,0.0,0.0,Enhancers (Cohn),Repeat-only logistic regression
 human_enhancers_cohn,official,small_cnn,none,gc_balanced,0.7523539999999999,-0.0010576248168945,0.0012133717536926,-0.0016725361347198,Enhancers (Cohn),CNN
 human_enhancers_cohn,official,small_cnn,none,matched_negative_retraining,0.7392847400990796,-0.0013788938522338,-0.0125150084495544,0.0204517245292663,Enhancers (Cohn),CNN
-human_enhancers_cohn,official,small_cnn,none,standard,0.7500055101321802,-0.0017178654670715,0.0250227451324462,0.0054828524589538,Enhancers (Cohn),CNN
+human_enhancers_cohn,official,small_cnn,none,standard,0.7535540000000001,-0.0017178654670715,0.0077331066131591,0.0144553780555725,Enhancers (Cohn),CNN
 human_enhancers_cohn,official,small_cnn,temperature,standard,0.7609539999999999,-0.0015625357627868,0.0204386115074157,0.0042489171028137,Enhancers (Cohn),CNN
 human_enhancers_cohn,official,small_cnn_rc_aug,none,gc_balanced,0.766951,-0.0019232630729675,0.0128912925720214,0.0121446847915649,Enhancers (Cohn),RC-aug CNN
 human_enhancers_cohn,official,small_cnn_rc_aug,none,matched_negative_retraining,0.7567951530060132,0.0006788969039916,-0.007818579673767,0.0162040591239929,Enhancers (Cohn),RC-aug CNN
-human_enhancers_cohn,official,small_cnn_rc_aug,none,standard,0.7556242706325035,-0.0017876029014587,-0.0198650956153869,0.0038124918937683,Enhancers (Cohn),RC-aug CNN
+human_enhancers_cohn,official,small_cnn_rc_aug,none,standard,0.7645774999999999,-0.0017876029014587,0.0030723810195922,0.0171687602996826,Enhancers (Cohn),RC-aug CNN
 human_enhancers_cohn,official,small_cnn_rc_aug,temperature,standard,0.7646739999999999,-0.0013246536254882,0.0199081897735595,0.0220335721969604,Enhancers (Cohn),RC-aug CNN
 human_enhancers_ensembl,matched_test,caduceus_ph,none,standard,0.651955332291049,-0.0001476842934357,-0.0319772709983091,-0.0098021732581925,Enhancers (Ensembl),Caduceus-Ph
 human_enhancers_ensembl,matched_test,dnabert2,none,standard,0.7737994844343186,-0.0001698308302741,0.0915853242569819,0.0344420638140309,Enhancers (Ensembl),DNABERT-2
@@ -42,15 +42,15 @@ human_enhancers_ensembl,official,caduceus_ph,none,standard,0.717767235241454,-0.
 human_enhancers_ensembl,official,cpg_only,none,standard,0.5634342462092901,0.0,0.0,0.0,Enhancers (Ensembl),CpG-only logistic regression
 human_enhancers_ensembl,official,dnabert2,none,standard,0.775216,-0.003458342495036,0.0428744396754445,0.0094690798395876,Enhancers (Ensembl),DNABERT-2
 human_enhancers_ensembl,official,gc_only,none,standard,0.6621940822250412,0.0,0.0,0.0,Enhancers (Ensembl),GC-only logistic regression
-human_enhancers_ensembl,official,kmer_logistic_regression,none,standard,0.77841407034149,0.0054883263195769,0.2017212876810611,0.2559971038650067,Enhancers (Ensembl),6-mer logistic regression
+human_enhancers_ensembl,official,kmer_logistic_regression,none,standard,0.735919,0.0054883263195769,0.2028774627488171,0.2160423827040129,Enhancers (Ensembl),6-mer logistic regression
 human_enhancers_ensembl,official,length_only,none,standard,0.5,0.0,0.0,0.0,Enhancers (Ensembl),Length-only logistic regression
 human_enhancers_ensembl,official,repeat_only,none,standard,0.4995653130838233,0.0,0.0,0.0,Enhancers (Ensembl),Repeat-only logistic regression
 human_enhancers_ensembl,official,small_cnn,none,gc_balanced,0.8728325859109959,-0.0015870928764343,0.3751029372215271,0.1782149970531463,Enhancers (Ensembl),CNN
 human_enhancers_ensembl,official,small_cnn,none,matched_negative_retraining,0.8586396034201023,9.47713851928711e-05,0.2540321350097656,0.1148285865783691,Enhancers (Ensembl),CNN
-human_enhancers_ensembl,official,small_cnn,none,standard,0.8813083374924372,-0.0010881423950195,0.3898816108703613,0.1748238801956176,Enhancers (Ensembl),CNN
+human_enhancers_ensembl,official,small_cnn,none,standard,0.838548,-0.0010881423950195,0.1784351468086242,0.0648070573806762,Enhancers (Ensembl),CNN
 human_enhancers_ensembl,official,small_cnn_rc_aug,none,gc_balanced,0.8861552478890223,-0.0008595585823059,0.3577423989772796,0.1657282710075378,Enhancers (Ensembl),RC-aug CNN
 human_enhancers_ensembl,official,small_cnn_rc_aug,none,matched_negative_retraining,0.8743075621110517,-0.0004105567932128,0.3360629379749298,0.1211573481559753,Enhancers (Ensembl),RC-aug CNN
-human_enhancers_ensembl,official,small_cnn_rc_aug,none,standard,0.8873414740211788,-0.0006323456764221,0.365414559841156,0.172886312007904,Enhancers (Ensembl),RC-aug CNN
+human_enhancers_ensembl,official,small_cnn_rc_aug,none,standard,0.8839299999999999,-0.0006323456764221,0.3199376463890075,0.1265183091163635,Enhancers (Ensembl),RC-aug CNN
 human_nontata_promoters,matched_test,caduceus_ph,none,matched_negative_retraining,0.8111826504225587,0.0020040898980389,-0.0491699507865045,-0.0002974941419557,Promoters,Caduceus-Ph
 human_nontata_promoters,matched_test,caduceus_ph,none,standard,0.7930966698713839,0.0026921852591411,-0.0613841856528585,0.0017935210177151,Promoters,Caduceus-Ph
 human_nontata_promoters,matched_test,caduceus_ph,temperature,standard,0.7930860928077463,0.0025343105909684,-0.0682542438414669,0.002395040034952,Promoters,Caduceus-Ph
@@ -68,17 +68,17 @@ human_nontata_promoters,official,caduceus_ph,none,standard,0.8528062767459534,0.
 human_nontata_promoters,official,caduceus_ph,temperature,standard,0.8525102019596554,0.0025766440361927,-0.0675967982995252,0.0021504159231521,Promoters,Caduceus-Ph
 human_nontata_promoters,official,cpg_only,none,standard,0.843540800552831,0.0,0.0,0.0,Promoters,CpG-only logistic regression
 human_nontata_promoters,official,dnabert2,none,matched_negative_retraining,0.9076700114621544,0.0029550902538928,-0.0491709943707058,0.0125029636229913,Promoters,DNABERT-2
-human_nontata_promoters,official,dnabert2,none,standard,0.9125409999999998,0.0021657353340371,-0.0365259862505489,0.0177622250859168,Promoters,DNABERT-2
+human_nontata_promoters,official,dnabert2,none,standard,0.887888,0.0021657353340371,-0.0538831078698363,0.0038541693706631,Promoters,DNABERT-2
 human_nontata_promoters,official,dnabert2,temperature,standard,0.9133644374863084,0.002993432564442,-0.0491874475515585,0.0205672666512506,Promoters,DNABERT-2
 human_nontata_promoters,official,gc_only,none,standard,0.7959149681512145,0.0,0.0,0.0,Promoters,GC-only logistic regression
-human_nontata_promoters,official,kmer_logistic_regression,none,standard,0.915893668944032,0.0082361993033196,-0.0129744038757426,0.0493131205192509,Promoters,6-mer logistic regression
+human_nontata_promoters,official,kmer_logistic_regression,none,standard,0.8984909999999999,0.0082361993033196,-0.0026594560109637,0.0575635769009338,Promoters,6-mer logistic regression
 human_nontata_promoters,official,nucleotide_transformer_v2,none,standard,0.649203,0.0016108008595362,0.0153835684139426,0.018043946745654,Promoters,Nucleotide Transformer v2
 human_nontata_promoters,official,repeat_only,none,standard,0.6122241000628059,0.0,0.0,0.0,Promoters,Repeat-only logistic regression
 human_nontata_promoters,official,small_cnn,none,gc_balanced,0.8737899999999998,0.0073642134666442,0.0282326936721801,0.0576817989349365,Promoters,CNN
 human_nontata_promoters,official,small_cnn,none,matched_negative_retraining,0.871173212394143,0.0031840205192565,-0.0373681783676147,0.0524963736534118,Promoters,CNN
-human_nontata_promoters,official,small_cnn,none,standard,0.8914828115842595,0.003511905670166,-0.0340018272399902,0.0491634607315063,Promoters,CNN
+human_nontata_promoters,official,small_cnn,none,standard,0.842903,0.003511905670166,-0.0022913217544555,0.0464639663696289,Promoters,CNN
 human_nontata_promoters,official,small_cnn,temperature,standard,0.8750859999999999,0.0036099553108215,0.0001285672187805,0.0437431931495666,Promoters,CNN
 human_nontata_promoters,official,small_cnn_rc_aug,none,gc_balanced,0.901146,0.0031901001930236,-0.0520316958427429,0.0385830998420715,Promoters,RC-aug CNN
 human_nontata_promoters,official,small_cnn_rc_aug,none,matched_negative_retraining,0.8815732961683902,0.0042288899421691,-0.0618482232093811,0.0451120734214782,Promoters,RC-aug CNN
-human_nontata_promoters,official,small_cnn_rc_aug,none,standard,0.9014160366927252,0.0048051476478576,-0.0656256675720214,0.0284047722816467,Promoters,RC-aug CNN
+human_nontata_promoters,official,small_cnn_rc_aug,none,standard,0.8636599999999999,0.0048051476478576,-0.0348603129386901,0.0378893613815307,Promoters,RC-aug CNN
 human_nontata_promoters,official,small_cnn_rc_aug,temperature,standard,0.8974350000000001,0.0048252940177917,-0.0329140424728393,0.0416962504386901,Promoters,RC-aug CNN

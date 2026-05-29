@@ -1,0 +1,3 @@
+gc_bin,count,positive_count,negative_count,gc_mean,gc_min,gc_max,auroc,ece,brier,task_id,model_id,split_id,seed,calibration_method,intervention_id
+0,189,29,160,0.46767195767195774,0.4666666666666667,0.4683333333333333,0.48793103448275865,0.3465848119741971,0.2500170547249906,mpra_myc_enhancer,caduceus_ph,official,2026,none,matched_negative_retraining
+1,114,18,96,0.4699999999999998,0.47,0.47,0.607638888888889,0.34215680121814795,0.25003304318749975,mpra_myc_enhancer,caduceus_ph,official,2026,none,matched_negative_retraining

@@ -1,0 +1,8 @@
+panel_or_box,label,description,input_artifact_or_doc,notes
+Input 1,Core benchmark,Core human tasks with held-out and chromosome-grouped evaluation.,results/publication/table1_task_overview.csv,Main counterfactual benchmark block.
+Input 2,External biological validation,"TF-binding, histone-mark and MPRA variant-effect assays.",results/release/external_validation_summary.csv,Supports external transfer and biological validation panels.
+Input 3,GenomeCF-Synth,Controlled shortcut-conflict and rule-learning tasks.,results/release/synthetic_extended_summary.csv,Used for mechanism-focused stress tests.
+Input 4,Software/reporting resource,"CLI, registry, website and reporting checklist.",docs/reporting_checklist.yaml,Submission-ready software layer.
+Output 1,Model reliability profile,"Counterfactual, calibration and robustness summary for each model.",results/release/benchmark_registry.csv,Generated from release registry summaries.
+Output 2,Variant-prioritization guidance,Case-study recommendations for MPRA-supported variant ranking tasks.,results/release/biological_case_study.csv,Main Fig. 5 downstream-use case.
+Output 3,Registry / leaderboard,Public-facing summaries and website downloads.,docs/site/leaderboard.csv,Website-facing derivative artifact.

@@ -1,0 +1,780 @@
+{
+  "pair_count": 82,
+  "family_counts": {
+    "Histone marks": 12,
+    "TF binding": 15,
+    "Variant effect": 55
+  },
+  "auroc_vs_external_reliability": {
+    "value": 0.21471441337022792,
+    "ci_low": -0.017897592587767106,
+    "ci_high": 0.42802395505565916,
+    "n": 82,
+    "method": "spearman"
+  },
+  "shortcut_vs_external_reliability": {
+    "value": 0.07690238291646789,
+    "ci_low": -0.12940333568246104,
+    "ci_high": 0.2711396466296953,
+    "n": 82,
+    "method": "spearman"
+  },
+  "auroc_vs_external_risk": {
+    "value": -0.04281495485385554,
+    "ci_low": -0.27823815001003965,
+    "ci_high": 0.17148858948249876,
+    "n": 82,
+    "method": "spearman"
+  },
+  "shortcut_vs_external_risk": {
+    "value": -0.16560561416182876,
+    "ci_low": -0.383543866194425,
+    "ci_high": 0.05325435078625337,
+    "n": 82,
+    "method": "spearman"
+  },
+  "auroc_vs_external_matched_shift": {
+    "value": -0.14213563230665038,
+    "ci_low": -0.46035314723438303,
+    "ci_high": 0.15189998976372152,
+    "n": 24,
+    "method": "pearson"
+  },
+  "shortcut_vs_external_matched_shift": {
+    "value": 0.28298819786892404,
+    "ci_low": -0.12067035161846594,
+    "ci_high": 0.6146548054825507,
+    "n": 24,
+    "method": "pearson"
+  },
+  "partial_shortcut_vs_external_reliability": {
+    "value": -0.10158421923837413,
+    "ci_low": -0.3280351010955626,
+    "ci_high": 0.15554281252387034,
+    "n": 82,
+    "method": "pearson"
+  },
+  "partial_shortcut_vs_external_reliability_controls": {
+    "value": -0.16456647029799684,
+    "ci_low": -0.3559763164446539,
+    "ci_high": 0.07270235290367569,
+    "n": 82,
+    "method": "pearson"
+  },
+  "partial_gc_gap_vs_external_risk": {
+    "value": 3.542861349829782e-16,
+    "ci_low": -0.1076305979022252,
+    "ci_high": 0.10608074250972113,
+    "n": 82,
+    "method": "pearson"
+  },
+  "regression": [
+    {
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "r2": 0.06170684121560244,
+      "ci_low": 0.0010653101221095279,
+      "ci_high": 0.21470674009466065,
+      "n": 82,
+      "coef": [
+        1.4391708130731813
+      ],
+      "intercept": -0.5955342201108673
+    },
+    {
+      "predictors": "core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "r2": 0.022971964913799936,
+      "ci_low": 5.196545710638434e-05,
+      "ci_high": 0.11119951828624694,
+      "n": 82,
+      "coef": [
+        0.3514648473149003
+      ],
+      "intercept": 0.35866784283972764
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "r2": 0.08611856848571298,
+      "ci_low": 0.019866896402223357,
+      "ci_high": 0.2388995558214317,
+      "n": 82,
+      "coef": [
+        1.4561187349226126,
+        0.3623749624417076
+      ],
+      "intercept": -0.8155333865032834
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "r2": 0.3828453974599544,
+      "ci_low": 0.2628916352444744,
+      "ci_high": 0.5642315135660869,
+      "n": 82,
+      "coef": [
+        0.8702712373932369,
+        -0.21749236211249734,
+        -0.4074045440798788,
+        -3.5439964945168274,
+        -9.353609660263102
+      ],
+      "intercept": 0.9797603069603176
+    }
+  ],
+  "leave_one_family_out": [
+    {
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "cv_r2": -0.3175100698488236,
+      "folds": [
+        {
+          "held_out_family": "Histone marks",
+          "n": 12,
+          "r2": 0.16826700054835697
+        },
+        {
+          "held_out_family": "TF binding",
+          "n": 15,
+          "r2": 0.1505983526968283
+        },
+        {
+          "held_out_family": "Variant effect",
+          "n": 55,
+          "r2": -0.6183288683339945
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "cv_r2": -0.03662773230643768,
+      "folds": [
+        {
+          "held_out_family": "Histone marks",
+          "n": 12,
+          "r2": -0.0871175638132331
+        },
+        {
+          "held_out_family": "TF binding",
+          "n": 15,
+          "r2": -0.03131008625335574
+        },
+        {
+          "held_out_family": "Variant effect",
+          "n": 55,
+          "r2": -0.037546266683094576
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "cv_r2": -0.32078080786963237,
+      "folds": [
+        {
+          "held_out_family": "Histone marks",
+          "n": 12,
+          "r2": 0.12705493536537982
+        },
+        {
+          "held_out_family": "TF binding",
+          "n": 15,
+          "r2": 0.12738863602508688
+        },
+        {
+          "held_out_family": "Variant effect",
+          "n": 55,
+          "r2": -0.6051506671270821
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "cv_r2": -0.1094618533034164,
+      "folds": [
+        {
+          "held_out_family": "Histone marks",
+          "n": 12,
+          "r2": 0.5195131532647218
+        },
+        {
+          "held_out_family": "TF binding",
+          "n": 15,
+          "r2": 0.3562348688102195
+        },
+        {
+          "held_out_family": "Variant effect",
+          "n": 55,
+          "r2": -0.44281180520491925
+        }
+      ]
+    }
+  ],
+  "leave_one_task_out": [
+    {
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "group_col": "task_id",
+      "cv_r2": 0.02559611403805473,
+      "folds": [
+        {
+          "held_out": "gue_emp_h3k14ac",
+          "n": 6,
+          "r2": 0.25953112240092646
+        },
+        {
+          "held_out": "gue_emp_h3k4me3",
+          "n": 6,
+          "r2": 0.2007911502931946
+        },
+        {
+          "held_out": "gue_human_tf_0",
+          "n": 9,
+          "r2": 0.16640637414935366
+        },
+        {
+          "held_out": "gue_human_tf_1",
+          "n": 6,
+          "r2": 0.22604564089003532
+        },
+        {
+          "held_out": "mpra_bcl11a_enhancer",
+          "n": 11,
+          "r2": 0.13430279366266684
+        },
+        {
+          "held_out": "mpra_f9_promoter",
+          "n": 11,
+          "r2": -0.3182538873141185
+        },
+        {
+          "held_out": "mpra_hbb_promoter",
+          "n": 11,
+          "r2": -0.17150147805281812
+        },
+        {
+          "held_out": "mpra_ldlr_promoter",
+          "n": 11,
+          "r2": -0.04892264685724301
+        },
+        {
+          "held_out": "mpra_myc_enhancer",
+          "n": 11,
+          "r2": -0.0032747384414431036
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "group_col": "task_id",
+      "cv_r2": -0.027416768251658175,
+      "folds": [
+        {
+          "held_out": "gue_emp_h3k14ac",
+          "n": 6,
+          "r2": -0.16410180854479606
+        },
+        {
+          "held_out": "gue_emp_h3k4me3",
+          "n": 6,
+          "r2": -0.016109557213794146
+        },
+        {
+          "held_out": "gue_human_tf_0",
+          "n": 9,
+          "r2": -0.03410428674797106
+        },
+        {
+          "held_out": "gue_human_tf_1",
+          "n": 6,
+          "r2": -0.04027436233070625
+        },
+        {
+          "held_out": "mpra_bcl11a_enhancer",
+          "n": 11,
+          "r2": -0.055889244719546705
+        },
+        {
+          "held_out": "mpra_f9_promoter",
+          "n": 11,
+          "r2": 0.0832439185171473
+        },
+        {
+          "held_out": "mpra_hbb_promoter",
+          "n": 11,
+          "r2": -0.32874144304071784
+        },
+        {
+          "held_out": "mpra_ldlr_promoter",
+          "n": 11,
+          "r2": 0.06154582545525178
+        },
+        {
+          "held_out": "mpra_myc_enhancer",
+          "n": 11,
+          "r2": 0.08190848124607897
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_shortcut_score",
+      "outcome": "external_biological_reliability",
+      "group_col": "task_id",
+      "cv_r2": 0.0010028737337782756,
+      "folds": [
+        {
+          "held_out": "gue_emp_h3k14ac",
+          "n": 6,
+          "r2": 0.1457406175000966
+        },
+        {
+          "held_out": "gue_emp_h3k4me3",
+          "n": 6,
+          "r2": 0.22472040945748972
+        },
+        {
+          "held_out": "gue_human_tf_0",
+          "n": 9,
+          "r2": 0.1251593176430721
+        },
+        {
+          "held_out": "gue_human_tf_1",
+          "n": 6,
+          "r2": 0.22748003103734216
+        },
+        {
+          "held_out": "mpra_bcl11a_enhancer",
+          "n": 11,
+          "r2": 0.0809728555911009
+        },
+        {
+          "held_out": "mpra_f9_promoter",
+          "n": 11,
+          "r2": -0.22007098452139595
+        },
+        {
+          "held_out": "mpra_hbb_promoter",
+          "n": 11,
+          "r2": -0.514366069086676
+        },
+        {
+          "held_out": "mpra_ldlr_promoter",
+          "n": 11,
+          "r2": 0.017465828443851583
+        },
+        {
+          "held_out": "mpra_myc_enhancer",
+          "n": 11,
+          "r2": 0.08560414967016261
+        }
+      ]
+    },
+    {
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "group_col": "task_id",
+      "cv_r2": 0.23778288206707565,
+      "folds": [
+        {
+          "held_out": "gue_emp_h3k14ac",
+          "n": 6,
+          "r2": 0.46627664279704417
+        },
+        {
+          "held_out": "gue_emp_h3k4me3",
+          "n": 6,
+          "r2": 0.6580495343299348
+        },
+        {
+          "held_out": "gue_human_tf_0",
+          "n": 9,
+          "r2": 0.5283727536872533
+        },
+        {
+          "held_out": "gue_human_tf_1",
+          "n": 6,
+          "r2": 0.33928329733546503
+        },
+        {
+          "held_out": "mpra_bcl11a_enhancer",
+          "n": 11,
+          "r2": -0.08838854758670456
+        },
+        {
+          "held_out": "mpra_f9_promoter",
+          "n": 11,
+          "r2": -0.5554589947703994
+        },
+        {
+          "held_out": "mpra_hbb_promoter",
+          "n": 11,
+          "r2": -0.41475123987100226
+        },
+        {
+          "held_out": "mpra_ldlr_promoter",
+          "n": 11,
+          "r2": 0.5602887306701977
+        },
+        {
+          "held_out": "mpra_myc_enhancer",
+          "n": 11,
+          "r2": 0.594172611260879
+        }
+      ]
+    }
+  ],
+  "within_family_leave_one_task_out": [
+    {
+      "external_family": "Variant effect",
+      "results": [
+        {
+          "predictors": "core_mean_auroc",
+          "outcome": "external_biological_reliability",
+          "group_col": "task_id",
+          "cv_r2": -0.024844460606579855,
+          "folds": [
+            {
+              "held_out": "mpra_bcl11a_enhancer",
+              "n": 11,
+              "r2": -0.06848709528836783
+            },
+            {
+              "held_out": "mpra_f9_promoter",
+              "n": 11,
+              "r2": -0.063746432538899
+            },
+            {
+              "held_out": "mpra_hbb_promoter",
+              "n": 11,
+              "r2": -0.014341956364575026
+            },
+            {
+              "held_out": "mpra_ldlr_promoter",
+              "n": 11,
+              "r2": 0.00034444423560131554
+            },
+            {
+              "held_out": "mpra_myc_enhancer",
+              "n": 11,
+              "r2": -0.005896658001031563
+            }
+          ]
+        },
+        {
+          "predictors": "core_mean_shortcut_score",
+          "outcome": "external_biological_reliability",
+          "group_col": "task_id",
+          "cv_r2": -0.05994321357903565,
+          "folds": [
+            {
+              "held_out": "mpra_bcl11a_enhancer",
+              "n": 11,
+              "r2": -0.14036513909665915
+            },
+            {
+              "held_out": "mpra_f9_promoter",
+              "n": 11,
+              "r2": 0.15415171535196048
+            },
+            {
+              "held_out": "mpra_hbb_promoter",
+              "n": 11,
+              "r2": -0.6033408778694678
+            },
+            {
+              "held_out": "mpra_ldlr_promoter",
+              "n": 11,
+              "r2": 0.09840597683390051
+            },
+            {
+              "held_out": "mpra_myc_enhancer",
+              "n": 11,
+              "r2": 0.1316351937365554
+            }
+          ]
+        },
+        {
+          "predictors": "core_mean_auroc+core_mean_shortcut_score",
+          "outcome": "external_biological_reliability",
+          "group_col": "task_id",
+          "cv_r2": -0.08514860066225016,
+          "folds": [
+            {
+              "held_out": "mpra_bcl11a_enhancer",
+              "n": 11,
+              "r2": -0.21293847377198594
+            },
+            {
+              "held_out": "mpra_f9_promoter",
+              "n": 11,
+              "r2": 0.08953789016651625
+            },
+            {
+              "held_out": "mpra_hbb_promoter",
+              "n": 11,
+              "r2": -0.6155913223075518
+            },
+            {
+              "held_out": "mpra_ldlr_promoter",
+              "n": 11,
+              "r2": 0.09861254329898939
+            },
+            {
+              "held_out": "mpra_myc_enhancer",
+              "n": 11,
+              "r2": 0.12526926308336417
+            }
+          ]
+        },
+        {
+          "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+          "outcome": "external_biological_reliability",
+          "group_col": "task_id",
+          "cv_r2": 0.08947299798789532,
+          "folds": [
+            {
+              "held_out": "mpra_bcl11a_enhancer",
+              "n": 11,
+              "r2": -0.6157403471058354
+            },
+            {
+              "held_out": "mpra_f9_promoter",
+              "n": 11,
+              "r2": -0.1496018235293486
+            },
+            {
+              "held_out": "mpra_hbb_promoter",
+              "n": 11,
+              "r2": -0.24423348342174633
+            },
+            {
+              "held_out": "mpra_ldlr_promoter",
+              "n": 11,
+              "r2": 0.5294538846923393
+            },
+            {
+              "held_out": "mpra_myc_enhancer",
+              "n": 11,
+              "r2": 0.4970508766395566
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "family_stratified_regression": [
+    {
+      "external_family": "Histone marks",
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "r2": 0.6142014206192772,
+      "ci_low": 0.36148942483962165,
+      "ci_high": 0.8546862869559256,
+      "n": 12
+    },
+    {
+      "external_family": "TF binding",
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "r2": 0.3891853032456921,
+      "ci_low": 0.03329989620766231,
+      "ci_high": 0.7533820573875011,
+      "n": 15
+    },
+    {
+      "external_family": "Variant effect",
+      "predictors": "core_mean_auroc",
+      "outcome": "external_biological_reliability",
+      "r2": 0.00016808999307271755,
+      "ci_low": 2.959548783971755e-05,
+      "ci_high": 0.09688218967024531,
+      "n": 55
+    },
+    {
+      "external_family": "Histone marks",
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "r2": 0.95778316400216,
+      "ci_low": 0.913392644421122,
+      "ci_high": 1.0,
+      "n": 12
+    },
+    {
+      "external_family": "TF binding",
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "r2": 0.8445162285758199,
+      "ci_low": 0.7429700172217402,
+      "ci_high": 0.9986552110987204,
+      "n": 15
+    },
+    {
+      "external_family": "Variant effect",
+      "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+      "outcome": "external_biological_reliability",
+      "r2": 0.3561628971677966,
+      "ci_low": 0.1848804863484248,
+      "ci_high": 0.6167291334331076,
+      "n": 55
+    }
+  ],
+  "model_family_stratified_regression": [
+    {
+      "model_family": "CNN",
+      "auroc_only": {
+        "predictors": "core_mean_auroc",
+        "outcome": "external_biological_reliability",
+        "r2": 0.006457640799166331,
+        "ci_low": 3.509718967118214e-05,
+        "ci_high": 0.18949138604386515,
+        "n": 28,
+        "coef": [
+          0.7016152051793999
+        ],
+        "intercept": -0.08360296600751571
+      },
+      "shortcut_only": {
+        "predictors": "core_mean_shortcut_score",
+        "outcome": "external_biological_reliability",
+        "r2": 0.02772273361295785,
+        "ci_low": 0.0001154132166166444,
+        "ci_high": 0.3139134553774583,
+        "n": 28,
+        "coef": [
+          -0.8858504488524345
+        ],
+        "intercept": 0.8592414231389973
+      },
+      "full_profile": {
+        "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+        "outcome": "external_biological_reliability",
+        "r2": 0.07585951236295085,
+        "ci_low": 0.020059562947652477,
+        "ci_high": 0.47542371806379774,
+        "n": 28,
+        "coef": [
+          4.395769689347552,
+          -6.543385831654226,
+          2.339761715519434,
+          -4.138265336534126,
+          0.5859852702180657
+        ],
+        "intercept": -2.8560887043489704
+      },
+      "n": 28
+    },
+    {
+      "model_family": "foundation model",
+      "auroc_only": {
+        "predictors": "core_mean_auroc",
+        "outcome": "external_biological_reliability",
+        "r2": 0.24666555807473955,
+        "ci_low": 0.0654205187819576,
+        "ci_high": 0.46701818753935354,
+        "n": 45,
+        "coef": [
+          2.679693209888374
+        ],
+        "intercept": -1.603462387739693
+      },
+      "shortcut_only": {
+        "predictors": "core_mean_shortcut_score",
+        "outcome": "external_biological_reliability",
+        "r2": 0.08627340488502433,
+        "ci_low": 0.002711899798245918,
+        "ci_high": 0.2684673071492311,
+        "n": 45,
+        "coef": [
+          -1.9865890085629867
+        ],
+        "intercept": 1.8523078101954782
+      },
+      "full_profile": {
+        "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+        "outcome": "external_biological_reliability",
+        "r2": 0.5551439920169778,
+        "ci_low": 0.3917321833347436,
+        "ci_high": 0.7951951351890401,
+        "n": 45,
+        "coef": [
+          14.88472463546257,
+          -214.539086340326,
+          -4.559262708972814,
+          -93.61962832517288,
+          -257.53610404043184
+        ],
+        "intercept": 31.107753436739525
+      },
+      "n": 45
+    },
+    {
+      "model_family": "k-mer baseline",
+      "auroc_only": {
+        "predictors": "core_mean_auroc",
+        "outcome": "external_biological_reliability",
+        "r2": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "n": 9,
+        "coef": [
+          0.0
+        ],
+        "intercept": 0.7084455667789001
+      },
+      "shortcut_only": {
+        "predictors": "core_mean_shortcut_score",
+        "outcome": "external_biological_reliability",
+        "r2": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "n": 9,
+        "coef": [
+          0.0
+        ],
+        "intercept": 0.7084455667789001
+      },
+      "full_profile": {
+        "predictors": "core_mean_auroc+core_mean_rc_delta+core_mean_ece+core_matched_negative_shift+core_gc_bin_auroc_gap",
+        "outcome": "external_biological_reliability",
+        "r2": 0.0,
+        "ci_low": -2.220446049250313e-16,
+        "ci_high": 2.220446049250313e-16,
+        "n": 9,
+        "coef": [
+          0.0,
+          0.0,
+          1.7907157999750594,
+          0.0,
+          0.0
+        ],
+        "intercept": 0.2885110216999421
+      },
+      "n": 9
+    }
+  ],
+  "full_profile_advantage": {
+    "observed_delta": 0.32113855624435206,
+    "ci_low": 0.18174012816986054,
+    "ci_high": 0.5145493217912405,
+    "n_boot": 1000
+  },
+  "shortcut_permutation": {
+    "observed_delta": 0.2808823375423859,
+    "p_value": 0.006993006993006993,
+    "n_perm": 1000
+  },
+  "permutation": {
+    "observed_delta": 0.20804821654540806,
+    "p_value": 0.36163836163836166,
+    "n_perm": 1000
+  },
+  "in_sample_permutation": {
+    "observed_delta": 0.32113855624435206,
+    "p_value": 0.0004997501249375312,
+    "n_perm": 2000
+  }
+}

@@ -1,0 +1,265 @@
+figure_or_table,file_name,column_name,description
+Fig1,panel_definitions.csv,panel_or_box,Column copied from panel_definitions.csv.
+Fig1,panel_definitions.csv,label,Column copied from panel_definitions.csv.
+Fig1,panel_definitions.csv,description,Column copied from panel_definitions.csv.
+Fig1,panel_definitions.csv,input_artifact_or_doc,Column copied from panel_definitions.csv.
+Fig1,panel_definitions.csv,notes,Column copied from panel_definitions.csv.
+Fig2,fig2_tradeoff_points.csv,task_id,Internal task identifier used throughout the release registry.
+Fig2,fig2_tradeoff_points.csv,task_label,Human-readable task label used in manuscript figures.
+Fig2,fig2_tradeoff_points.csv,model_id,Internal model identifier.
+Fig2,fig2_tradeoff_points.csv,model_label,Human-readable model label used in the paper.
+Fig2,fig2_tradeoff_points.csv,AUROC,Area under the receiver operating characteristic curve.
+Fig2,fig2_tradeoff_points.csv,RC_delta,Reverse-complement mean absolute probability delta.
+Fig2,fig2_tradeoff_points.csv,mono_drop,Positive-class probability drop after mononucleotide shuffle.
+Fig2,fig2_tradeoff_points.csv,ECE,Expected calibration error.
+Fig2,fig2_tradeoff_points.csv,Brier,Brier score.
+Fig2,fig2_tradeoff_points.csv,split,Column copied from fig2_tradeoff_points.csv.
+Fig2,fig2_tradeoff_points.csv,mode,Column copied from fig2_tradeoff_points.csv.
+Fig2,fig2_tradeoff_points.csv,source_registry_key,Column copied from fig2_tradeoff_points.csv.
+Fig2,fig2_tradeoff_points.csv,source_file,Column copied from fig2_tradeoff_points.csv.
+Fig2,source_registry_rows.csv,task_id,Internal task identifier used throughout the release registry.
+Fig2,source_registry_rows.csv,task_readable_name,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,tier,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,track,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,species,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,split_id,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,split_fold,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,model_id,Internal model identifier.
+Fig2,source_registry_rows.csv,model_readable_name,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,model_family,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mode,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,calibration_method,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,intervention_id,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,seeds,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,auroc,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,auprc,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,accuracy,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,balanced_accuracy,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mcc,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,f1,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,ece,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,brier,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,train_count,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,val_count,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,test_count,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,positive_count,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,negative_count,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,flip_rate,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,calibration_shift,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,sequence_length_summary,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,rc_mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,rc_flip_rate,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,rc_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,rc_calibration_shift,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mono_mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mono_flip_rate,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mono_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mono_calibration_shift,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,dinuc_mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,dinuc_flip_rate,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,dinuc_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,dinuc_calibration_shift,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,motif_mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,motif_flip_rate,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,motif_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,motif_calibration_shift,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,gc_only_auroc,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,gc_only_explainability_ratio,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,mono_retention,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,dinuc_retention,Column copied from source_registry_rows.csv.
+Fig2,source_registry_rows.csv,shortcut_score,Column copied from source_registry_rows.csv.
+Fig3,fig3_foundation_comparison.csv,task_id,Internal task identifier used throughout the release registry.
+Fig3,fig3_foundation_comparison.csv,task_label,Human-readable task label used in manuscript figures.
+Fig3,fig3_foundation_comparison.csv,model_id,Internal model identifier.
+Fig3,fig3_foundation_comparison.csv,model_label,Human-readable model label used in the paper.
+Fig3,fig3_foundation_comparison.csv,configuration,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,metric,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,value,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,before_or_after,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,official_AUROC,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,matched_negative_AUROC,AUROC on the matched-negative evaluation split.
+Fig3,fig3_foundation_comparison.csv,ECE,Expected calibration error.
+Fig3,fig3_foundation_comparison.csv,Brier,Brier score.
+Fig3,fig3_foundation_comparison.csv,RC_delta,Reverse-complement mean absolute probability delta.
+Fig3,fig3_foundation_comparison.csv,intervention,Column copied from fig3_foundation_comparison.csv.
+Fig3,fig3_foundation_comparison.csv,source_file,Column copied from fig3_foundation_comparison.csv.
+Fig3,source_registry_rows.csv,task_id,Internal task identifier used throughout the release registry.
+Fig3,source_registry_rows.csv,task_label,Human-readable task label used in manuscript figures.
+Fig3,source_registry_rows.csv,model_id,Internal model identifier.
+Fig3,source_registry_rows.csv,model_label,Human-readable model label used in the paper.
+Fig3,source_registry_rows.csv,intervention,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,auroc_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,auroc_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,ece_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,ece_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,brier_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,brier_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_auroc_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_auroc_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_ece_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_ece_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_brier_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,matched_brier_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,rc_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,rc_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,mono_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,mono_after,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,dinuc_before,Column copied from source_registry_rows.csv.
+Fig3,source_registry_rows.csv,dinuc_after,Column copied from source_registry_rows.csv.
+Fig4,fig4_external_assay_family_summary.csv,external_family,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,model_id,Internal model identifier.
+Fig4,fig4_external_assay_family_summary.csv,model_label,Human-readable model label used in the paper.
+Fig4,fig4_external_assay_family_summary.csv,official_auroc,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,official_auprc,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,official_ece,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,official_brier,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,worst_bin_auroc,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,gc_bin_auroc_gap,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,spearman_abs_effect,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,topk_enrichment,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,matched_negative_shift,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,external_biological_reliability,Composite external biological reliability score used in the manuscript.
+Fig4,fig4_external_assay_family_summary.csv,external_reliability_risk,Risk-oriented complement of the external biological reliability score.
+Fig4,fig4_external_assay_family_summary.csv,task_config_pairs,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_assay_family_summary.csv,source_file,Column copied from fig4_external_assay_family_summary.csv.
+Fig4,fig4_external_prediction_points.csv,task_id,Internal task identifier used throughout the release registry.
+Fig4,fig4_external_prediction_points.csv,task_label,Human-readable task label used in manuscript figures.
+Fig4,fig4_external_prediction_points.csv,external_family,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,model_id,Internal model identifier.
+Fig4,fig4_external_prediction_points.csv,model_label,Human-readable model label used in the paper.
+Fig4,fig4_external_prediction_points.csv,condition_label,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,external_biological_reliability,Composite external biological reliability score used in the manuscript.
+Fig4,fig4_external_prediction_points.csv,external_reliability_risk,Risk-oriented complement of the external biological reliability score.
+Fig4,fig4_external_prediction_points.csv,matched_negative_shift,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_mean_auroc,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_mean_shortcut_score,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_mean_rc_delta,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_mean_ece,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_matched_negative_shift,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,core_gc_bin_auroc_gap,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,configuration_label,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,model_family,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,external_AUROC,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,external_AUPRC,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,external_ECE,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,external_Brier,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,worst_GC_bin_AUROC,Worst-bin AUROC across GC composition quantile bins.
+Fig4,fig4_external_prediction_points.csv,full_GenomeCF_profile_score,Linear score from the full GenomeCF profile regression (without intercept).
+Fig4,fig4_external_prediction_points.csv,predicted_external_reliability,Predicted external biological reliability from the fitted full GenomeCF profile regression.
+Fig4,fig4_external_prediction_points.csv,external_metric,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_points.csv,source_file,Column copied from fig4_external_prediction_points.csv.
+Fig4,fig4_external_prediction_model_fits.csv,fit_type,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,group,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,predictors,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,outcome,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,r2,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,ci_low,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,ci_high,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,n,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,p_value_or_permutation_p,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,fig4_external_prediction_model_fits.csv,notes,Column copied from fig4_external_prediction_model_fits.csv.
+Fig4,source_registry_rows.csv,task_id,Internal task identifier used throughout the release registry.
+Fig4,source_registry_rows.csv,task_label,Human-readable task label used in manuscript figures.
+Fig4,source_registry_rows.csv,external_family,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,model_id,Internal model identifier.
+Fig4,source_registry_rows.csv,model_label,Human-readable model label used in the paper.
+Fig4,source_registry_rows.csv,condition_label,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,external_biological_reliability,Composite external biological reliability score used in the manuscript.
+Fig4,source_registry_rows.csv,external_reliability_risk,Risk-oriented complement of the external biological reliability score.
+Fig4,source_registry_rows.csv,matched_negative_shift,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_mean_auroc,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_mean_shortcut_score,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_mean_rc_delta,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_mean_ece,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_matched_negative_shift,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,core_gc_bin_auroc_gap,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,configuration_label,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,model_family,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,external_AUROC,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,external_AUPRC,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,external_ECE,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,external_Brier,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,worst_GC_bin_AUROC,Worst-bin AUROC across GC composition quantile bins.
+Fig4,source_registry_rows.csv,full_GenomeCF_profile_score,Linear score from the full GenomeCF profile regression (without intercept).
+Fig4,source_registry_rows.csv,predicted_external_reliability,Predicted external biological reliability from the fitted full GenomeCF profile regression.
+Fig4,source_registry_rows.csv,external_metric,Column copied from source_registry_rows.csv.
+Fig4,source_registry_rows.csv,source_file,Column copied from source_registry_rows.csv.
+Fig5,fig5_mpra_case_studies.csv,case_id,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,task_id,Internal task identifier used throughout the release registry.
+Fig5,fig5_mpra_case_studies.csv,model_id,Internal model identifier.
+Fig5,fig5_mpra_case_studies.csv,configuration,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,decision_role,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,objective,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,AUROC,Area under the receiver operating characteristic curve.
+Fig5,fig5_mpra_case_studies.csv,AUPRC,Area under the precision-recall curve.
+Fig5,fig5_mpra_case_studies.csv,top_k_enrichment,Enrichment among the highest-ranked variants in the MPRA case study.
+Fig5,fig5_mpra_case_studies.csv,top_k_precision,Precision among the top-ranked variants in the MPRA case study.
+Fig5,fig5_mpra_case_studies.csv,Spearman,Spearman correlation with absolute measured variant effect.
+Fig5,fig5_mpra_case_studies.csv,worst_GC_bin_AUROC,Worst-bin AUROC across GC composition quantile bins.
+Fig5,fig5_mpra_case_studies.csv,ece,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,GenomeCF_recommendation,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,AUROC_only_choice,Column copied from fig5_mpra_case_studies.csv.
+Fig5,fig5_mpra_case_studies.csv,source_file,Column copied from fig5_mpra_case_studies.csv.
+Fig5,source_registry_rows.csv,case_study_id,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,case_study_message,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,task_id,Internal task identifier used throughout the release registry.
+Fig5,source_registry_rows.csv,task_label,Human-readable task label used in manuscript figures.
+Fig5,source_registry_rows.csv,external_family,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,model_id,Internal model identifier.
+Fig5,source_registry_rows.csv,model_label,Human-readable model label used in the paper.
+Fig5,source_registry_rows.csv,condition_label,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,decision_role,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,core_mean_auroc,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,core_mean_ece,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,core_mean_shortcut_score,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,auroc,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,auprc,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,spearman_abs_effect,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,topk_enrichment,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,ece,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,brier,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,worst_bin_auroc,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,gc_bin_auroc_gap,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,topk_precision,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,objective,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,GenomeCF_recommendation,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,AUROC_only_choice,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,configuration,Column copied from source_registry_rows.csv.
+Fig5,source_registry_rows.csv,source_file,Column copied from source_registry_rows.csv.
+Fig6,fig6_genomecf_synth.csv,synthetic_task,Column copied from fig6_genomecf_synth.csv.
+Fig6,fig6_genomecf_synth.csv,task_label,Human-readable task label used in manuscript figures.
+Fig6,fig6_genomecf_synth.csv,model_id,Internal model identifier.
+Fig6,fig6_genomecf_synth.csv,model_label,Human-readable model label used in the paper.
+Fig6,fig6_genomecf_synth.csv,condition,Column copied from fig6_genomecf_synth.csv.
+Fig6,fig6_genomecf_synth.csv,AUROC,Area under the receiver operating characteristic curve.
+Fig6,fig6_genomecf_synth.csv,AUPRC,Area under the precision-recall curve.
+Fig6,fig6_genomecf_synth.csv,ECE,Expected calibration error.
+Fig6,fig6_genomecf_synth.csv,Brier,Brier score.
+Fig6,fig6_genomecf_synth.csv,RC_delta,Reverse-complement mean absolute probability delta.
+Fig6,fig6_genomecf_synth.csv,mono_drop,Positive-class probability drop after mononucleotide shuffle.
+Fig6,fig6_genomecf_synth.csv,dinuc_drop,Positive-class probability drop after dinucleotide shuffle.
+Fig6,fig6_genomecf_synth.csv,motif_disruption_drop,Column copied from fig6_genomecf_synth.csv.
+Fig6,fig6_genomecf_synth.csv,rule_following_rate,Fraction of synthetic examples on which the model followed the intended mechanistic rule.
+Fig6,fig6_genomecf_synth.csv,shortcut_following_rate,Fraction of synthetic examples on which the model followed the shortcut cue.
+Fig6,fig6_genomecf_synth.csv,conflict_accuracy,Accuracy on the synthetic shortcut-conflict evaluation split.
+Fig6,fig6_genomecf_synth.csv,source_file,Column copied from fig6_genomecf_synth.csv.
+Fig6,source_registry_rows.csv,task_id,Internal task identifier used throughout the release registry.
+Fig6,source_registry_rows.csv,task_label,Human-readable task label used in manuscript figures.
+Fig6,source_registry_rows.csv,model_id,Internal model identifier.
+Fig6,source_registry_rows.csv,model_label,Human-readable model label used in the paper.
+Fig6,source_registry_rows.csv,seed,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,auroc,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,ece,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,brier,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,rc_mean_abs_delta,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,mono_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,dinuc_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,motif_positive_prob_drop,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,shortcut_conflict_accuracy,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,rule_following_rate,Fraction of synthetic examples on which the model followed the intended mechanistic rule.
+Fig6,source_registry_rows.csv,shortcut_following_rate,Fraction of synthetic examples on which the model followed the shortcut cue.
+Fig6,source_registry_rows.csv,condition,Column copied from source_registry_rows.csv.
+Fig6,source_registry_rows.csv,AUPRC,Area under the precision-recall curve.
+Fig6,source_registry_rows.csv,source_file,Column copied from source_registry_rows.csv.

@@ -1,0 +1,13 @@
+{
+  "figure_or_table": "Fig. 3",
+  "title": "Foundation-model comparison on the focal tasks. Top: frozen DNABERT-2 and Caduceus-Ph official AUROC and reverse-complement instability. Bottom: completed interventions on the same models. Temperature scaling improves calibration, whereas matched-negative-trained heads alter matched-test AUROC and sometimes trade off official performance for confounder-controlled robustness.",
+  "manuscript_file": "paper/genomecf_report.tex",
+  "source_files": [
+    "results/publication/table5_mitigation_summary.csv"
+  ],
+  "generation_script": "package_src/genomecf/submission_data.py",
+  "date_generated": "2026-05-28T05:03:02+00:00",
+  "registry_hash": "793127116d438ea284cd252b50b95786b945c8920488db0d0017fb562cc643a6",
+  "notes": "Long-form mitigation summary for focal DNABERT-2 and Caduceus-Ph rows.",
+  "license_or_restrictions": "Derived summary only."
+}

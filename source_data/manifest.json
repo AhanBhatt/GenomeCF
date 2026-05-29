@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-28T05:03:02+00:00",
+  "main_figures": [
+    "GenomeCF resource overview. GenomeCF combines counterfactual stress tests on core real-data tasks, external biological assays, GenomeCF-Synth mechanism tasks, and a software/reporting stack designed for reusable community evaluation.",
+    "Held-out AUROC versus three GenomeCF axes on the four core human tasks. High AUROC does not guarantee low reverse-complement instability, biologically sensible shuffle behavior or good calibration. Task labels are Pr = Promoters, EC = Enhancers (Cohn), EE = Enhancers (Ensembl), and OCR = Open chromatin.",
+    "Foundation-model comparison on the focal tasks. Top: frozen DNABERT-2 and Caduceus-Ph official AUROC and reverse-complement instability. Bottom: completed interventions on the same models. Temperature scaling improves calibration, whereas matched-negative-trained heads alter matched-test AUROC and sometimes trade off official performance for confounder-controlled robustness.",
+    "External biological validation. Left, official and worst-bin assay-family results across TF-binding, histone-mark and MPRA variant-effect tasks. Right, external biological reliability is better explained by GenomeCF counterfactual metrics than by held-out core AUROC alone.",
+    "MPRA biological case studies. Case A shows that GenomeCF changes configuration choice on the BCL11A enhancer MPRA task by favoring a temperature-scaled CNN over the default CNN. Case B shows that GenomeCF changes model choice on the MYC enhancer MPRA task by favoring DNABERT-2 for top-ranked variant nomination even though the 6-mer baseline has stronger global AUROC and AUPRC.",
+    "GenomeCF-Synth. The top row revisits the planted-motif benchmark; the bottom row adds shortcut-conflict tasks that separate rule-following from shortcut-following behavior."
+  ],
+  "main_tables": [],
+  "files": [
+    {
+      "figure_or_table": "Fig. 1",
+      "folder": "source_data/Fig1",
+      "file_name": "panel_definitions.csv",
+      "description": "Schematic panel and artifact mapping for the resource overview."
+    },
+    {
+      "figure_or_table": "Fig. 2",
+      "folder": "source_data/Fig2",
+      "file_name": "fig2_tradeoff_points.csv",
+      "description": "Official-split AUROC, RC instability, shuffle response and calibration values for the core tradeoff figure."
+    },
+    {
+      "figure_or_table": "Fig. 3",
+      "folder": "source_data/Fig3",
+      "file_name": "fig3_foundation_comparison.csv",
+      "description": "Foundation-model official and intervention results in long format for the main comparison figure."
+    },
+    {
+      "figure_or_table": "Fig. 4",
+      "folder": "source_data/Fig4",
+      "file_name": "fig4_external_assay_family_summary.csv",
+      "description": "Assay-family summary metrics for the left-hand panel of the external validation figure."
+    },
+    {
+      "figure_or_table": "Fig. 4",
+      "folder": "source_data/Fig4",
+      "file_name": "fig4_external_prediction_points.csv",
+      "description": "Model-configuration-task prediction points for the external reliability analysis."
+    },
+    {
+      "figure_or_table": "Fig. 4",
+      "folder": "source_data/Fig4",
+      "file_name": "fig4_external_prediction_model_fits.csv",
+      "description": "Regression, LOFO and permutation summaries for external prediction analyses."
+    },
+    {
+      "figure_or_table": "Fig. 5",
+      "folder": "source_data/Fig5",
+      "file_name": "fig5_mpra_case_studies.csv",
+      "description": "Case-study metrics for BCL11A and MYC MPRA decision-change panels."
+    },
+    {
+      "figure_or_table": "Fig. 6",
+      "folder": "source_data/Fig6",
+      "file_name": "fig6_genomecf_synth.csv",
+      "description": "GenomeCF-Synth task metrics for shortcut and rule-following comparisons."
+    }
+  ]
+}

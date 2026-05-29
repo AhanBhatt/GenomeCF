@@ -1,0 +1,8 @@
+analysis_type,n,auroc_only_r2,shortcut_only_r2,full_profile_r2,delta_full_vs_auroc,delta_ci_low,delta_ci_high,permutation_p,interpretation
+in-sample (pooled),82,0.06170684121560244,0.022971964913799936,0.3828453974599544,0.32113855624435195,0.18174012816986054,0.5145493217912405,0.0004997501249375312,Primary analysis: full GenomeCF profile vs AUROC-only (pooled).
+leave-one-family-out,82,-0.3175100698488236,-0.03662773230643768,-0.1094618533034164,0.20804821654540717,,,0.36163836163836166,Hard setting: extrapolation to a held-out assay family.
+leave-one-task-out,82,0.02559611403805473,-0.027416768251658175,0.23778288206707565,0.21218676802902092,,,,Task-held-out prediction within the same mix of assay families.
+within-family leave-one-task-out (Variant effect),55,-0.024844460606579855,-0.05994321357903565,0.08947299798789532,0.11431745859447517,,,,Within-family robustness (assay-family specific).
+in-sample model-family stratified (CNN),28,0.006457640799166331,0.02772273361295785,0.07585951236295085,0.06940187156378452,,,,Checks robustness when restricting to a model family.
+in-sample model-family stratified (foundation model),45,0.24666555807473955,0.08627340488502433,0.5551439920169778,0.3084784339422383,,,,Checks robustness when restricting to a model family.
+in-sample model-family stratified (k-mer baseline),9,0.0,0.0,0.0,0.0,,,,Checks robustness when restricting to a model family.

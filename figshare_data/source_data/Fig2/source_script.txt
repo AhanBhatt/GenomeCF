@@ -1,0 +1,7 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Load results/publication/table2_main_results.csv.
+- Merge official split / mode metadata from results/release/benchmark_summary.csv.
+- Export plotted values and the corresponding benchmark summary rows.

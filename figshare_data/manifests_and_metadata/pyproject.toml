@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genomecf"
+version = "0.3.0"
+description = "Counterfactual stress testing benchmark for DNA sequence models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = [
+  "numpy>=2.0",
+  "pandas>=2.2",
+  "scikit-learn>=1.5",
+  "torch>=2.2",
+  "transformers>=4.40",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+benchmark = [
+  "xgboost>=2.1",
+  "peft>=0.13",
+  "accelerate>=0.34",
+  "captum>=0.7",
+]
+dev = [
+  "pytest>=8.3",
+]
+
+[project.scripts]
+genomecf = "genomecf.cli:main"
+genomecf-build-paper = "genomecf.build_publication:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["genomecf"]
+
+[tool.setuptools.package-dir]
+"" = "package_src"
+
+[tool.setuptools.package-data]
+genomecf = ["config/*.json", "config/tasks/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m fast"
+markers = [
+  "fast: fast tests that should pass in the default local environment",
+  "slow: slower end-to-end tests and heavier smoke paths",
+  "gpu: tests that require CUDA or a GPU-backed runtime",
+  "paper: publication artifact generation tests",
+]

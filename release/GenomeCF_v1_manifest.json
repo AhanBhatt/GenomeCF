@@ -1,11 +1,11 @@
 {
   "release_name": "GenomeCF_v1",
-  "generated_at": "2026-05-27T21:19:46.060302+00:00",
+  "generated_at": "2026-05-28T04:47:03.030372+00:00",
   "artifacts": [
     {
       "path": "results/release/benchmark_registry.csv",
-      "sha256": "32e55e0de0866f6e52449181c2ef8f7905668e78f38ac388f93a862647e55c6d",
-      "size_bytes": 9440570
+      "sha256": "793127116d438ea284cd252b50b95786b945c8920488db0d0017fb562cc643a6",
+      "size_bytes": 4711562
     },
     {
       "path": "results/release/benchmark_registry.jsonl",
@@ -29,13 +29,13 @@
     },
     {
       "path": "docs/site/index.html",
-      "sha256": "f360db2077a5f7041194787e0b7aec1c2dab1029eb522146c9efa92591151fa4",
-      "size_bytes": 1715
+      "sha256": "85003086924e9e2b979f27af8d0a91e2fc1642ebf8e1701ea2924992382d26d5",
+      "size_bytes": 1783
     },
     {
       "path": "docs/site/leaderboard.html",
-      "sha256": "88921896e11bedeba4202e40be16070c059e256628b46903e433c77b646d4f1c",
-      "size_bytes": 3164
+      "sha256": "a7d407a73b62908d861f978aefa43fcbbc27b2d42559f5dc829af825b53aa837",
+      "size_bytes": 3165
     },
     {
       "path": "docs/site/quickstart.html",
@@ -44,8 +44,8 @@
     },
     {
       "path": "docs/site/reporting_standard.html",
-      "sha256": "05ed9f2160f8d71e45b1a3cf0b1f6a069c36bd0e9c1c1c16524d8e75bbeb0da7",
-      "size_bytes": 1001
+      "sha256": "34014b6fd3b3e545f4c68017fbff1444de88a1a0b7646cf28337fe1d22722e51",
+      "size_bytes": 1087
     },
     {
       "path": "docs/reporting_checklist.yaml",

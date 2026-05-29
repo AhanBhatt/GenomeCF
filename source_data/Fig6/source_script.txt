@@ -1,0 +1,7 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Load results/release/synthetic_extended_summary.csv.
+- Rename columns to match the manuscript-facing source-data field names.
+- Preserve blank AUPRC values because the extended synthetic summary does not record them.

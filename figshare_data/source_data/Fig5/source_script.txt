@@ -1,0 +1,7 @@
+Command:
+python -m genomecf.cli build-submission-data
+
+Logic:
+- Load results/release/biological_case_study.csv.
+- Merge top-k precision from results/release/external_validation_summary.csv using task, model and condition.
+- Encode decision-role flags for GenomeCF-aware and AUROC-only choices.

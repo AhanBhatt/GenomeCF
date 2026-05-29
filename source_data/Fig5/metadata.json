@@ -1,0 +1,14 @@
+{
+  "figure_or_table": "Fig. 5",
+  "title": "MPRA biological case studies. Case A shows that GenomeCF changes configuration choice on the BCL11A enhancer MPRA task by favoring a temperature-scaled CNN over the default CNN. Case B shows that GenomeCF changes model choice on the MYC enhancer MPRA task by favoring DNABERT-2 for top-ranked variant nomination even though the 6-mer baseline has stronger global AUROC and AUPRC.",
+  "manuscript_file": "paper/genomecf_report.tex",
+  "source_files": [
+    "results/release/biological_case_study.csv",
+    "results/release/external_validation_summary.csv"
+  ],
+  "generation_script": "package_src/genomecf/submission_data.py",
+  "date_generated": "2026-05-28T05:03:02+00:00",
+  "registry_hash": "793127116d438ea284cd252b50b95786b945c8920488db0d0017fb562cc643a6",
+  "notes": "Merges case-study summaries with top-k precision values from external validation results.",
+  "license_or_restrictions": "Derived summary only; no raw MPRA records redistributed here."
+}

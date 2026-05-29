@@ -1,0 +1,5 @@
+task_id,task_label,A,B,C,D,E
+human_nontata_promoters,Promoters,819,1142,1083,1468,4522
+human_enhancers_cohn,Enhancers (Cohn),517,926,878,1169,3458
+human_enhancers_ensembl,Enhancers (Ensembl),2718,3844,3848,5058,15502
+human_ocr_ensembl,Open chromatin,3040,4382,4334,5680,17516

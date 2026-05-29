@@ -8,10 +8,12 @@ from pathlib import Path
 
 import pandas as pd
 
-from .build_publication import build_publication
+from .build_publication import build_latex_document, build_publication
+from .figshare_data import build_figshare_data
 from .nature_methods import build_website, check_reporting_standard, summarize_nature_methods, trace_paper
 from .paths import DOCS_ROOT, PAPER_ROOT, PROJECT_ROOT, RELEASE_ROOT
 from .release import build_release_registry
+from .submission_data import build_submission_data
 from .validation import validate_release_results
 
 
@@ -67,18 +69,11 @@ def cmd_build_supplement(args: argparse.Namespace) -> None:
     print(f"Supplement artifacts ready in {payload['publication_dir']}")
     tex_path = PAPER_ROOT / "genomecf_supplement.tex"
     if tex_path.exists():
-        result = subprocess.run(
-            ["pdflatex", "-interaction=nonstopmode", tex_path.name],
-            cwd=PAPER_ROOT,
-            check=False,
-            capture_output=True,
-            text=True,
-        )
-        pdf_path = PAPER_ROOT / "genomecf_supplement.pdf"
-        if result.returncode == 0 and pdf_path.exists():
+        try:
+            pdf_path = build_latex_document(tex_path, clean=True)
             print(f"Built supplement PDF at {pdf_path}")
-        else:
-            print("Supplement LaTeX build did not succeed (pdflatex missing or compilation failed).")
+        except RuntimeError as exc:
+            print(str(exc))
 
 
 def cmd_build_website(args: argparse.Namespace) -> None:
@@ -128,6 +123,16 @@ def cmd_smoke_test(args: argparse.Namespace) -> None:
     }
     (output_dir / "smoke_report.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print("Smoke test completed")
+
+
+def cmd_build_submission_data(args: argparse.Namespace) -> None:
+    payload = build_submission_data(run_validation=not args.skip_validation)
+    print(json.dumps(payload, indent=2))
+
+
+def cmd_build_figshare_data(args: argparse.Namespace) -> None:
+    payload = build_figshare_data(run_validation=not args.skip_validation)
+    print(json.dumps(payload, indent=2))
 
 
 def _filter_and_print(frame: pd.DataFrame, output_path: Path | None = None) -> None:
@@ -225,6 +230,14 @@ def build_parser() -> argparse.ArgumentParser:
     smoke = subparsers.add_parser("smoke-test", help="Run a lightweight installation smoke check and write a JSON report.")
     smoke.add_argument("--output-dir", default=str(RELEASE_ROOT / "smoke"))
     smoke.set_defaults(func=cmd_smoke_test)
+
+    submission = subparsers.add_parser("build-submission-data", help="Build Nature-style source-data and supplementary-registry upload packages.")
+    submission.add_argument("--skip-validation", action="store_true")
+    submission.set_defaults(func=cmd_build_submission_data)
+
+    figshare = subparsers.add_parser("build-figshare-data", help="Build a figshare-ready research-data package with derived GenomeCF outputs.")
+    figshare.add_argument("--skip-validation", action="store_true")
+    figshare.set_defaults(func=cmd_build_figshare_data)
 
     evaluate = subparsers.add_parser("evaluate", help="Query registry-backed benchmark results for a task/model/split combination.")
     evaluate.add_argument("--task", required=True)

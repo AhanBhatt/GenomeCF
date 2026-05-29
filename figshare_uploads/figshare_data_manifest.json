@@ -1,0 +1,41 @@
+{
+  "zip_file": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\figshare_uploads\\GenomeCF_Research_Data.zip",
+  "created_at": "2026-05-28T05:01:35+00:00",
+  "file_count": 253,
+  "total_size_bytes": 18721580,
+  "sha256_of_zip": "9bc5a8777023be6eb473463be0867b5f57fc3a3347b572cc394e7f50cbe01896",
+  "included_top_level_dirs": [
+    "CHECKSUMS_SHA256.txt",
+    "FILE_MANIFEST.csv",
+    "MISSING_EXPECTED_FILES.md",
+    "README.md",
+    "external_validation",
+    "manifests_and_metadata",
+    "mpra_variant_effect",
+    "publication_tables",
+    "registry",
+    "release_summaries",
+    "reporting_checklist",
+    "reproducibility",
+    "source_data",
+    "statistical_support",
+    "synthetic_benchmark",
+    "traceability"
+  ],
+  "excluded_patterns": [
+    "paper/",
+    ".git/",
+    "__pycache__/",
+    "cache/",
+    "checkpoint",
+    ".bin",
+    ".pt",
+    ".pth"
+  ],
+  "validation_status": {
+    "valid": true,
+    "forbidden_members": [],
+    "missing_required": []
+  },
+  "notes": "Package contains derived research data only; no manuscript files, figure images, raw upstream datasets or model checkpoints are included."
+}

@@ -1,0 +1,11 @@
+{
+  "validated": true,
+  "claim_count": 84,
+  "row_count": 84,
+  "failure_count": 0,
+  "csv_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\paper_claim_traceability.csv",
+  "html_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\paper_claim_traceability.html",
+  "key_numbers_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\publication\\key_numbers.json",
+  "claims_yaml_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\paper\\claims.yaml",
+  "statistical_claims_path": "C:\\Users\\bhatt\\Documents\\Masters\\Subjects\\AM-234 Machine Learning and Artificial Intelligence in Genomics\\Project\\GenomeCF\\results\\release\\statistical_claims.csv"
+}
