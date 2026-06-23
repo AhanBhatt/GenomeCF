@@ -8,6 +8,28 @@ It is built around a practical question:
 
 GenomeCF answers that question with a reusable benchmark, a release registry, a reporting checklist, and a reproducible evaluation workflow.
 
+## Visual Summary
+
+GenomeCF reports both conventional performance and counterfactual reliability. The release figures below are generated from registry-backed result files.
+
+**Held-out AUROC does not summarize counterfactual reliability.**
+
+![Held-out AUROC versus counterfactual reliability axes](figures/genomecf_tradeoff_publication.png)
+
+**External biological validation connects GenomeCF metrics to transfer reliability.**
+
+![External assay-family validation](figures/genomecf_external_validation.png)
+
+![External biological reliability prediction](figures/genomecf_external_prediction.png)
+
+**MPRA case studies show how GenomeCF can change practical model or configuration choice.**
+
+![MPRA biological case studies](figures/genomecf_biological_case_study.png)
+
+**GenomeCF-Synth separates rule-following from shortcut-following behavior.**
+
+![GenomeCF-Synth shortcut benchmark](figures/genomecf_synthetic_publication.png)
+
 ## What This Repository Contains
 
 This folder is the GitHub-ready repository root.
@@ -69,6 +91,19 @@ Key top-level metadata files:
 - `codemeta.json`
 - `.zenodo.json`
 - `CHANGELOG.md`
+
+## Tech Stack
+
+GenomeCF is a Python-first research software package with a small, reproducible release stack.
+
+- Language and packaging: Python 3.10+, `pyproject.toml`, setuptools, editable installs
+- Data and metrics: NumPy, pandas, scikit-learn
+- Deep learning: PyTorch, Hugging Face Transformers, optional PEFT/Accelerate/Captum extras
+- Genomic model coverage: 6-mer logistic regression, CNN, RC-augmented CNN, DNABERT-2, Caduceus-Ph
+- Plotting and artifacts: Matplotlib, registry-backed CSV/JSON summaries, source-data exports
+- Validation and testing: pytest, release-registry checks, reporting-checklist validation, paper-claim traceability
+- Reproducibility: Dockerfile, Apptainer definition, `environment.yml`, GitHub Actions workflows
+- Documentation: Markdown docs, static HTML website, GitHub Pages-ready `docs/site/`
 
 ## What GenomeCF Measures
 
